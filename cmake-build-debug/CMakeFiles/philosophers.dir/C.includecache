@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/triou/philosophers/main.c
+pthread.h
+-
+sys/time.h
+-
+stdbool.h
+-
+unistd.h
+-
+stdio.h
+-
+stdlib.h
+-
+
