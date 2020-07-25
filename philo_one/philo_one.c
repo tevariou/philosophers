@@ -1,74 +1,5 @@
-#include <pthread.h>
-#include <sys/time.h>
-#include <stdbool.h>
+#include "philo_one.h"
 #include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-#define USAGE   "Usage: ./philosopher number_of_philosopher " \
-                "time_to_die time_to_eat time_to_sleep " \
-                "[number_of_time_each_philosophers_must_eat]\n"
-#define EXIT_SUCCESS 0
-#define EXIT_FAILURE 1
-
-typedef struct      s_state {
-    struct timeval  last_eating;
-    int             counter;
-}                   t_state;
-
-typedef struct      s_config {
-    size_t          number_of_philosopher;
-    unsigned int    time_to_die;
-    unsigned int    time_to_eat;
-    unsigned int    time_to_sleep;
-    int             number_of_time_each_philosophers_must_eat;
-    pthread_mutex_t mutex;
-}                   t_config;
-
-typedef struct      s_philosopher {
-    size_t          number;
-    pthread_t       thread;
-    t_state         state;
-    pthread_mutex_t *left;
-    pthread_mutex_t *right;
-    t_config        *conf;
-}                   t_philosopher;
-
-size_t	ft_strlen(const char *s)
-{
-    size_t	len;
-
-    len = 0;
-    if (s)
-    {
-        while (s[len])
-            len++;
-    }
-    return (len);
-}
-
-int		ft_atoi(const char *str)
-{
-    int		i;
-    int		number;
-
-    i = 0;
-    number = 0;
-    while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\n')
-           || (str[i] == '\v') || (str[i] == '\f') || (str[i] == '\r'))
-        i++;
-    while ((str[i] >= '0') && (str[i] <= '9'))
-    {
-        number *= 10;
-        number += ((int)str[i] - 48);
-        i++;
-    }
-    return (number);
-}
-
-uint64_t timeval_to_msec(struct timeval time) {
-    return (time.tv_sec * 1000 + time.tv_usec / 1000);
-}
 
 int config(t_config *conf, int ac, char **av)
 {
@@ -87,18 +18,6 @@ int config(t_config *conf, int ac, char **av)
 	    conf->number_of_time_each_philosophers_must_eat = -1;
 	}
 	return (EXIT_SUCCESS);
-}
-
-void	ft_putchar(char c)
-{
-    write(1, &c, 1);
-}
-
-void	ft_putnbr(uint64_t n)
-{
-    if (n >= 10)
-        ft_putnbr(n / 10);
-    ft_putchar((char)((int)'0' + n % 10));
 }
 
 void print_status(const char *status, size_t number) {
@@ -140,8 +59,8 @@ void sleeping(t_philosopher *philosopher) {
 
 _Noreturn void *philosopher_run(void *arg)
 {
-    t_config *conf;
-    t_philosopher *philosopher;
+    t_config        *conf;
+    t_philosopher   *philosopher;
     pthread_mutex_t *first;
     pthread_mutex_t *second;
 
@@ -168,9 +87,9 @@ _Noreturn void *philosopher_run(void *arg)
 
 void init(t_philosopher *philosopher_array, pthread_mutex_t *fork_array, t_config *main_conf)
 {
-    size_t i;
-    size_t number_of_philosopher;
-    struct timeval last_eating;
+    size_t          i;
+    size_t          number_of_philosopher;
+    struct timeval  last_eating;
 
     number_of_philosopher = main_conf->number_of_philosopher;
     i = 0;
@@ -187,33 +106,12 @@ void init(t_philosopher *philosopher_array, pthread_mutex_t *fork_array, t_confi
     }
 }
 
-bool timeval_cmp(struct timeval a, struct timeval b) {
-    if (a.tv_sec > b.tv_sec) {
-        return (true);
-    }
-    if (a.tv_sec < b.tv_sec) {
-        return (false);
-    }
-    if (a.tv_usec > b.tv_usec) {
-        return (true);
-    }
-    return (false);
-}
-
-struct timeval timeval_add(struct timeval a, unsigned int b) {
-    struct timeval result;
-
-    result.tv_sec = a.tv_sec + b / 1000;
-    result.tv_usec = a.tv_usec + b % 1000 * 1000;
-    return (result);
-}
-
 void *monitor_run(void *arg) {
-    t_philosopher *philosopher_array;
-    struct timeval time;
-    size_t i;
-    size_t number_of_philosopher;
-    size_t counter;
+    t_philosopher   *philosopher_array;
+    struct timeval  time;
+    size_t          i;
+    size_t          number_of_philosopher;
+    size_t          counter;
 
     philosopher_array = (t_philosopher *)arg;
     i = 0;
@@ -243,11 +141,11 @@ void *monitor_run(void *arg) {
 }
 
 int main(int ac, char** av) {
-	t_config conf;
+	t_config        conf;
 	pthread_mutex_t *fork_array;
-	t_philosopher *philosopher_array;
-	pthread_t monitor;
-	size_t i;
+	t_philosopher   *philosopher_array;
+	pthread_t       monitor;
+	size_t          i;
 
 	if (config(&conf, ac, av)) {
 		return (EXIT_FAILURE);

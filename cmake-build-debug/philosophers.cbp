@@ -118,10 +118,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/triou/philosophers/philo_one.c">
+		<Unit filename="/Users/triou/philosophers/philo_one/philo_one.c">
 			<Option target="philo_one"/>
 		</Unit>
-		<Unit filename="/Users/triou/philosophers/philo_two.c">
+		<Unit filename="/Users/triou/philosophers/philo_one/philo_one.h">
+			<Option target="philo_one"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_one/time.c">
+			<Option target="philo_one"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_one/utils.c">
+			<Option target="philo_one"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_two/philo_two.c">
 			<Option target="philo_two"/>
 		</Unit>
 		<Unit filename="/Users/triou/philosophers/CMakeLists.txt">
