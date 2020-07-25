@@ -20,71 +20,6 @@ int config(t_config *conf, int ac, char **av)
 	return (EXIT_SUCCESS);
 }
 
-void print_status(const char *status, size_t number) {
-    struct timeval time;
-
-    gettimeofday(&time, NULL);
-    ft_putnbr(timeval_to_msec(time));
-    ft_putchar(' ');
-    ft_putnbr(number);
-    ft_putchar(' ');
-    write(1, status, ft_strlen(status));
-    ft_putchar('\n');
-}
-
-void eating(t_philosopher *philosopher, unsigned int time_to_eat) {
-    struct timeval time;
-
-    gettimeofday(&time, NULL);
-    pthread_mutex_lock(&philosopher->conf->mutex);
-    print_status("is eating", philosopher->number + 1);
-    pthread_mutex_unlock(&philosopher->conf->mutex);
-    philosopher->state.last_eating = time;
-    usleep(time_to_eat * 1000);
-    philosopher->state.counter += 1;
-}
-
-void thinking(t_philosopher *philosopher) {
-    pthread_mutex_lock(&philosopher->conf->mutex);
-    print_status("is thinking", philosopher->number + 1);
-    pthread_mutex_unlock(&philosopher->conf->mutex);
-}
-
-void sleeping(t_philosopher *philosopher) {
-    pthread_mutex_lock(&philosopher->conf->mutex);
-    print_status("is sleeping", philosopher->number + 1);
-    pthread_mutex_unlock(&philosopher->conf->mutex);
-    usleep(philosopher->conf->time_to_sleep * 1000);
-}
-
-_Noreturn void *philosopher_run(void *arg)
-{
-    t_config        *conf;
-    t_philosopher   *philosopher;
-    pthread_mutex_t *first;
-    pthread_mutex_t *second;
-
-    philosopher = (t_philosopher *)arg;
-    conf = philosopher->conf;
-    first = (philosopher->left > philosopher->right) ? philosopher->right : philosopher->left;
-    second = (philosopher->left > philosopher->right) ? philosopher->left : philosopher->right;
-    while (1) {
-        thinking(philosopher);
-        pthread_mutex_lock(first);
-        pthread_mutex_lock(&philosopher->conf->mutex);
-        print_status("has taken a fork", philosopher->number + 1);
-        pthread_mutex_unlock(&philosopher->conf->mutex);
-        pthread_mutex_lock(second);
-        pthread_mutex_lock(&philosopher->conf->mutex);
-        print_status("has taken a fork", philosopher->number + 1);
-        pthread_mutex_unlock(&philosopher->conf->mutex);
-        eating(philosopher, conf->time_to_eat);
-        pthread_mutex_unlock(second);
-        pthread_mutex_unlock(first);
-        sleeping(philosopher);
-    }
-}
-
 void init(t_philosopher *philosopher_array, pthread_mutex_t *fork_array, t_config *main_conf)
 {
     size_t          i;
@@ -103,40 +38,6 @@ void init(t_philosopher *philosopher_array, pthread_mutex_t *fork_array, t_confi
         gettimeofday(&last_eating, NULL);
         philosopher_array[i].state.last_eating = last_eating;
         i++;
-    }
-}
-
-void *monitor_run(void *arg) {
-    t_philosopher   *philosopher_array;
-    struct timeval  time;
-    size_t          i;
-    size_t          number_of_philosopher;
-    size_t          counter;
-
-    philosopher_array = (t_philosopher *)arg;
-    i = 0;
-    while (1) {
-        counter = 0;
-        number_of_philosopher = philosopher_array[i].conf->number_of_philosopher;
-        while (i < number_of_philosopher) {
-            gettimeofday(&time, NULL);
-            if (timeval_cmp(time, timeval_add(philosopher_array[i].state.last_eating, philosopher_array[i].conf->time_to_die))) {
-                pthread_mutex_lock(&philosopher_array[i].conf->mutex);
-                print_status("died", i + 1);
-                return (NULL);
-            }
-            if (philosopher_array[i].conf->number_of_time_each_philosophers_must_eat >= 0
-                 && philosopher_array[i].state.counter >= philosopher_array[i].conf->number_of_time_each_philosophers_must_eat) {
-                counter += 1;
-            }
-            i++;
-        }
-        i = 0;
-        pthread_mutex_lock(&philosopher_array[i].conf->mutex);
-        if (counter == number_of_philosopher) {
-            return (NULL);
-        }
-        pthread_mutex_unlock(&philosopher_array[i].conf->mutex);
     }
 }
 

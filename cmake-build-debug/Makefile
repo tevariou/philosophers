@@ -136,6 +136,33 @@ philo_one/fast:
 	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/build
 .PHONY : philo_one/fast
 
+philo_one/monitor.o: philo_one/monitor.c.o
+
+.PHONY : philo_one/monitor.o
+
+# target to build an object file
+philo_one/monitor.c.o:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/monitor.c.o
+.PHONY : philo_one/monitor.c.o
+
+philo_one/monitor.i: philo_one/monitor.c.i
+
+.PHONY : philo_one/monitor.i
+
+# target to preprocess a source file
+philo_one/monitor.c.i:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/monitor.c.i
+.PHONY : philo_one/monitor.c.i
+
+philo_one/monitor.s: philo_one/monitor.c.s
+
+.PHONY : philo_one/monitor.s
+
+# target to generate assembly for a file
+philo_one/monitor.c.s:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/monitor.c.s
+.PHONY : philo_one/monitor.c.s
+
 philo_one/philo_one.o: philo_one/philo_one.c.o
 
 .PHONY : philo_one/philo_one.o
@@ -162,6 +189,60 @@ philo_one/philo_one.s: philo_one/philo_one.c.s
 philo_one/philo_one.c.s:
 	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_one.c.s
 .PHONY : philo_one/philo_one.c.s
+
+philo_one/philosopher.o: philo_one/philosopher.c.o
+
+.PHONY : philo_one/philosopher.o
+
+# target to build an object file
+philo_one/philosopher.c.o:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philosopher.c.o
+.PHONY : philo_one/philosopher.c.o
+
+philo_one/philosopher.i: philo_one/philosopher.c.i
+
+.PHONY : philo_one/philosopher.i
+
+# target to preprocess a source file
+philo_one/philosopher.c.i:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philosopher.c.i
+.PHONY : philo_one/philosopher.c.i
+
+philo_one/philosopher.s: philo_one/philosopher.c.s
+
+.PHONY : philo_one/philosopher.s
+
+# target to generate assembly for a file
+philo_one/philosopher.c.s:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philosopher.c.s
+.PHONY : philo_one/philosopher.c.s
+
+philo_one/print.o: philo_one/print.c.o
+
+.PHONY : philo_one/print.o
+
+# target to build an object file
+philo_one/print.c.o:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/print.c.o
+.PHONY : philo_one/print.c.o
+
+philo_one/print.i: philo_one/print.c.i
+
+.PHONY : philo_one/print.i
+
+# target to preprocess a source file
+philo_one/print.c.i:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/print.c.i
+.PHONY : philo_one/print.c.i
+
+philo_one/print.s: philo_one/print.c.s
+
+.PHONY : philo_one/print.s
+
+# target to generate assembly for a file
+philo_one/print.c.s:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/print.c.s
+.PHONY : philo_one/print.c.s
 
 philo_one/time.o: philo_one/time.c.o
 
@@ -254,9 +335,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... philo_one"
+	@echo "... philo_one/monitor.o"
+	@echo "... philo_one/monitor.i"
+	@echo "... philo_one/monitor.s"
 	@echo "... philo_one/philo_one.o"
 	@echo "... philo_one/philo_one.i"
 	@echo "... philo_one/philo_one.s"
+	@echo "... philo_one/philosopher.o"
+	@echo "... philo_one/philosopher.i"
+	@echo "... philo_one/philosopher.s"
+	@echo "... philo_one/print.o"
+	@echo "... philo_one/print.i"
+	@echo "... philo_one/print.s"
 	@echo "... philo_one/time.o"
 	@echo "... philo_one/time.i"
 	@echo "... philo_one/time.s"

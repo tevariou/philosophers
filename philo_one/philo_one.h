@@ -41,5 +41,8 @@ void	            ft_putnbr(uint64_t n);
 uint64_t            timeval_to_msec(struct timeval time);
 bool                timeval_cmp(struct timeval a, struct timeval b);
 struct timeval      timeval_add(struct timeval a, unsigned int b);
+void                print_status(const char *status, size_t number);
+void                *philosopher_run(void *arg);
+void                *monitor_run(void *arg);
 
 #endif
