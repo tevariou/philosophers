@@ -1,7 +1,15 @@
 <component name="ProjectDictionaryState">
   <dictionary name="triou">
     <words>
+      <w>errorf</w>
+      <w>memcpy</w>
       <w>msec</w>
+      <w>putchar</w>
+      <w>putnbr</w>
+      <w>putstr</w>
+      <w>strlen</w>
+      <w>ultoa</w>
+      <w>usec</w>
     </words>
   </dictionary>
 </component>

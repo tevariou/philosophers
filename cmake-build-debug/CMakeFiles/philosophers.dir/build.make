@@ -57,30 +57,45 @@ include CMakeFiles/philosophers.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/philosophers.dir/flags.make
 
-CMakeFiles/philosophers.dir/main.c.o: CMakeFiles/philosophers.dir/flags.make
-CMakeFiles/philosophers.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/philosophers.dir/main.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philosophers.dir/main.c.o   -c /Users/triou/philosophers/main.c
+CMakeFiles/philosophers.dir/philo_one.c.o: CMakeFiles/philosophers.dir/flags.make
+CMakeFiles/philosophers.dir/philo_one.c.o: ../philo_one.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/philosophers.dir/philo_one.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philosophers.dir/philo_one.c.o   -c /Users/triou/philosophers/philo_one.c
 
-CMakeFiles/philosophers.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philosophers.dir/main.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/triou/philosophers/main.c > CMakeFiles/philosophers.dir/main.c.i
+CMakeFiles/philosophers.dir/philo_one.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philosophers.dir/philo_one.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/triou/philosophers/philo_one.c > CMakeFiles/philosophers.dir/philo_one.c.i
 
-CMakeFiles/philosophers.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philosophers.dir/main.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/main.c -o CMakeFiles/philosophers.dir/main.c.s
+CMakeFiles/philosophers.dir/philo_one.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philosophers.dir/philo_one.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_one.c -o CMakeFiles/philosophers.dir/philo_one.c.s
+
+CMakeFiles/philosophers.dir/philo_two.c.o: CMakeFiles/philosophers.dir/flags.make
+CMakeFiles/philosophers.dir/philo_two.c.o: ../philo_two.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/philosophers.dir/philo_two.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philosophers.dir/philo_two.c.o   -c /Users/triou/philosophers/philo_two.c
+
+CMakeFiles/philosophers.dir/philo_two.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philosophers.dir/philo_two.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/triou/philosophers/philo_two.c > CMakeFiles/philosophers.dir/philo_two.c.i
+
+CMakeFiles/philosophers.dir/philo_two.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philosophers.dir/philo_two.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_two.c -o CMakeFiles/philosophers.dir/philo_two.c.s
 
 # Object files for target philosophers
 philosophers_OBJECTS = \
-"CMakeFiles/philosophers.dir/main.c.o"
+"CMakeFiles/philosophers.dir/philo_one.c.o" \
+"CMakeFiles/philosophers.dir/philo_two.c.o"
 
 # External object files for target philosophers
 philosophers_EXTERNAL_OBJECTS =
 
-philosophers: CMakeFiles/philosophers.dir/main.c.o
+philosophers: CMakeFiles/philosophers.dir/philo_one.c.o
+philosophers: CMakeFiles/philosophers.dir/philo_two.c.o
 philosophers: CMakeFiles/philosophers.dir/build.make
 philosophers: CMakeFiles/philosophers.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable philosophers"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable philosophers"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/philosophers.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

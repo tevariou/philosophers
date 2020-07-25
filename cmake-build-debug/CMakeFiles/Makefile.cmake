@@ -47,5 +47,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/philosophers.dir/DependInfo.cmake"
+  "CMakeFiles/philo_two.dir/DependInfo.cmake"
+  "CMakeFiles/philo_one.dir/DependInfo.cmake"
   )

@@ -3,5 +3,6 @@ project(philosophers C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(philosophers
-        main.c)
+add_executable(philo_one philo_one.c)
+
+add_executable(philo_two philo_two.c)

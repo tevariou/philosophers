@@ -111,44 +111,84 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named philosophers
+# Target rules for targets named philo_two
 
 # Build rule for target.
-philosophers: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 philosophers
-.PHONY : philosophers
+philo_two: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 philo_two
+.PHONY : philo_two
 
 # fast build rule for target.
-philosophers/fast:
-	$(MAKE) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/build
-.PHONY : philosophers/fast
+philo_two/fast:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/build
+.PHONY : philo_two/fast
 
-main.o: main.c.o
+#=============================================================================
+# Target rules for targets named philo_one
 
-.PHONY : main.o
+# Build rule for target.
+philo_one: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 philo_one
+.PHONY : philo_one
+
+# fast build rule for target.
+philo_one/fast:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/build
+.PHONY : philo_one/fast
+
+philo_one.o: philo_one.c.o
+
+.PHONY : philo_one.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/main.c.o
-.PHONY : main.c.o
+philo_one.c.o:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one.c.o
+.PHONY : philo_one.c.o
 
-main.i: main.c.i
+philo_one.i: philo_one.c.i
 
-.PHONY : main.i
+.PHONY : philo_one.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/main.c.i
-.PHONY : main.c.i
+philo_one.c.i:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one.c.i
+.PHONY : philo_one.c.i
 
-main.s: main.c.s
+philo_one.s: philo_one.c.s
 
-.PHONY : main.s
+.PHONY : philo_one.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/philosophers.dir/build.make CMakeFiles/philosophers.dir/main.c.s
-.PHONY : main.c.s
+philo_one.c.s:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one.c.s
+.PHONY : philo_one.c.s
+
+philo_two.o: philo_two.c.o
+
+.PHONY : philo_two.o
+
+# target to build an object file
+philo_two.c.o:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two.c.o
+.PHONY : philo_two.c.o
+
+philo_two.i: philo_two.c.i
+
+.PHONY : philo_two.i
+
+# target to preprocess a source file
+philo_two.c.i:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two.c.i
+.PHONY : philo_two.c.i
+
+philo_two.s: philo_two.c.s
+
+.PHONY : philo_two.s
+
+# target to generate assembly for a file
+philo_two.c.s:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two.c.s
+.PHONY : philo_two.c.s
 
 # Help Target
 help:
@@ -156,12 +196,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... philo_two"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... philosophers"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... philo_one"
+	@echo "... philo_one.o"
+	@echo "... philo_one.i"
+	@echo "... philo_one.s"
+	@echo "... philo_two.o"
+	@echo "... philo_two.i"
+	@echo "... philo_two.s"
 .PHONY : help
 
 

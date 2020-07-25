@@ -6,19 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/Users/triou/philosophers/philo_one.c
-pthread.h
--
-sys/time.h
--
-stdbool.h
--
-unistd.h
--
-stdio.h
--
-stdlib.h
--
-
-/Users/triou/philosophers/philo_two.c
-
