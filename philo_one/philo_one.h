@@ -8,8 +8,6 @@
 #define             USAGE        "Usage: ./philosopher number_of_philosopher " \
                                  "time_to_die time_to_eat time_to_sleep " \
                                  "[number_of_time_each_philosophers_must_eat]\n"
-#define             EXIT_SUCCESS 0
-#define             EXIT_FAILURE 1
 
 typedef struct      s_state {
     struct timeval  last_eating;

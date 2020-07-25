@@ -1,5 +1,6 @@
 #include "philo_one.h"
 #include <unistd.h>
+#include <stdio.h>
 
 int     config(t_config *conf, int ac, char **av)
 {
@@ -11,7 +12,9 @@ int     config(t_config *conf, int ac, char **av)
 	conf->time_to_die = ft_atoi(av[2]);
 	conf->time_to_eat = ft_atoi(av[3]);
 	conf->time_to_sleep = ft_atoi(av[4]);
-	pthread_mutex_init(&conf->mutex, NULL);
+	if (pthread_mutex_init(&conf->mutex, NULL)) {
+	    return (EXIT_FAILURE);
+	}
 	if (ac == 6) {
 		conf->number_of_time_each_philosophers_must_eat = ft_atoi(av[5]);
 	} else {
@@ -20,7 +23,25 @@ int     config(t_config *conf, int ac, char **av)
 	return (EXIT_SUCCESS);
 }
 
-void    init(
+void    clean(
+        t_philosopher   *philosopher_array,
+        pthread_mutex_t *fork_array,
+        pthread_mutex_t *mutex,
+        size_t          n
+) {
+    size_t i;
+
+    i = 0;
+    while (i < n) {
+        pthread_mutex_destroy(&fork_array[i]);
+        i++;
+    }
+    pthread_mutex_destroy(mutex);
+    free(philosopher_array);
+    free(fork_array);
+}
+
+int    init(
             t_philosopher *philosopher_array,
             pthread_mutex_t *fork_array,
             t_config *main_conf
@@ -33,7 +54,10 @@ void    init(
     number_of_philosopher = main_conf->number_of_philosopher;
     i = 0;
     while (i < number_of_philosopher) {
-        pthread_mutex_init(&fork_array[i], NULL);
+        if (pthread_mutex_init(&fork_array[i], NULL)) {
+            clean(philosopher_array, fork_array, &main_conf->mutex, i);
+            return (EXIT_FAILURE);
+        }
         philosopher_array[i].conf = main_conf;
         philosopher_array[i].left = fork_array + i;
         philosopher_array[i].right = i ? fork_array + i - 1 : fork_array + number_of_philosopher - 1;
@@ -43,23 +67,7 @@ void    init(
         philosopher_array[i].state.last_eating = last_eating;
         i++;
     }
-}
-
-void    clean(
-        t_philosopher *philosopher_array,
-        pthread_mutex_t *fork_array,
-        t_config *conf
-) {
-    size_t i;
-
-    i = 0;
-    while (i < conf->number_of_philosopher) {
-        pthread_mutex_destroy(&fork_array[i]);
-        i++;
-    }
-    pthread_mutex_destroy(&conf->mutex);
-    free(philosopher_array);
-    free(fork_array);
+    return (EXIT_SUCCESS);
 }
 
 int     run(
@@ -73,7 +81,7 @@ int     run(
     i = 0;
     while (i < conf->number_of_philosopher) {
         if (pthread_create(&philosopher_array[i].thread, NULL, &philosopher_run, &philosopher_array[i])) {
-            clean(philosopher_array, fork_array, conf);
+            clean(philosopher_array, fork_array, &conf->mutex, conf->number_of_philosopher);
             return (EXIT_FAILURE);
         }
         i++;
@@ -84,7 +92,7 @@ int     run(
         i++;
     }
     if (pthread_create(&monitor, NULL, &monitor_run, philosopher_array)) {
-        clean(philosopher_array, fork_array, conf);
+        clean(philosopher_array, fork_array, &conf->mutex, conf->number_of_philosopher);
         return (EXIT_FAILURE);
     }
     pthread_join(monitor, NULL);
@@ -97,18 +105,22 @@ int     main(int ac, char** av) {
 	t_philosopher   *philosopher_array;
     size_t          size;
 
-	if (config(&conf, ac, av)) {
-		return (EXIT_FAILURE);
-	}
-	size = sizeof(pthread_mutex_t) * conf.number_of_philosopher;
+    if (config(&conf, ac, av)) {
+        return (EXIT_FAILURE);
+    }
+    size = sizeof(pthread_mutex_t) * conf.number_of_philosopher;
 	if (!(fork_array = (pthread_mutex_t *)malloc(size))) {
+	    pthread_mutex_destroy(&conf.mutex);
         return (EXIT_FAILURE);
     }
 	size = sizeof(*philosopher_array) * conf.number_of_philosopher;
     if (!(philosopher_array = (t_philosopher *)malloc(size))) {
+        pthread_mutex_destroy(&conf.mutex);
         free(fork_array);
         return (EXIT_FAILURE);
     }
-	init(philosopher_array, fork_array, &conf);
+	if ((init(philosopher_array, fork_array, &conf))) {
+	    return (EXIT_FAILURE);
+	}
 	return (run(philosopher_array, fork_array, &conf));
 }

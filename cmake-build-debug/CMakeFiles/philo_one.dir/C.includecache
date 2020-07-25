@@ -11,6 +11,8 @@ philo_one.h
 /Users/triou/philosophers/philo_one/philo_one.h
 unistd.h
 -
+stdio.h
+-
 
 /Users/triou/philosophers/philo_one/philo_one.h
 pthread.h
@@ -20,13 +22,5 @@ sys/time.h
 stdlib.h
 -
 stdbool.h
--
-
-/Users/triou/philosophers/philo_one/time.c
-sys/time.h
--
-stdbool.h
--
-stdlib.h
 -
 
