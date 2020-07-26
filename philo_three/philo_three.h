@@ -1,10 +1,12 @@
-#ifndef             PHILOSOPHERS_PHILO_ONE_H
-#define             PHILOSOPHERS_PHILO_ONE_H
+#ifndef             PHILOSOPHERS_PHILO_THREE_H
+#define             PHILOSOPHERS_PHILO_THREE_H
 
 #include            <pthread.h>
 #include            <sys/time.h>
 #include            <stdlib.h>
 #include            <stdbool.h>
+#include            <semaphore.h>
+
 #define             USAGE        "Usage: ./philosopher number_of_philosopher " \
                                  "time_to_die time_to_eat time_to_sleep " \
                                  "[number_of_time_each_philosophers_must_eat]\n"
@@ -20,15 +22,14 @@ typedef struct      s_config {
     unsigned int    time_to_eat;
     unsigned int    time_to_sleep;
     int             number_of_time_each_philosophers_must_eat;
-    pthread_mutex_t mutex;
+    sem_t           *forks;
+    sem_t           *print;
 }                   t_config;
 
 typedef struct      s_philosopher {
     size_t          number;
     pthread_t       thread;
     t_state         state;
-    pthread_mutex_t *left;
-    pthread_mutex_t *right;
     t_config        *conf;
 }                   t_philosopher;
 
