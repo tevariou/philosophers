@@ -121,10 +121,10 @@
 		<Unit filename="/Users/triou/philosophers/philo_one/monitor.c">
 			<Option target="philo_one"/>
 		</Unit>
-		<Unit filename="/Users/triou/philosophers/philo_one/philo_one.c">
+		<Unit filename="/Users/triou/philosophers/philo_one/philo_one.h">
 			<Option target="philo_one"/>
 		</Unit>
-		<Unit filename="/Users/triou/philosophers/philo_one/philo_one.h">
+		<Unit filename="/Users/triou/philosophers/philo_one/philo_two.c">
 			<Option target="philo_one"/>
 		</Unit>
 		<Unit filename="/Users/triou/philosophers/philo_one/philosopher.c">
@@ -139,7 +139,25 @@
 		<Unit filename="/Users/triou/philosophers/philo_one/utils.c">
 			<Option target="philo_one"/>
 		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_two/monitor.c">
+			<Option target="philo_two"/>
+		</Unit>
 		<Unit filename="/Users/triou/philosophers/philo_two/philo_two.c">
+			<Option target="philo_two"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_two/philo_two.h">
+			<Option target="philo_two"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_two/philosopher.c">
+			<Option target="philo_two"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_two/print.c">
+			<Option target="philo_two"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_two/time.c">
+			<Option target="philo_two"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_two/utils.c">
 			<Option target="philo_two"/>
 		</Unit>
 		<Unit filename="/Users/triou/philosophers/CMakeLists.txt">

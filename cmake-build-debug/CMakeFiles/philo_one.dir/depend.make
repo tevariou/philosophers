@@ -4,8 +4,8 @@
 CMakeFiles/philo_one.dir/philo_one/monitor.c.o: ../philo_one/monitor.c
 CMakeFiles/philo_one.dir/philo_one/monitor.c.o: ../philo_one/philo_one.h
 
-CMakeFiles/philo_one.dir/philo_one/philo_one.c.o: ../philo_one/philo_one.c
-CMakeFiles/philo_one.dir/philo_one/philo_one.c.o: ../philo_one/philo_one.h
+CMakeFiles/philo_one.dir/philo_one/philo_two.c.o: ../philo_one/philo_one.h
+CMakeFiles/philo_one.dir/philo_one/philo_two.c.o: ../philo_one/philo_two.c
 
 CMakeFiles/philo_one.dir/philo_one/philosopher.c.o: ../philo_one/philo_one.h
 CMakeFiles/philo_one.dir/philo_one/philosopher.c.o: ../philo_one/philosopher.c

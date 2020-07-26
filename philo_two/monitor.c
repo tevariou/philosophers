@@ -1,4 +1,4 @@
-#include "philo_one.h"
+#include "philo_two.h"
 
 static bool is_alive(t_philosopher *philosopher, size_t number) {
     struct timeval  time;
@@ -10,7 +10,7 @@ static bool is_alive(t_philosopher *philosopher, size_t number) {
     time_to_die = philosopher->conf->time_to_die;
     if (timeval_cmp(time, timeval_add(last_eating, time_to_die)))
     {
-        pthread_mutex_lock(&philosopher->conf->mutex);
+        sem_wait(philosopher->conf->print);
         print_status("died", number + 1);
         return (false);
     }
@@ -28,10 +28,10 @@ static bool is_all_done(t_philosopher * philosopher, size_t counter) {
     size_t number_of_philosopher;
 
     number_of_philosopher = philosopher->conf->number_of_philosopher;
-    pthread_mutex_lock(&philosopher->conf->mutex);
+    sem_wait(philosopher->conf->print);
     if (counter == number_of_philosopher)
         return (true);
-    pthread_mutex_unlock(&philosopher->conf->mutex);
+    sem_post(philosopher->conf->print);
     return (false);
 }
 

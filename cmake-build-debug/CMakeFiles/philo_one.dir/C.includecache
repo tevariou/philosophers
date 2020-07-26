@@ -6,13 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/triou/philosophers/philo_one/philo_one.c
+/Users/triou/philosophers/philo_one/monitor.c
 philo_one.h
 /Users/triou/philosophers/philo_one/philo_one.h
-unistd.h
--
-stdio.h
--
 
 /Users/triou/philosophers/philo_one/philo_one.h
 pthread.h
@@ -23,4 +19,22 @@ stdlib.h
 -
 stdbool.h
 -
+
+/Users/triou/philosophers/philo_one/philo_two.c
+philo_one.h
+/Users/triou/philosophers/philo_one/philo_one.h
+unistd.h
+-
+
+/Users/triou/philosophers/philo_one/philosopher.c
+philo_one.h
+/Users/triou/philosophers/philo_one/philo_one.h
+unistd.h
+-
+
+/Users/triou/philosophers/philo_one/print.c
+philo_one.h
+/Users/triou/philosophers/philo_one/philo_one.h
+unistd.h
+/Users/triou/philosophers/philo_one/unistd.h
 
