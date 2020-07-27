@@ -176,32 +176,32 @@ philo_one/monitor.c.s:
 	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/monitor.c.s
 .PHONY : philo_one/monitor.c.s
 
-philo_one/philo_two.o: philo_one/philo_two.c.o
+philo_one/philo_one.o: philo_one/philo_one.c.o
 
-.PHONY : philo_one/philo_two.o
+.PHONY : philo_one/philo_one.o
 
 # target to build an object file
-philo_one/philo_two.c.o:
-	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_two.c.o
-.PHONY : philo_one/philo_two.c.o
+philo_one/philo_one.c.o:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_one.c.o
+.PHONY : philo_one/philo_one.c.o
 
-philo_one/philo_two.i: philo_one/philo_two.c.i
+philo_one/philo_one.i: philo_one/philo_one.c.i
 
-.PHONY : philo_one/philo_two.i
+.PHONY : philo_one/philo_one.i
 
 # target to preprocess a source file
-philo_one/philo_two.c.i:
-	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_two.c.i
-.PHONY : philo_one/philo_two.c.i
+philo_one/philo_one.c.i:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_one.c.i
+.PHONY : philo_one/philo_one.c.i
 
-philo_one/philo_two.s: philo_one/philo_two.c.s
+philo_one/philo_one.s: philo_one/philo_one.c.s
 
-.PHONY : philo_one/philo_two.s
+.PHONY : philo_one/philo_one.s
 
 # target to generate assembly for a file
-philo_one/philo_two.c.s:
-	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_two.c.s
-.PHONY : philo_one/philo_two.c.s
+philo_one/philo_one.c.s:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_one.c.s
+.PHONY : philo_one/philo_one.c.s
 
 philo_one/philosopher.o: philo_one/philosopher.c.o
 
@@ -649,9 +649,9 @@ help:
 	@echo "... philo_one/monitor.o"
 	@echo "... philo_one/monitor.i"
 	@echo "... philo_one/monitor.s"
-	@echo "... philo_one/philo_two.o"
-	@echo "... philo_one/philo_two.i"
-	@echo "... philo_one/philo_two.s"
+	@echo "... philo_one/philo_one.o"
+	@echo "... philo_one/philo_one.i"
+	@echo "... philo_one/philo_one.s"
 	@echo "... philo_one/philosopher.o"
 	@echo "... philo_one/philosopher.i"
 	@echo "... philo_one/philosopher.s"
