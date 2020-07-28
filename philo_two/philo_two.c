@@ -1,31 +1,19 @@
 #include "philo_two.h"
 #include <unistd.h>
+#include <string.h>
 
-static int  config(t_config *conf, int ac, char **av)
-{
-	if (ac < 5)
-	{
-	    write(2, USAGE, ft_strlen(USAGE));
-		return (EXIT_FAILURE);
-	}
-	conf->number_of_philosopher = ft_atoi(av[1]);
-	conf->time_to_die = ft_atoi(av[2]);
-	conf->time_to_eat = ft_atoi(av[3]);
-	conf->time_to_sleep = ft_atoi(av[4]);
-	conf->number_of_time_each_philosophers_must_eat = (ac == 6)
-	        ? ft_atoi(av[5]) : -1;
-	return (EXIT_SUCCESS);
-}
-
-static int  init(t_philosopher *philosopher_array, t_config *main_conf)
+static void  init(
+            t_philosopher   *philosopher_array,
+            t_config        *main_conf
+        )
 {
     size_t          i;
-    size_t          number_of_philosopher;
+    size_t          n;
     struct timeval  last_eating;
 
-    number_of_philosopher = main_conf->number_of_philosopher;
+    n = main_conf->number_of_philosopher;
     i = 0;
-    while (i < number_of_philosopher)
+    while (i < n)
     {
         philosopher_array[i].conf = main_conf;
         philosopher_array[i].number = i;
@@ -34,40 +22,46 @@ static int  init(t_philosopher *philosopher_array, t_config *main_conf)
         philosopher_array[i].state.last_eating = last_eating;
         i++;
     }
-    return (EXIT_SUCCESS);
 }
 
-static int  run(t_philosopher *philosopher_array, t_config *conf)
-{
-    size_t i;
-    pthread_t monitor;
+static void clean(t_philosopher *philo_array, size_t n) {
+    memset(philo_array, 0, n);
+    free(philo_array);
+}
 
+static int  run(
+            t_philosopher   *philo_array,
+            t_config        *conf
+        )
+{
+    size_t      i;
+    size_t      n;
+    pthread_t   monitor;
+
+    n = conf->number_of_philosopher;
     i = 0;
-    while (i < conf->number_of_philosopher)
+    while (i < n)
     {
-        if (pthread_create(&philosopher_array[i].thread, NULL, &philosopher_run, &philosopher_array[i]))
+        if (pthread_create(&philo_array[i].thread, NULL, &philosopher_run, &philo_array[i]))
+        {
+            clean(philo_array, n);
             return (EXIT_FAILURE);
+        }
         i++;
     }
-    i = 0;
-    while (i < conf->number_of_philosopher)
+    if (pthread_create(&monitor, NULL, &monitor_run, philo_array))
     {
-        pthread_detach(philosopher_array[i].thread);
+        clean(philo_array, n);
+        return (EXIT_FAILURE);
+    }
+    pthread_detach(monitor);
+    i = 0;
+    while (i < n)
+    {
+        pthread_join(philo_array[i].thread, NULL);
         i++;
     }
-    if (pthread_create(&monitor, NULL, &monitor_run, philosopher_array))
-        return (EXIT_FAILURE);
-    pthread_join(monitor, NULL);
-    return (EXIT_SUCCESS);
-}
-
-static int  alloc(t_philosopher **philosopher_array, t_config *conf)
-{
-    size_t size;
-
-    size = sizeof(t_philosopher) * conf->number_of_philosopher;
-    if (!(*philosopher_array = (t_philosopher *)malloc(size)))
-        return (EXIT_FAILURE);
+    clean(philo_array, n);
     return (EXIT_SUCCESS);
 }
 
@@ -88,15 +82,17 @@ static int sem_create(t_config *conf) {
 int         main(int ac, char** av)
 {
 	t_config        conf;
-	t_philosopher   *philosopher_array;
+    size_t          size;
+    t_philosopher   *philosopher_array;
 
     if (config(&conf, ac, av))
         return (EXIT_FAILURE);
     if (sem_create(&conf))
         return (EXIT_FAILURE);
-    if (alloc(&philosopher_array, &conf))
+    size = sizeof(t_philosopher) * conf.number_of_philosopher;
+    if (!(philosopher_array = (t_philosopher *)malloc(size)))
         return (EXIT_FAILURE);
-	if (init(philosopher_array, &conf))
-	    return (EXIT_FAILURE);
-	return (run(philosopher_array, &conf));
+	init(philosopher_array, &conf);
+	run(philosopher_array, &conf);
+	return (EXIT_SUCCESS);
 }

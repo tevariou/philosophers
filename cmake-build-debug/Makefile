@@ -136,6 +136,33 @@ philo_one/fast:
 	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/build
 .PHONY : philo_one/fast
 
+philo_one/config.o: philo_one/config.c.o
+
+.PHONY : philo_one/config.o
+
+# target to build an object file
+philo_one/config.c.o:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/config.c.o
+.PHONY : philo_one/config.c.o
+
+philo_one/config.i: philo_one/config.c.i
+
+.PHONY : philo_one/config.i
+
+# target to preprocess a source file
+philo_one/config.c.i:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/config.c.i
+.PHONY : philo_one/config.c.i
+
+philo_one/config.s: philo_one/config.c.s
+
+.PHONY : philo_one/config.s
+
+# target to generate assembly for a file
+philo_one/config.c.s:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/config.c.s
+.PHONY : philo_one/config.c.s
+
 philo_one/monitor.o: philo_one/monitor.c.o
 
 .PHONY : philo_one/monitor.o
@@ -163,32 +190,32 @@ philo_one/monitor.c.s:
 	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/monitor.c.s
 .PHONY : philo_one/monitor.c.s
 
-philo_one/philo_two.o: philo_one/philo_two.c.o
+philo_one/philo_one.o: philo_one/philo_one.c.o
 
-.PHONY : philo_one/philo_two.o
+.PHONY : philo_one/philo_one.o
 
 # target to build an object file
-philo_one/philo_two.c.o:
-	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_two.c.o
-.PHONY : philo_one/philo_two.c.o
+philo_one/philo_one.c.o:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_one.c.o
+.PHONY : philo_one/philo_one.c.o
 
-philo_one/philo_two.i: philo_one/philo_two.c.i
+philo_one/philo_one.i: philo_one/philo_one.c.i
 
-.PHONY : philo_one/philo_two.i
+.PHONY : philo_one/philo_one.i
 
 # target to preprocess a source file
-philo_one/philo_two.c.i:
-	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_two.c.i
-.PHONY : philo_one/philo_two.c.i
+philo_one/philo_one.c.i:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_one.c.i
+.PHONY : philo_one/philo_one.c.i
 
-philo_one/philo_two.s: philo_one/philo_two.c.s
+philo_one/philo_one.s: philo_one/philo_one.c.s
 
-.PHONY : philo_one/philo_two.s
+.PHONY : philo_one/philo_one.s
 
 # target to generate assembly for a file
-philo_one/philo_two.c.s:
-	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_two.c.s
-.PHONY : philo_one/philo_two.c.s
+philo_one/philo_one.c.s:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/philo_one.c.s
+.PHONY : philo_one/philo_one.c.s
 
 philo_one/philosopher.o: philo_one/philosopher.c.o
 
@@ -297,6 +324,33 @@ philo_one/utils.s: philo_one/utils.c.s
 philo_one/utils.c.s:
 	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/utils.c.s
 .PHONY : philo_one/utils.c.s
+
+philo_two/config.o: philo_two/config.c.o
+
+.PHONY : philo_two/config.o
+
+# target to build an object file
+philo_two/config.c.o:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/config.c.o
+.PHONY : philo_two/config.c.o
+
+philo_two/config.i: philo_two/config.c.i
+
+.PHONY : philo_two/config.i
+
+# target to preprocess a source file
+philo_two/config.c.i:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/config.c.i
+.PHONY : philo_two/config.c.i
+
+philo_two/config.s: philo_two/config.c.s
+
+.PHONY : philo_two/config.s
+
+# target to generate assembly for a file
+philo_two/config.c.s:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/config.c.s
+.PHONY : philo_two/config.c.s
 
 philo_two/monitor.o: philo_two/monitor.c.o
 
@@ -470,12 +524,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... philo_one"
+	@echo "... philo_one/config.o"
+	@echo "... philo_one/config.i"
+	@echo "... philo_one/config.s"
 	@echo "... philo_one/monitor.o"
 	@echo "... philo_one/monitor.i"
 	@echo "... philo_one/monitor.s"
-	@echo "... philo_one/philo_two.o"
-	@echo "... philo_one/philo_two.i"
-	@echo "... philo_one/philo_two.s"
+	@echo "... philo_one/philo_one.o"
+	@echo "... philo_one/philo_one.i"
+	@echo "... philo_one/philo_one.s"
 	@echo "... philo_one/philosopher.o"
 	@echo "... philo_one/philosopher.i"
 	@echo "... philo_one/philosopher.s"
@@ -488,6 +545,9 @@ help:
 	@echo "... philo_one/utils.o"
 	@echo "... philo_one/utils.i"
 	@echo "... philo_one/utils.s"
+	@echo "... philo_two/config.o"
+	@echo "... philo_two/config.i"
+	@echo "... philo_two/config.s"
 	@echo "... philo_two/monitor.o"
 	@echo "... philo_two/monitor.i"
 	@echo "... philo_two/monitor.s"

@@ -22,6 +22,7 @@ typedef struct      s_config {
     unsigned int    time_to_eat;
     unsigned int    time_to_sleep;
     int             number_of_time_each_philosophers_must_eat;
+    bool            is_finished;
     sem_t           *forks;
     sem_t           *print;
 }                   t_config;
@@ -40,8 +41,9 @@ void	            ft_putnbr(uint64_t n);
 uint64_t            timeval_to_msec(struct timeval time);
 bool                timeval_cmp(struct timeval a, struct timeval b);
 struct timeval      timeval_add(struct timeval a, unsigned int b);
-void                print_status(const char *status, size_t number);
+int                 print_status(const char *status, size_t number, t_config *conf);
 void                *philosopher_run(void *arg);
 void                *monitor_run(void *arg);
+int                 config(t_config *conf, int ac, char **av);
 
 #endif

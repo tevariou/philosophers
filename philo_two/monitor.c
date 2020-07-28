@@ -10,8 +10,8 @@ static bool is_alive(t_philosopher *philosopher, size_t number) {
     time_to_die = philosopher->conf->time_to_die;
     if (timeval_cmp(time, timeval_add(last_eating, time_to_die)))
     {
-        sem_wait(philosopher->conf->print);
-        print_status("died", number + 1);
+        print_status("died", number + 1, philosopher->conf);
+        philosopher->conf->is_finished = true;
         return (false);
     }
     return (true);
@@ -24,14 +24,13 @@ static bool is_finished(t_philosopher *philosopher) {
     return ((number >= 0 && philosopher->state.counter >= number));
 }
 
-static bool is_all_done(t_philosopher * philosopher, size_t counter) {
-    size_t number_of_philosopher;
-
-    number_of_philosopher = philosopher->conf->number_of_philosopher;
-    sem_wait(philosopher->conf->print);
-    if (counter == number_of_philosopher)
+static bool is_all_done(t_philosopher * philosopher, size_t counter)
+{
+    if (counter == philosopher->conf->number_of_philosopher)
+    {
+        philosopher->conf->is_finished = true;
         return (true);
-    sem_post(philosopher->conf->print);
+    }
     return (false);
 }
 

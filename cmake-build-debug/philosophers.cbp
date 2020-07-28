@@ -118,13 +118,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/triou/philosophers/philo_one/config.c">
+			<Option target="philo_one"/>
+		</Unit>
 		<Unit filename="/Users/triou/philosophers/philo_one/monitor.c">
 			<Option target="philo_one"/>
 		</Unit>
-		<Unit filename="/Users/triou/philosophers/philo_one/philo_one.h">
+		<Unit filename="/Users/triou/philosophers/philo_one/philo_one.c">
 			<Option target="philo_one"/>
 		</Unit>
-		<Unit filename="/Users/triou/philosophers/philo_one/philo_two.c">
+		<Unit filename="/Users/triou/philosophers/philo_one/philo_one.h">
 			<Option target="philo_one"/>
 		</Unit>
 		<Unit filename="/Users/triou/philosophers/philo_one/philosopher.c">
@@ -138,6 +141,9 @@
 		</Unit>
 		<Unit filename="/Users/triou/philosophers/philo_one/utils.c">
 			<Option target="philo_one"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_two/config.c">
+			<Option target="philo_two"/>
 		</Unit>
 		<Unit filename="/Users/triou/philosophers/philo_two/monitor.c">
 			<Option target="philo_two"/>

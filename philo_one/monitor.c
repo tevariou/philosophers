@@ -10,8 +10,10 @@ static bool is_alive(t_philosopher *philosopher, size_t number) {
     time_to_die = philosopher->conf->time_to_die;
     if (timeval_cmp(time, timeval_add(last_eating, time_to_die)))
     {
+        print_status("died", number + 1, philosopher->conf);
         pthread_mutex_lock(&philosopher->conf->mutex);
-        print_status("died", number + 1);
+        philosopher->conf->is_finished = true;
+        pthread_mutex_unlock(&philosopher->conf->mutex);
         return (false);
     }
     return (true);
@@ -24,14 +26,15 @@ static bool is_finished(t_philosopher *philosopher) {
     return ((number >= 0 && philosopher->state.counter >= number));
 }
 
-static bool is_all_done(t_philosopher * philosopher, size_t counter) {
-    size_t number_of_philosopher;
-
-    number_of_philosopher = philosopher->conf->number_of_philosopher;
-    pthread_mutex_lock(&philosopher->conf->mutex);
-    if (counter == number_of_philosopher)
+static bool is_all_done(t_philosopher * philosopher, size_t counter)
+{
+    if (counter == philosopher->conf->number_of_philosopher)
+    {
+        pthread_mutex_lock(&philosopher->conf->mutex);
+        philosopher->conf->is_finished = true;
+        pthread_mutex_unlock(&philosopher->conf->mutex);
         return (true);
-    pthread_mutex_unlock(&philosopher->conf->mutex);
+    }
     return (false);
 }
 

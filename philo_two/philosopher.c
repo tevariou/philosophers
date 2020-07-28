@@ -1,49 +1,49 @@
 #include "philo_two.h"
 #include <unistd.h>
 
-static void     eating(t_philosopher *philosopher, unsigned int time_to_eat) {
+static int     eating(t_philosopher *philosopher, unsigned int time_to_eat) {
     struct timeval time;
+    size_t         n;
 
+    n = philosopher->number;
     gettimeofday(&time, NULL);
-    sem_wait(philosopher->conf->print);
-    print_status("is eating", philosopher->number + 1);
-    sem_post(philosopher->conf->print);
+    if (print_status("is eating", n + 1, philosopher->conf))
+        return (EXIT_FAILURE);
     philosopher->state.last_eating = time;
     usleep(time_to_eat * 1000);
     philosopher->state.counter += 1;
+    return (EXIT_SUCCESS);
 }
 
-static void     thinking(t_philosopher *philosopher) {
-    sem_wait(philosopher->conf->print);
-    print_status("is thinking", philosopher->number + 1);
-    sem_post(philosopher->conf->print);
-}
+static int     sleeping(t_philosopher *philosopher) {
+    size_t n;
 
-static void     sleeping(t_philosopher *philosopher) {
-    sem_wait(philosopher->conf->print);
-    print_status("is sleeping", philosopher->number + 1);
-    sem_post(philosopher->conf->print);
+    n = philosopher->number;
+    if (print_status("is sleeping", n + 1, philosopher->conf))
+        return (EXIT_FAILURE);
     usleep(philosopher->conf->time_to_sleep * 1000);
+    return (EXIT_SUCCESS);
 }
 
-static void     take_fork(t_philosopher * philosopher) {
-    sem_wait(philosopher->conf->print);
-    print_status("has taken a fork", philosopher->number + 1);
-    sem_post(philosopher->conf->print);
-}
-
-_Noreturn void  *philosopher_run(void *arg)
+void  *philosopher_run(void *arg)
 {
     t_philosopher   *philosopher;
+    size_t          n;
 
     philosopher = (t_philosopher *)arg;
+    n = philosopher->number;
     while (1) {
-        thinking(philosopher);
+        if (print_status("is thinking", n + 1, philosopher->conf))
+            return (NULL);
         sem_wait(philosopher->conf->forks);
-        take_fork(philosopher);
-        take_fork(philosopher);
-        eating(philosopher, philosopher->conf->time_to_eat);
+        if (print_status("has taken a fork", n + 1, philosopher->conf))
+            return (NULL);
+        if (print_status("has taken a fork", n + 1, philosopher->conf))
+            return (NULL);
+        if (eating(philosopher, philosopher->conf->time_to_eat))
+            return (NULL);
         sem_post(philosopher->conf->forks);
-        sleeping(philosopher);
+        if (sleeping(philosopher))
+            return (NULL);
     }
 }
