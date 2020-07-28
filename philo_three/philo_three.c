@@ -1,6 +1,7 @@
-#include "philo_two.h"
+#include "philo_three.h"
 #include <unistd.h>
 #include <string.h>
+#include <sys/wait.h>
 
 static void  init(t_philosopher *philosopher_array, t_config *main_conf)
 {
@@ -36,30 +37,37 @@ static int  run(
     size_t      i;
     size_t      n;
     pthread_t   monitor;
+    pid_t       *pid_array;
+    int         status;
 
     n = conf->number_of_philosopher;
+    if (!(pid_array = (pid_t *)malloc(sizeof(pid_t) * n))) {
+        return (EXIT_FAILURE);
+    }
     i = 0;
     while (i < n)
     {
-        if (pthread_create(&philo_array[i].thread, NULL, &philosopher_run, philo_array + i))
-        {
-            clean(philo_array, conf, n);
-            return (EXIT_FAILURE);
+        pid_array[i] = fork();
+        if (pid_array[i] == 0) {
+            if (pthread_create(&monitor, NULL, &monitor_run, philo_array))
+            {
+                clean(philo_array, conf, n);
+                return (EXIT_FAILURE);
+            }
+            pthread_detach(monitor);
+            philosopher_run(philo_array + i);
         }
         i++;
     }
-    if (pthread_create(&monitor, NULL, &monitor_run, philo_array))
-    {
-        clean(philo_array, conf, n);
-        return (EXIT_FAILURE);
-    }
-    pthread_detach(monitor);
     i = 0;
-    while (i < n)
-    {
-        pthread_join(philo_array[i].thread, NULL);
+    while (i < conf->number_of_philosopher) {
+        waitpid(pid_array[i], &status, 0);
+        if (WIFEXITED(status))
+            free(pid_array);
+            return (EXIT_SUCCESS);
         i++;
     }
+    free(pid_array);
     return (EXIT_SUCCESS);
 }
 

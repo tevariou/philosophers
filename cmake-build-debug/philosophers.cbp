@@ -17,6 +17,46 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/triou/philosophers/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="philo_three">
+				<Option output="/Users/triou/philosophers/cmake-build-debug/philo_three" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/triou/philosophers/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/triou/philosophers/cmake-build-debug/Makefile&quot;  VERBOSE=1 philo_three"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/triou/philosophers/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/triou/philosophers/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/triou/philosophers/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="philo_three/fast">
+				<Option output="/Users/triou/philosophers/cmake-build-debug/philo_three" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/triou/philosophers/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/triou/philosophers/cmake-build-debug/Makefile&quot;  VERBOSE=1 philo_three/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/triou/philosophers/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/triou/philosophers/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/triou/philosophers/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="philo_two">
 				<Option output="/Users/triou/philosophers/cmake-build-debug/philo_two" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/triou/philosophers/cmake-build-debug"/>
@@ -141,6 +181,30 @@
 		</Unit>
 		<Unit filename="/Users/triou/philosophers/philo_one/utils.c">
 			<Option target="philo_one"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_three/config.c">
+			<Option target="philo_three"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_three/monitor.c">
+			<Option target="philo_three"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_three/philo_three.c">
+			<Option target="philo_three"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_three/philo_three.h">
+			<Option target="philo_three"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_three/philosopher.c">
+			<Option target="philo_three"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_three/print.c">
+			<Option target="philo_three"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_three/time.c">
+			<Option target="philo_three"/>
+		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_three/utils.c">
+			<Option target="philo_three"/>
 		</Unit>
 		<Unit filename="/Users/triou/philosophers/philo_two/config.c">
 			<Option target="philo_two"/>

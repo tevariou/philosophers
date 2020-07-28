@@ -70,7 +70,7 @@ static int  run(
     i = 0;
     while (i < n)
     {
-        if (pthread_create(&philo_array[i].thread, NULL, &philosopher_run, &philo_array[i]))
+        if (pthread_create(&philo_array[i].thread, NULL, &philosopher_run, philo_array + i))
         {
             clean(philo_array, fork_array, &conf->mutex, n);
             return (EXIT_FAILURE);

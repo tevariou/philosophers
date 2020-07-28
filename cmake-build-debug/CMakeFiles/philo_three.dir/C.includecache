@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/Users/triou/philosophers/philo_three/config.c
+philo_three.h
+/Users/triou/philosophers/philo_three/philo_three.h
+unistd.h
+-
+
 /Users/triou/philosophers/philo_three/monitor.c
 philo_three.h
 /Users/triou/philosophers/philo_three/philo_three.h
@@ -14,6 +20,10 @@ philo_three.h
 philo_three.h
 /Users/triou/philosophers/philo_three/philo_three.h
 unistd.h
+-
+string.h
+-
+sys/wait.h
 -
 
 /Users/triou/philosophers/philo_three/philo_three.h
@@ -39,16 +49,4 @@ philo_three.h
 /Users/triou/philosophers/philo_three/philo_three.h
 unistd.h
 /Users/triou/philosophers/philo_three/unistd.h
-
-/Users/triou/philosophers/philo_three/time.c
-sys/time.h
--
-stdbool.h
--
-stdlib.h
--
-
-/Users/triou/philosophers/philo_three/utils.c
-unistd.h
--
 
