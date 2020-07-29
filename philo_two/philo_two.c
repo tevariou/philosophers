@@ -24,7 +24,6 @@ static void  init(t_philosopher *philosopher_array, t_config *main_conf)
 static void clean(t_philosopher *philo_array, t_config *conf, size_t n) {
     sem_close(conf->print);
     sem_close(conf->forks);
-    memset(philo_array, 0, n);
     free(philo_array);
 }
 
@@ -42,10 +41,7 @@ static int  run(
     while (i < n)
     {
         if (pthread_create(&philo_array[i].thread, NULL, &philosopher_run, philo_array + i))
-        {
-            clean(philo_array, conf, n);
             return (EXIT_FAILURE);
-        }
         i++;
     }
     if (pthread_create(&monitor, NULL, &monitor_run, philo_array))

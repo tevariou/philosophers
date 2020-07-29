@@ -25,6 +25,8 @@ string.h
 -
 sys/wait.h
 -
+signal.h
+-
 
 /Users/triou/philosophers/philo_three/philo_three.h
 pthread.h

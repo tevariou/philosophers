@@ -38,7 +38,7 @@ static bool is_all_done(t_philosopher * philosopher, size_t counter)
     return (false);
 }
 
-void        *monitor_run(void *arg) {
+_Noreturn void        *monitor_run(void *arg) {
     t_philosopher   *philosopher_array;
     size_t          i;
     size_t          number_of_philosopher;

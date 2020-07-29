@@ -14,6 +14,5 @@ int  config(t_config *conf, int ac, char **av)
     conf->time_to_sleep = ft_atoi(av[4]);
     conf->number_of_time_each_philosophers_must_eat = (ac == 6)
                                                       ? ft_atoi(av[5]) : -1;
-    conf->is_finished = false;
     return (EXIT_SUCCESS);
 }

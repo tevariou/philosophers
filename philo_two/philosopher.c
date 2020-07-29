@@ -12,6 +12,9 @@ static int     eating(t_philosopher *philosopher, unsigned int time_to_eat) {
     philosopher->state.last_eating = time;
     usleep(time_to_eat * 1000);
     philosopher->state.counter += 1;
+    n = philosopher->conf->number_of_time_each_philosophers_must_eat;
+    if (philosopher->state.counter == n)
+        return (EXIT_FAILURE);
     return (EXIT_SUCCESS);
 }
 

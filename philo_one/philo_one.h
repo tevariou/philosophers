@@ -42,7 +42,8 @@ bool                timeval_cmp(struct timeval a, struct timeval b);
 struct timeval      timeval_add(struct timeval a, unsigned int b);
 int                 print_status(const char *status, size_t number, t_config *conf);
 void                *philosopher_run(void *arg);
-void                *monitor_run(void *arg);
+
+_Noreturn void                *monitor_run(void *arg);
 int                 config(t_config *conf, int ac, char **av);
 
 #endif

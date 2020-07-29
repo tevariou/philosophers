@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <signal.h>
 
 static void  init(t_philosopher *philosopher_array, t_config *main_conf)
 {
@@ -22,10 +23,18 @@ static void  init(t_philosopher *philosopher_array, t_config *main_conf)
     }
 }
 
-static void clean(t_philosopher *philo_array, t_config *conf, size_t n) {
+static void clean(t_philosopher *philo_array, pid_t *pid_array, t_config *conf) {
+    size_t i;
+
+    i = 0;
+    while (i < conf->number_of_philosopher) {
+        if (!kill(pid_array[i], 0))
+            kill(pid_array[i], SIGTERM);
+        i++;
+    }
+    free(pid_array);
     sem_close(conf->print);
     sem_close(conf->forks);
-    memset(philo_array, 0, n);
     free(philo_array);
 }
 
@@ -49,30 +58,23 @@ static int  run(
     {
         pid_array[i] = fork();
         if (pid_array[i] == 0) {
-            if (pthread_create(&monitor, NULL, &monitor_run, philo_array))
-            {
-                clean(philo_array, conf, n);
+            if (pthread_create(&monitor, NULL, &monitor_run, philo_array + i))
                 return (EXIT_FAILURE);
-            }
             pthread_detach(monitor);
             philosopher_run(philo_array + i);
         }
         i++;
     }
-    i = 0;
-    while (i < conf->number_of_philosopher) {
-        waitpid(pid_array[i], &status, 0);
-        if (WIFEXITED(status))
-            free(pid_array);
-            return (EXIT_SUCCESS);
-        i++;
-    }
-    free(pid_array);
+    waitpid(-1, &status, 0);
+    clean(philo_array, pid_array, conf);
     return (EXIT_SUCCESS);
 }
 
 static int sem_create(t_config *conf) {
-    conf->forks = sem_open("forks", O_CREAT | O_EXCL, 0600, conf->number_of_philosopher / 2);
+    size_t n;
+
+    n = conf->number_of_philosopher;
+    conf->forks = sem_open("forks", O_CREAT | O_EXCL, 0600, n / 2);
     sem_unlink("forks");
     if (conf->forks == SEM_FAILED)
         return (EXIT_FAILURE);
@@ -99,7 +101,5 @@ int         main(int ac, char** av)
     if (!(philosopher_array = (t_philosopher *)malloc(size)))
         return (EXIT_FAILURE);
 	init(philosopher_array, &conf);
-	run(philosopher_array, &conf);
-	clean(philosopher_array, &conf, conf.number_of_philosopher);
-	return (EXIT_SUCCESS);
+	return (run(philosopher_array, &conf));
 }
