@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/triou/philosophers/philo_one/clean.c" "/Users/triou/philosophers/cmake-build-debug/CMakeFiles/philo_one.dir/philo_one/clean.c.o"
   "/Users/triou/philosophers/philo_one/config.c" "/Users/triou/philosophers/cmake-build-debug/CMakeFiles/philo_one.dir/philo_one/config.c.o"
   "/Users/triou/philosophers/philo_one/monitor.c" "/Users/triou/philosophers/cmake-build-debug/CMakeFiles/philo_one.dir/philo_one/monitor.c.o"
   "/Users/triou/philosophers/philo_one/philo_one.c" "/Users/triou/philosophers/cmake-build-debug/CMakeFiles/philo_one.dir/philo_one/philo_one.c.o"

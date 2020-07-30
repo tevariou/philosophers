@@ -27,7 +27,10 @@ static void     sleeping(t_philosopher *philosopher) {
 _Noreturn void  philosopher_run(t_philosopher *philosopher)
 {
     size_t          n;
+    struct timeval  time;
 
+    gettimeofday(&time, NULL);
+    philosopher->state.last_eating = time;
     n = philosopher->number;
     while (1) {
         print_status("is thinking", n + 1, philosopher->conf);

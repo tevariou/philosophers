@@ -1,28 +1,4 @@
 #include "philo_one.h"
-#include <unistd.h>
-#include <string.h>
-
-static void clean(
-        t_philosopher   *philosopher_array,
-        pthread_mutex_t *fork_array,
-        pthread_mutex_t *mutex,
-        size_t          n
-)
-{
-    size_t i;
-
-    i = 0;
-    while (i < n)
-    {
-        pthread_mutex_destroy(&fork_array[i]);
-        i++;
-    }
-    pthread_mutex_destroy(mutex);
-    memset(fork_array, 0, n);
-    memset(philosopher_array, 0, n);
-    free(philosopher_array);
-    free(fork_array);
-}
 
 static int  init(
             t_philosopher   *philosopher_array,
@@ -32,7 +8,6 @@ static int  init(
 {
     size_t          i;
     size_t          n;
-    struct timeval  last_eating;
 
     n = main_conf->number_of_philosopher;
     i = 0;
@@ -49,11 +24,23 @@ static int  init(
                 ? fork_array + i - 1 : fork_array + n - 1;
         philosopher_array[i].number = i;
         philosopher_array[i].state.counter = 0;
-        gettimeofday(&last_eating, NULL);
-        philosopher_array[i].state.last_eating = last_eating;
+        philosopher_array[i].state.last_eating.tv_sec = 0;
+        philosopher_array[i].state.last_eating.tv_usec = 0;
         i++;
     }
     return (EXIT_SUCCESS);
+}
+
+static void  pwait(t_philosopher *philo_array, t_config *conf, pthread_t *monitor) {
+    size_t  i;
+
+    i = 0;
+    while (i < conf->number_of_philosopher)
+    {
+        pthread_join(philo_array[i].thread, NULL);
+        i++;
+    }
+    pthread_join(*monitor, NULL);
 }
 
 static int  run(
@@ -65,12 +52,14 @@ static int  run(
     size_t      i;
     size_t      n;
     pthread_t   monitor;
+    void        *(*f)(void *);
 
     n = conf->number_of_philosopher;
     i = 0;
     while (i < n)
     {
-        if (pthread_create(&philo_array[i].thread, NULL, &philosopher_run, philo_array + i))
+        f = (i % 2 == 0) ? &even_philosopher_run : &odd_philosopher_run;
+        if (pthread_create(&philo_array[i].thread, NULL, f, philo_array + i))
         {
             clean(philo_array, fork_array, &conf->mutex, n);
             return (EXIT_FAILURE);
@@ -82,13 +71,7 @@ static int  run(
         clean(philo_array, fork_array, &conf->mutex, n);
         return (EXIT_FAILURE);
     }
-    pthread_detach(monitor);
-    i = 0;
-    while (i < n)
-    {
-        pthread_join(philo_array[i].thread, NULL);
-        i++;
-    }
+    pwait(philo_array, conf, &monitor);
     clean(philo_array, fork_array, &conf->mutex, n);
     return (EXIT_SUCCESS);
 }

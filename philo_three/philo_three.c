@@ -8,7 +8,6 @@ static void  init(t_philosopher *philosopher_array, t_config *main_conf)
 {
     size_t          i;
     size_t          n;
-    struct timeval  last_eating;
 
     n = main_conf->number_of_philosopher;
     i = 0;
@@ -17,8 +16,7 @@ static void  init(t_philosopher *philosopher_array, t_config *main_conf)
         philosopher_array[i].conf = main_conf;
         philosopher_array[i].number = i;
         philosopher_array[i].state.counter = 0;
-        gettimeofday(&last_eating, NULL);
-        philosopher_array[i].state.last_eating = last_eating;
+        philosopher_array[i].state.last_eating.tv_sec = 0;
         i++;
     }
 }

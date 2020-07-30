@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/philo_one.dir/philo_one/clean.c.o"
   "CMakeFiles/philo_one.dir/philo_one/config.c.o"
   "CMakeFiles/philo_one.dir/philo_one/monitor.c.o"
   "CMakeFiles/philo_one.dir/philo_one/philo_one.c.o"

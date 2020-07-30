@@ -158,6 +158,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/triou/philosophers/philo_one/clean.c">
+			<Option target="philo_one"/>
+		</Unit>
 		<Unit filename="/Users/triou/philosophers/philo_one/config.c">
 			<Option target="philo_one"/>
 		</Unit>

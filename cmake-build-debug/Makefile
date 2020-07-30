@@ -149,6 +149,33 @@ philo_one/fast:
 	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/build
 .PHONY : philo_one/fast
 
+philo_one/clean.o: philo_one/clean.c.o
+
+.PHONY : philo_one/clean.o
+
+# target to build an object file
+philo_one/clean.c.o:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/clean.c.o
+.PHONY : philo_one/clean.c.o
+
+philo_one/clean.i: philo_one/clean.c.i
+
+.PHONY : philo_one/clean.i
+
+# target to preprocess a source file
+philo_one/clean.c.i:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/clean.c.i
+.PHONY : philo_one/clean.c.i
+
+philo_one/clean.s: philo_one/clean.c.s
+
+.PHONY : philo_one/clean.s
+
+# target to generate assembly for a file
+philo_one/clean.c.s:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/clean.c.s
+.PHONY : philo_one/clean.c.s
+
 philo_one/config.o: philo_one/config.c.o
 
 .PHONY : philo_one/config.o
@@ -727,6 +754,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... philo_one"
+	@echo "... philo_one/clean.o"
+	@echo "... philo_one/clean.i"
+	@echo "... philo_one/clean.s"
 	@echo "... philo_one/config.o"
 	@echo "... philo_one/config.i"
 	@echo "... philo_one/config.s"

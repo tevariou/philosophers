@@ -8,58 +8,39 @@ static bool is_alive(t_philosopher *philosopher, size_t number) {
     gettimeofday(&time, NULL);
     last_eating = philosopher->state.last_eating;
     time_to_die = philosopher->conf->time_to_die;
-    if (timeval_cmp(time, timeval_add(last_eating, time_to_die)))
+    if (is_timeval(last_eating)
+        && timeval_cmp(time, timeval_add(last_eating, time_to_die)) >= 0)
     {
         print_status("died", number + 1, philosopher->conf);
-        pthread_mutex_lock(&philosopher->conf->mutex);
-        philosopher->conf->is_finished = true;
-        pthread_mutex_unlock(&philosopher->conf->mutex);
         return (false);
     }
     return (true);
 }
 
-static bool is_finished(t_philosopher *philosopher) {
-    int number;
-
-    number = philosopher->conf->number_of_time_each_philosophers_must_eat;
-    return ((number >= 0 && philosopher->state.counter >= number));
-}
-
-static bool is_all_done(t_philosopher * philosopher, size_t counter)
-{
-    if (counter == philosopher->conf->number_of_philosopher)
-    {
-        pthread_mutex_lock(&philosopher->conf->mutex);
-        philosopher->conf->is_finished = true;
-        pthread_mutex_unlock(&philosopher->conf->mutex);
-        return (true);
-    }
-    return (false);
-}
-
-_Noreturn void        *monitor_run(void *arg) {
+void        *monitor_run(void *arg) {
     t_philosopher   *philosopher_array;
+    t_config        *conf;
     size_t          i;
-    size_t          number_of_philosopher;
     size_t          counter;
+    int             n;
 
     philosopher_array = (t_philosopher *)arg;
-    i = 0;
+    conf = philosopher_array[0].conf;
+    n = conf->number_of_time_each_philosophers_must_eat;
     while (1)
     {
+        i = 0;
         counter = 0;
-        number_of_philosopher = philosopher_array[i].conf->number_of_philosopher;
-        while (i < number_of_philosopher)
+        while (i < conf->number_of_philosopher)
         {
             if (!is_alive(philosopher_array + i, i))
                 return (NULL);
-            if (is_finished(philosopher_array + i))
-                counter += 1;
+            if (philosopher_array[i].state.counter == n)
+                counter++;
             i++;
         }
-        i = 0;
-        if (is_all_done(philosopher_array + i, counter))
-            return (NULL);
+        if (counter == conf->number_of_philosopher)
+            break;
     }
+    return (NULL);
 }

@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/Users/triou/philosophers/philo_one/philo_one.c
+philo_one.h
+/Users/triou/philosophers/philo_one/philo_one.h
+
 /Users/triou/philosophers/philo_one/philo_one.h
 pthread.h
 -
@@ -14,11 +18,5 @@ sys/time.h
 stdlib.h
 -
 stdbool.h
--
-
-/Users/triou/philosophers/philo_one/philosopher.c
-philo_one.h
-/Users/triou/philosophers/philo_one/philo_one.h
-unistd.h
 -
 
