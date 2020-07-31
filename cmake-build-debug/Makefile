@@ -338,59 +338,59 @@ philo_one/time.c.s:
 	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/time.c.s
 .PHONY : philo_one/time.c.s
 
-philo_one/utils.o: philo_one/utils.c.o
+philo_one/utils1.o: philo_one/utils1.c.o
 
-.PHONY : philo_one/utils.o
-
-# target to build an object file
-philo_one/utils.c.o:
-	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/utils.c.o
-.PHONY : philo_one/utils.c.o
-
-philo_one/utils.i: philo_one/utils.c.i
-
-.PHONY : philo_one/utils.i
-
-# target to preprocess a source file
-philo_one/utils.c.i:
-	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/utils.c.i
-.PHONY : philo_one/utils.c.i
-
-philo_one/utils.s: philo_one/utils.c.s
-
-.PHONY : philo_one/utils.s
-
-# target to generate assembly for a file
-philo_one/utils.c.s:
-	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/utils.c.s
-.PHONY : philo_one/utils.c.s
-
-philo_three/clean.o: philo_three/clean.c.o
-
-.PHONY : philo_three/clean.o
+.PHONY : philo_one/utils1.o
 
 # target to build an object file
-philo_three/clean.c.o:
-	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/clean.c.o
-.PHONY : philo_three/clean.c.o
+philo_one/utils1.c.o:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/utils1.c.o
+.PHONY : philo_one/utils1.c.o
 
-philo_three/clean.i: philo_three/clean.c.i
+philo_one/utils1.i: philo_one/utils1.c.i
 
-.PHONY : philo_three/clean.i
+.PHONY : philo_one/utils1.i
 
 # target to preprocess a source file
-philo_three/clean.c.i:
-	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/clean.c.i
-.PHONY : philo_three/clean.c.i
+philo_one/utils1.c.i:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/utils1.c.i
+.PHONY : philo_one/utils1.c.i
 
-philo_three/clean.s: philo_three/clean.c.s
+philo_one/utils1.s: philo_one/utils1.c.s
 
-.PHONY : philo_three/clean.s
+.PHONY : philo_one/utils1.s
 
 # target to generate assembly for a file
-philo_three/clean.c.s:
-	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/clean.c.s
-.PHONY : philo_three/clean.c.s
+philo_one/utils1.c.s:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/utils1.c.s
+.PHONY : philo_one/utils1.c.s
+
+philo_one/utils2.o: philo_one/utils2.c.o
+
+.PHONY : philo_one/utils2.o
+
+# target to build an object file
+philo_one/utils2.c.o:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/utils2.c.o
+.PHONY : philo_one/utils2.c.o
+
+philo_one/utils2.i: philo_one/utils2.c.i
+
+.PHONY : philo_one/utils2.i
+
+# target to preprocess a source file
+philo_one/utils2.c.i:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/utils2.c.i
+.PHONY : philo_one/utils2.c.i
+
+philo_one/utils2.s: philo_one/utils2.c.s
+
+.PHONY : philo_one/utils2.s
+
+# target to generate assembly for a file
+philo_one/utils2.c.s:
+	$(MAKE) -f CMakeFiles/philo_one.dir/build.make CMakeFiles/philo_one.dir/philo_one/utils2.c.s
+.PHONY : philo_one/utils2.c.s
 
 philo_three/config.o: philo_three/config.c.o
 
@@ -554,32 +554,59 @@ philo_three/time.c.s:
 	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/time.c.s
 .PHONY : philo_three/time.c.s
 
-philo_three/utils.o: philo_three/utils.c.o
+philo_three/utils1.o: philo_three/utils1.c.o
 
-.PHONY : philo_three/utils.o
+.PHONY : philo_three/utils1.o
 
 # target to build an object file
-philo_three/utils.c.o:
-	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/utils.c.o
-.PHONY : philo_three/utils.c.o
+philo_three/utils1.c.o:
+	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/utils1.c.o
+.PHONY : philo_three/utils1.c.o
 
-philo_three/utils.i: philo_three/utils.c.i
+philo_three/utils1.i: philo_three/utils1.c.i
 
-.PHONY : philo_three/utils.i
+.PHONY : philo_three/utils1.i
 
 # target to preprocess a source file
-philo_three/utils.c.i:
-	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/utils.c.i
-.PHONY : philo_three/utils.c.i
+philo_three/utils1.c.i:
+	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/utils1.c.i
+.PHONY : philo_three/utils1.c.i
 
-philo_three/utils.s: philo_three/utils.c.s
+philo_three/utils1.s: philo_three/utils1.c.s
 
-.PHONY : philo_three/utils.s
+.PHONY : philo_three/utils1.s
 
 # target to generate assembly for a file
-philo_three/utils.c.s:
-	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/utils.c.s
-.PHONY : philo_three/utils.c.s
+philo_three/utils1.c.s:
+	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/utils1.c.s
+.PHONY : philo_three/utils1.c.s
+
+philo_three/utils2.o: philo_three/utils2.c.o
+
+.PHONY : philo_three/utils2.o
+
+# target to build an object file
+philo_three/utils2.c.o:
+	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/utils2.c.o
+.PHONY : philo_three/utils2.c.o
+
+philo_three/utils2.i: philo_three/utils2.c.i
+
+.PHONY : philo_three/utils2.i
+
+# target to preprocess a source file
+philo_three/utils2.c.i:
+	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/utils2.c.i
+.PHONY : philo_three/utils2.c.i
+
+philo_three/utils2.s: philo_three/utils2.c.s
+
+.PHONY : philo_three/utils2.s
+
+# target to generate assembly for a file
+philo_three/utils2.c.s:
+	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/utils2.c.s
+.PHONY : philo_three/utils2.c.s
 
 philo_two/clean.o: philo_two/clean.c.o
 
@@ -770,32 +797,59 @@ philo_two/time.c.s:
 	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/time.c.s
 .PHONY : philo_two/time.c.s
 
-philo_two/utils.o: philo_two/utils.c.o
+philo_two/utils1.o: philo_two/utils1.c.o
 
-.PHONY : philo_two/utils.o
+.PHONY : philo_two/utils1.o
 
 # target to build an object file
-philo_two/utils.c.o:
-	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/utils.c.o
-.PHONY : philo_two/utils.c.o
+philo_two/utils1.c.o:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/utils1.c.o
+.PHONY : philo_two/utils1.c.o
 
-philo_two/utils.i: philo_two/utils.c.i
+philo_two/utils1.i: philo_two/utils1.c.i
 
-.PHONY : philo_two/utils.i
+.PHONY : philo_two/utils1.i
 
 # target to preprocess a source file
-philo_two/utils.c.i:
-	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/utils.c.i
-.PHONY : philo_two/utils.c.i
+philo_two/utils1.c.i:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/utils1.c.i
+.PHONY : philo_two/utils1.c.i
 
-philo_two/utils.s: philo_two/utils.c.s
+philo_two/utils1.s: philo_two/utils1.c.s
 
-.PHONY : philo_two/utils.s
+.PHONY : philo_two/utils1.s
 
 # target to generate assembly for a file
-philo_two/utils.c.s:
-	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/utils.c.s
-.PHONY : philo_two/utils.c.s
+philo_two/utils1.c.s:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/utils1.c.s
+.PHONY : philo_two/utils1.c.s
+
+philo_two/utils2.o: philo_two/utils2.c.o
+
+.PHONY : philo_two/utils2.o
+
+# target to build an object file
+philo_two/utils2.c.o:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/utils2.c.o
+.PHONY : philo_two/utils2.c.o
+
+philo_two/utils2.i: philo_two/utils2.c.i
+
+.PHONY : philo_two/utils2.i
+
+# target to preprocess a source file
+philo_two/utils2.c.i:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/utils2.c.i
+.PHONY : philo_two/utils2.c.i
+
+philo_two/utils2.s: philo_two/utils2.c.s
+
+.PHONY : philo_two/utils2.s
+
+# target to generate assembly for a file
+philo_two/utils2.c.s:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/utils2.c.s
+.PHONY : philo_two/utils2.c.s
 
 # Help Target
 help:
@@ -829,12 +883,12 @@ help:
 	@echo "... philo_one/time.o"
 	@echo "... philo_one/time.i"
 	@echo "... philo_one/time.s"
-	@echo "... philo_one/utils.o"
-	@echo "... philo_one/utils.i"
-	@echo "... philo_one/utils.s"
-	@echo "... philo_three/clean.o"
-	@echo "... philo_three/clean.i"
-	@echo "... philo_three/clean.s"
+	@echo "... philo_one/utils1.o"
+	@echo "... philo_one/utils1.i"
+	@echo "... philo_one/utils1.s"
+	@echo "... philo_one/utils2.o"
+	@echo "... philo_one/utils2.i"
+	@echo "... philo_one/utils2.s"
 	@echo "... philo_three/config.o"
 	@echo "... philo_three/config.i"
 	@echo "... philo_three/config.s"
@@ -853,9 +907,12 @@ help:
 	@echo "... philo_three/time.o"
 	@echo "... philo_three/time.i"
 	@echo "... philo_three/time.s"
-	@echo "... philo_three/utils.o"
-	@echo "... philo_three/utils.i"
-	@echo "... philo_three/utils.s"
+	@echo "... philo_three/utils1.o"
+	@echo "... philo_three/utils1.i"
+	@echo "... philo_three/utils1.s"
+	@echo "... philo_three/utils2.o"
+	@echo "... philo_three/utils2.i"
+	@echo "... philo_three/utils2.s"
 	@echo "... philo_two/clean.o"
 	@echo "... philo_two/clean.i"
 	@echo "... philo_two/clean.s"
@@ -877,9 +934,12 @@ help:
 	@echo "... philo_two/time.o"
 	@echo "... philo_two/time.i"
 	@echo "... philo_two/time.s"
-	@echo "... philo_two/utils.o"
-	@echo "... philo_two/utils.i"
-	@echo "... philo_two/utils.s"
+	@echo "... philo_two/utils1.o"
+	@echo "... philo_two/utils1.i"
+	@echo "... philo_two/utils1.s"
+	@echo "... philo_two/utils2.o"
+	@echo "... philo_two/utils2.i"
+	@echo "... philo_two/utils2.s"
 .PHONY : help
 
 

@@ -6,17 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/triou/philosophers/philo_three/philo_three.c
+/Users/triou/philosophers/philo_three/config.c
 philo_three.h
 /Users/triou/philosophers/philo_three/philo_three.h
-unistd.h
--
-string.h
--
-sys/wait.h
--
-signal.h
--
 
 /Users/triou/philosophers/philo_three/philo_three.h
 pthread.h
@@ -30,9 +22,13 @@ stdbool.h
 semaphore.h
 -
 
-/Users/triou/philosophers/philo_three/philosopher.c
-philo_three.h
-/Users/triou/philosophers/philo_three/philo_three.h
+/Users/triou/philosophers/philo_three/utils1.c
+unistd.h
+-
+limits.h
+-
+
+/Users/triou/philosophers/philo_three/utils2.c
 unistd.h
 -
 

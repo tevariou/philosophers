@@ -5,6 +5,7 @@
 #include            <sys/time.h>
 #include            <stdlib.h>
 #include            <stdbool.h>
+
 #define             USAGE        "Usage: ./philosopher number_of_philosopher " \
                                  "time_to_die time_to_eat time_to_sleep " \
                                  "[number_of_time_each_philosophers_must_eat]\n"
@@ -43,14 +44,12 @@ int	                ft_strcmp(const char *s1, const char *s2);
 uint64_t            timeval_to_msec(struct timeval time);
 int                 timeval_cmp(struct timeval a, struct timeval b);
 struct timeval      timeval_add(struct timeval a, unsigned int b);
-bool                is_timeval(struct timeval time);
 int                 print_status(const char *status, size_t number,
                         t_config *conf);
 void                *even_philosopher_run(void *arg);
 void                *odd_philosopher_run(void *arg);
 void                *monitor_run(void *arg);
 int                 config(t_config *conf, int ac, char **av);
-int                 error(const char *e);
 void                clean(t_philosopher *philosopher_array,
                         pthread_mutex_t *fork_array,pthread_mutex_t
                         *mutex,size_t n);

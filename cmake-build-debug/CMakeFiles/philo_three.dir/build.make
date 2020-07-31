@@ -70,18 +70,18 @@ CMakeFiles/philo_three.dir/philo_three/philo_three.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_three.dir/philo_three/philo_three.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_three/philo_three.c -o CMakeFiles/philo_three.dir/philo_three/philo_three.c.s
 
-CMakeFiles/philo_three.dir/philo_three/utils.c.o: CMakeFiles/philo_three.dir/flags.make
-CMakeFiles/philo_three.dir/philo_three/utils.c.o: ../philo_three/utils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/philo_three.dir/philo_three/utils.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philo_three.dir/philo_three/utils.c.o   -c /Users/triou/philosophers/philo_three/utils.c
+CMakeFiles/philo_three.dir/philo_three/utils1.c.o: CMakeFiles/philo_three.dir/flags.make
+CMakeFiles/philo_three.dir/philo_three/utils1.c.o: ../philo_three/utils1.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/philo_three.dir/philo_three/utils1.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philo_three.dir/philo_three/utils1.c.o   -c /Users/triou/philosophers/philo_three/utils1.c
 
-CMakeFiles/philo_three.dir/philo_three/utils.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philo_three.dir/philo_three/utils.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/triou/philosophers/philo_three/utils.c > CMakeFiles/philo_three.dir/philo_three/utils.c.i
+CMakeFiles/philo_three.dir/philo_three/utils1.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philo_three.dir/philo_three/utils1.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/triou/philosophers/philo_three/utils1.c > CMakeFiles/philo_three.dir/philo_three/utils1.c.i
 
-CMakeFiles/philo_three.dir/philo_three/utils.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_three.dir/philo_three/utils.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_three/utils.c -o CMakeFiles/philo_three.dir/philo_three/utils.c.s
+CMakeFiles/philo_three.dir/philo_three/utils1.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_three.dir/philo_three/utils1.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_three/utils1.c -o CMakeFiles/philo_three.dir/philo_three/utils1.c.s
 
 CMakeFiles/philo_three.dir/philo_three/time.c.o: CMakeFiles/philo_three.dir/flags.make
 CMakeFiles/philo_three.dir/philo_three/time.c.o: ../philo_three/time.c
@@ -148,41 +148,41 @@ CMakeFiles/philo_three.dir/philo_three/config.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_three.dir/philo_three/config.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_three/config.c -o CMakeFiles/philo_three.dir/philo_three/config.c.s
 
-CMakeFiles/philo_three.dir/philo_three/clean.c.o: CMakeFiles/philo_three.dir/flags.make
-CMakeFiles/philo_three.dir/philo_three/clean.c.o: ../philo_three/clean.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/philo_three.dir/philo_three/clean.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philo_three.dir/philo_three/clean.c.o   -c /Users/triou/philosophers/philo_three/clean.c
+CMakeFiles/philo_three.dir/philo_three/utils2.c.o: CMakeFiles/philo_three.dir/flags.make
+CMakeFiles/philo_three.dir/philo_three/utils2.c.o: ../philo_three/utils2.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/philo_three.dir/philo_three/utils2.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philo_three.dir/philo_three/utils2.c.o   -c /Users/triou/philosophers/philo_three/utils2.c
 
-CMakeFiles/philo_three.dir/philo_three/clean.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philo_three.dir/philo_three/clean.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/triou/philosophers/philo_three/clean.c > CMakeFiles/philo_three.dir/philo_three/clean.c.i
+CMakeFiles/philo_three.dir/philo_three/utils2.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philo_three.dir/philo_three/utils2.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/triou/philosophers/philo_three/utils2.c > CMakeFiles/philo_three.dir/philo_three/utils2.c.i
 
-CMakeFiles/philo_three.dir/philo_three/clean.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_three.dir/philo_three/clean.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_three/clean.c -o CMakeFiles/philo_three.dir/philo_three/clean.c.s
+CMakeFiles/philo_three.dir/philo_three/utils2.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_three.dir/philo_three/utils2.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_three/utils2.c -o CMakeFiles/philo_three.dir/philo_three/utils2.c.s
 
 # Object files for target philo_three
 philo_three_OBJECTS = \
 "CMakeFiles/philo_three.dir/philo_three/philo_three.c.o" \
-"CMakeFiles/philo_three.dir/philo_three/utils.c.o" \
+"CMakeFiles/philo_three.dir/philo_three/utils1.c.o" \
 "CMakeFiles/philo_three.dir/philo_three/time.c.o" \
 "CMakeFiles/philo_three.dir/philo_three/print.c.o" \
 "CMakeFiles/philo_three.dir/philo_three/philosopher.c.o" \
 "CMakeFiles/philo_three.dir/philo_three/monitor.c.o" \
 "CMakeFiles/philo_three.dir/philo_three/config.c.o" \
-"CMakeFiles/philo_three.dir/philo_three/clean.c.o"
+"CMakeFiles/philo_three.dir/philo_three/utils2.c.o"
 
 # External object files for target philo_three
 philo_three_EXTERNAL_OBJECTS =
 
 philo_three: CMakeFiles/philo_three.dir/philo_three/philo_three.c.o
-philo_three: CMakeFiles/philo_three.dir/philo_three/utils.c.o
+philo_three: CMakeFiles/philo_three.dir/philo_three/utils1.c.o
 philo_three: CMakeFiles/philo_three.dir/philo_three/time.c.o
 philo_three: CMakeFiles/philo_three.dir/philo_three/print.c.o
 philo_three: CMakeFiles/philo_three.dir/philo_three/philosopher.c.o
 philo_three: CMakeFiles/philo_three.dir/philo_three/monitor.c.o
 philo_three: CMakeFiles/philo_three.dir/philo_three/config.c.o
-philo_three: CMakeFiles/philo_three.dir/philo_three/clean.c.o
+philo_three: CMakeFiles/philo_three.dir/philo_three/utils2.c.o
 philo_three: CMakeFiles/philo_three.dir/build.make
 philo_three: CMakeFiles/philo_three.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable philo_three"

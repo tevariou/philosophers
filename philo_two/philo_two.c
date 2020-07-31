@@ -48,14 +48,14 @@ static int  run(
         if (pthread_create(&philo_array[i].thread, NULL, f, philo_array + i))
         {
             clean(philo_array, conf, n);
-            return (error("Philosophers: pthread_create\n"));
+            return (EXIT_FAILURE);
         }
         i++;
     }
     if (pthread_create(&monitor, NULL, &monitor_run, philo_array))
     {
         clean(philo_array, conf, n);
-        return (error("Monitor: pthread_create\n"));
+        return (EXIT_FAILURE);
     }
     pwait(philo_array, conf, &monitor);
     clean(philo_array, conf, n);

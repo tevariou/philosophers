@@ -70,18 +70,18 @@ CMakeFiles/philo_one.dir/philo_one/philo_one.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_one.dir/philo_one/philo_one.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_one/philo_one.c -o CMakeFiles/philo_one.dir/philo_one/philo_one.c.s
 
-CMakeFiles/philo_one.dir/philo_one/utils.c.o: CMakeFiles/philo_one.dir/flags.make
-CMakeFiles/philo_one.dir/philo_one/utils.c.o: ../philo_one/utils.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/philo_one.dir/philo_one/utils.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philo_one.dir/philo_one/utils.c.o   -c /Users/triou/philosophers/philo_one/utils.c
+CMakeFiles/philo_one.dir/philo_one/utils1.c.o: CMakeFiles/philo_one.dir/flags.make
+CMakeFiles/philo_one.dir/philo_one/utils1.c.o: ../philo_one/utils1.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/philo_one.dir/philo_one/utils1.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philo_one.dir/philo_one/utils1.c.o   -c /Users/triou/philosophers/philo_one/utils1.c
 
-CMakeFiles/philo_one.dir/philo_one/utils.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philo_one.dir/philo_one/utils.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/triou/philosophers/philo_one/utils.c > CMakeFiles/philo_one.dir/philo_one/utils.c.i
+CMakeFiles/philo_one.dir/philo_one/utils1.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philo_one.dir/philo_one/utils1.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/triou/philosophers/philo_one/utils1.c > CMakeFiles/philo_one.dir/philo_one/utils1.c.i
 
-CMakeFiles/philo_one.dir/philo_one/utils.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_one.dir/philo_one/utils.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_one/utils.c -o CMakeFiles/philo_one.dir/philo_one/utils.c.s
+CMakeFiles/philo_one.dir/philo_one/utils1.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_one.dir/philo_one/utils1.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_one/utils1.c -o CMakeFiles/philo_one.dir/philo_one/utils1.c.s
 
 CMakeFiles/philo_one.dir/philo_one/time.c.o: CMakeFiles/philo_one.dir/flags.make
 CMakeFiles/philo_one.dir/philo_one/time.c.o: ../philo_one/time.c
@@ -161,31 +161,46 @@ CMakeFiles/philo_one.dir/philo_one/clean.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_one.dir/philo_one/clean.c.s"
 	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_one/clean.c -o CMakeFiles/philo_one.dir/philo_one/clean.c.s
 
+CMakeFiles/philo_one.dir/philo_one/utils2.c.o: CMakeFiles/philo_one.dir/flags.make
+CMakeFiles/philo_one.dir/philo_one/utils2.c.o: ../philo_one/utils2.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/philo_one.dir/philo_one/utils2.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/philo_one.dir/philo_one/utils2.c.o   -c /Users/triou/philosophers/philo_one/utils2.c
+
+CMakeFiles/philo_one.dir/philo_one/utils2.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/philo_one.dir/philo_one/utils2.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/triou/philosophers/philo_one/utils2.c > CMakeFiles/philo_one.dir/philo_one/utils2.c.i
+
+CMakeFiles/philo_one.dir/philo_one/utils2.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/philo_one.dir/philo_one/utils2.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/triou/philosophers/philo_one/utils2.c -o CMakeFiles/philo_one.dir/philo_one/utils2.c.s
+
 # Object files for target philo_one
 philo_one_OBJECTS = \
 "CMakeFiles/philo_one.dir/philo_one/philo_one.c.o" \
-"CMakeFiles/philo_one.dir/philo_one/utils.c.o" \
+"CMakeFiles/philo_one.dir/philo_one/utils1.c.o" \
 "CMakeFiles/philo_one.dir/philo_one/time.c.o" \
 "CMakeFiles/philo_one.dir/philo_one/print.c.o" \
 "CMakeFiles/philo_one.dir/philo_one/philosopher.c.o" \
 "CMakeFiles/philo_one.dir/philo_one/monitor.c.o" \
 "CMakeFiles/philo_one.dir/philo_one/config.c.o" \
-"CMakeFiles/philo_one.dir/philo_one/clean.c.o"
+"CMakeFiles/philo_one.dir/philo_one/clean.c.o" \
+"CMakeFiles/philo_one.dir/philo_one/utils2.c.o"
 
 # External object files for target philo_one
 philo_one_EXTERNAL_OBJECTS =
 
 philo_one: CMakeFiles/philo_one.dir/philo_one/philo_one.c.o
-philo_one: CMakeFiles/philo_one.dir/philo_one/utils.c.o
+philo_one: CMakeFiles/philo_one.dir/philo_one/utils1.c.o
 philo_one: CMakeFiles/philo_one.dir/philo_one/time.c.o
 philo_one: CMakeFiles/philo_one.dir/philo_one/print.c.o
 philo_one: CMakeFiles/philo_one.dir/philo_one/philosopher.c.o
 philo_one: CMakeFiles/philo_one.dir/philo_one/monitor.c.o
 philo_one: CMakeFiles/philo_one.dir/philo_one/config.c.o
 philo_one: CMakeFiles/philo_one.dir/philo_one/clean.c.o
+philo_one: CMakeFiles/philo_one.dir/philo_one/utils2.c.o
 philo_one: CMakeFiles/philo_one.dir/build.make
 philo_one: CMakeFiles/philo_one.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable philo_one"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/triou/philosophers/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable philo_one"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/philo_one.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

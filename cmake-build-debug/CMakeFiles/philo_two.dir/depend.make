@@ -21,5 +21,7 @@ CMakeFiles/philo_two.dir/philo_two/print.c.o: ../philo_two/print.c
 
 CMakeFiles/philo_two.dir/philo_two/time.c.o: ../philo_two/time.c
 
-CMakeFiles/philo_two.dir/philo_two/utils.c.o: ../philo_two/utils.c
+CMakeFiles/philo_two.dir/philo_two/utils1.c.o: ../philo_two/utils1.c
+
+CMakeFiles/philo_two.dir/philo_two/utils2.c.o: ../philo_two/utils2.c
 

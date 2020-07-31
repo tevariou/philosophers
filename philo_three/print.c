@@ -1,16 +1,20 @@
 #include "philo_three.h"
-#include "unistd.h"
+#include <string.h>
 
 void print_status(const char *status, size_t number, t_config *conf) {
+    char            str[34];
     struct timeval time;
 
     gettimeofday(&time, NULL);
     sem_wait(conf->print);
-    ft_putnbr(timeval_to_msec(time));
-    ft_putchar(' ');
-    ft_putnbr(number);
-    ft_putchar(' ');
-    write(1, status, ft_strlen(status));
-    ft_putchar('\n');
-    sem_post(conf->print);
+    memset(str, 0, 34);
+    ft_putnbr(str, timeval_to_msec(time));
+    ft_append(str, " ");
+    ft_putnbr(str, number);
+    ft_append(str, " ");
+    ft_append(str, status);
+    ft_append(str, "\n");
+    ft_putstr_fd(str, 1);
+    if (ft_strcmp(status, "died"))
+        sem_post(conf->print);
 }

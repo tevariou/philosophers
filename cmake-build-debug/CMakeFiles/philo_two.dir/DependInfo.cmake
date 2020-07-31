@@ -11,7 +11,8 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/triou/philosophers/philo_two/philosopher.c" "/Users/triou/philosophers/cmake-build-debug/CMakeFiles/philo_two.dir/philo_two/philosopher.c.o"
   "/Users/triou/philosophers/philo_two/print.c" "/Users/triou/philosophers/cmake-build-debug/CMakeFiles/philo_two.dir/philo_two/print.c.o"
   "/Users/triou/philosophers/philo_two/time.c" "/Users/triou/philosophers/cmake-build-debug/CMakeFiles/philo_two.dir/philo_two/time.c.o"
-  "/Users/triou/philosophers/philo_two/utils.c" "/Users/triou/philosophers/cmake-build-debug/CMakeFiles/philo_two.dir/philo_two/utils.c.o"
+  "/Users/triou/philosophers/philo_two/utils1.c" "/Users/triou/philosophers/cmake-build-debug/CMakeFiles/philo_two.dir/philo_two/utils1.c.o"
+  "/Users/triou/philosophers/philo_two/utils2.c" "/Users/triou/philosophers/cmake-build-debug/CMakeFiles/philo_two.dir/philo_two/utils2.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

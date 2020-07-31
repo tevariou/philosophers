@@ -1,11 +1,16 @@
 #include "philo_one.h"
-#include <unistd.h>
 
-int  config(t_config *conf, int ac, char **av)
+static int  error(const char *e)
+{
+    ft_putstr_fd(e, 2);
+    return (EXIT_FAILURE);
+}
+
+int         config(t_config *conf, int ac, char **av)
 {
     if (ac < 5)
     {
-        write(2, USAGE, ft_strlen(USAGE));
+        ft_putstr_fd(USAGE, 2);
         return (EXIT_FAILURE);
     }
     if ((conf->number_of_philosopher = ft_atos(av[1])) < 0)

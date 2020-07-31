@@ -31,8 +31,3 @@ struct timeval  timeval_add(struct timeval a, unsigned int b)
     result.tv_usec = time;
     return (result);
 }
-
-bool            is_timeval(struct timeval time)
-{
-    return (time.tv_sec || time.tv_usec);
-}

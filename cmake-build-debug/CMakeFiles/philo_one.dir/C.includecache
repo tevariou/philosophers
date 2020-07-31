@@ -6,11 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/triou/philosophers/philo_one/utils.c
+/Users/triou/philosophers/philo_one/utils1.c
 unistd.h
 -
 limits.h
--
-stdlib.h
 -
 

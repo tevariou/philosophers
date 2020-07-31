@@ -6,7 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/philo_two.dir/philo_two/philosopher.c.o"
   "CMakeFiles/philo_two.dir/philo_two/print.c.o"
   "CMakeFiles/philo_two.dir/philo_two/time.c.o"
-  "CMakeFiles/philo_two.dir/philo_two/utils.c.o"
+  "CMakeFiles/philo_two.dir/philo_two/utils1.c.o"
+  "CMakeFiles/philo_two.dir/philo_two/utils2.c.o"
   "philo_two"
   "philo_two.pdb"
 )
