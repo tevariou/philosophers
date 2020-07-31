@@ -8,11 +8,16 @@ int  config(t_config *conf, int ac, char **av)
         write(2, USAGE, ft_strlen(USAGE));
         return (EXIT_FAILURE);
     }
-    conf->number_of_philosopher = ft_atoi(av[1]);
-    conf->time_to_die = ft_atoi(av[2]);
-    conf->time_to_eat = ft_atoi(av[3]);
-    conf->time_to_sleep = ft_atoi(av[4]);
+    if ((conf->number_of_philosopher = ft_atos(av[1])) < 0)
+        return (error(PARAMS));
+    if ((conf->time_to_die = ft_atos(av[2])) < 0)
+        return (error(PARAMS));
+    if ((conf->time_to_eat = ft_atos(av[3])) < 0)
+        return (error(PARAMS));
+    if ((conf->time_to_sleep = ft_atos(av[4])) < 0)
+        return (error(PARAMS));
     conf->number_of_time_each_philosophers_must_eat = (ac == 6)
-                                                      ? ft_atoi(av[5]) : -1;
+                                                      ? ft_atos(av[5]) : -1;
+    conf->is_finished = false;
     return (EXIT_SUCCESS);
 }

@@ -554,6 +554,33 @@ philo_three/utils.c.s:
 	$(MAKE) -f CMakeFiles/philo_three.dir/build.make CMakeFiles/philo_three.dir/philo_three/utils.c.s
 .PHONY : philo_three/utils.c.s
 
+philo_two/clean.o: philo_two/clean.c.o
+
+.PHONY : philo_two/clean.o
+
+# target to build an object file
+philo_two/clean.c.o:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/clean.c.o
+.PHONY : philo_two/clean.c.o
+
+philo_two/clean.i: philo_two/clean.c.i
+
+.PHONY : philo_two/clean.i
+
+# target to preprocess a source file
+philo_two/clean.c.i:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/clean.c.i
+.PHONY : philo_two/clean.c.i
+
+philo_two/clean.s: philo_two/clean.c.s
+
+.PHONY : philo_two/clean.s
+
+# target to generate assembly for a file
+philo_two/clean.c.s:
+	$(MAKE) -f CMakeFiles/philo_two.dir/build.make CMakeFiles/philo_two.dir/philo_two/clean.c.s
+.PHONY : philo_two/clean.c.s
+
 philo_two/config.o: philo_two/config.c.o
 
 .PHONY : philo_two/config.o
@@ -799,6 +826,9 @@ help:
 	@echo "... philo_three/utils.o"
 	@echo "... philo_three/utils.i"
 	@echo "... philo_three/utils.s"
+	@echo "... philo_two/clean.o"
+	@echo "... philo_two/clean.i"
+	@echo "... philo_two/clean.s"
 	@echo "... philo_two/config.o"
 	@echo "... philo_two/config.i"
 	@echo "... philo_two/config.s"

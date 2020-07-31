@@ -19,7 +19,8 @@ static int     eating(t_philosopher *philosopher, pthread_mutex_t *first, pthrea
     return (EXIT_SUCCESS);
 }
 
-static int     sleeping(t_philosopher *philosopher) {
+static int     sleeping(t_philosopher *philosopher)
+{
     size_t n;
 
     n = philosopher->number;
@@ -29,7 +30,8 @@ static int     sleeping(t_philosopher *philosopher) {
     return (EXIT_SUCCESS);
 }
 
-static int take_fork(t_philosopher *philosopher, pthread_mutex_t *first, pthread_mutex_t *second) {
+static int take_fork(t_philosopher *philosopher, pthread_mutex_t *first, pthread_mutex_t *second)
+{
     size_t          n;
 
     n = philosopher->number;
@@ -63,7 +65,8 @@ void  *even_philosopher_run(void *arg)
             ? philosopher->right : philosopher->left;
     second = (philosopher->left > philosopher->right)
             ? philosopher->left : philosopher->right;
-    while (1) {
+    while (1)
+    {
         if (print_status("is thinking", n + 1, philosopher->conf))
             return (NULL);
         if (take_fork(philosopher, first, second))
@@ -89,7 +92,8 @@ void  *odd_philosopher_run(void *arg)
             ? philosopher->right : philosopher->left;
     second = (philosopher->left > philosopher->right)
              ? philosopher->left : philosopher->right;
-    while (1) {
+    while (1)
+    {
         if (sleeping(philosopher))
             return (NULL);
         if (print_status("is thinking", n + 1, philosopher->conf))

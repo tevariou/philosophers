@@ -2,11 +2,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-uint64_t        timeval_to_msec(struct timeval time) {
+uint64_t        timeval_to_msec(struct timeval time)
+{
     return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
-int             timeval_cmp(struct timeval a, struct timeval b) {
+int             timeval_cmp(struct timeval a, struct timeval b)
+{
     if (a.tv_sec > b.tv_sec)
         return (1);
     if (a.tv_sec < b.tv_sec)
@@ -18,7 +20,8 @@ int             timeval_cmp(struct timeval a, struct timeval b) {
     return (0);
 }
 
-struct timeval  timeval_add(struct timeval a, unsigned int b) {
+struct timeval  timeval_add(struct timeval a, unsigned int b)
+{
     uint64_t        time;
     struct timeval result;
 
@@ -29,6 +32,7 @@ struct timeval  timeval_add(struct timeval a, unsigned int b) {
     return (result);
 }
 
-bool            is_timeval(struct timeval time) {
+bool            is_timeval(struct timeval time)
+{
     return (time.tv_sec || time.tv_usec);
 }

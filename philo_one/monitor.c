@@ -22,7 +22,7 @@ void        *monitor_run(void *arg) {
     t_config        *conf;
     size_t          i;
     size_t          counter;
-    int             n;
+    size_t          n;
 
     philosopher_array = (t_philosopher *)arg;
     conf = philosopher_array[0].conf;

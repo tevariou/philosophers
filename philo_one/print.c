@@ -1,8 +1,6 @@
 #include "philo_one.h"
 #include "unistd.h"
 
-
-
 int print_status(const char *status, size_t number, t_config *conf) {
     struct timeval time;
 

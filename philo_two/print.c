@@ -10,6 +10,8 @@ int print_status(const char *status, size_t number, t_config *conf) {
         sem_post(conf->print);
         return (EXIT_FAILURE);
     }
+    if (!ft_strcmp("died", status))
+        conf->is_finished = true;
     ft_putnbr(timeval_to_msec(time));
     ft_putchar(' ');
     ft_putnbr(number);

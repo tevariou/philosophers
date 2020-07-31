@@ -8,7 +8,8 @@ static bool is_alive(t_philosopher *philosopher, size_t number) {
     gettimeofday(&time, NULL);
     last_eating = philosopher->state.last_eating;
     time_to_die = philosopher->conf->time_to_die;
-    if (timeval_cmp(time, timeval_add(last_eating, time_to_die)))
+    if (is_timeval(last_eating)
+        && timeval_cmp(time, timeval_add(last_eating, time_to_die)) >= 0)
     {
         print_status("died", number + 1, philosopher->conf);
         return (false);
@@ -16,22 +17,30 @@ static bool is_alive(t_philosopher *philosopher, size_t number) {
     return (true);
 }
 
-_Noreturn void        *monitor_run(void *arg) {
+void        *monitor_run(void *arg) {
     t_philosopher   *philosopher_array;
+    t_config        *conf;
     size_t          i;
     size_t          n;
+    size_t          counter;
 
     philosopher_array = (t_philosopher *)arg;
-    i = 0;
+    conf = philosopher_array[0].conf;
+    n = conf->number_of_time_each_philosophers_must_eat;
     while (1)
     {
-        n = philosopher_array[i].conf->number_of_philosopher;
-        while (i < n)
+        counter = 0;
+        i = 0;
+        while (i < conf->number_of_philosopher)
         {
             if (!is_alive(philosopher_array + i, i))
                 return (NULL);
+            if (philosopher_array[i].state.counter == n)
+                counter++;
             i++;
         }
-        i = 0;
+        if (counter == conf->number_of_philosopher)
+            break;
     }
+    return (NULL);
 }

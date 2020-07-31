@@ -66,7 +66,8 @@ void	ft_putstr_fd(char const *s, int fd)
         write(fd, s, ft_strlen(s));
 }
 
-int     error(const char *e) {
+int     error(const char *e)
+{
     ft_putstr_fd(e, 2);
     return (EXIT_FAILURE);
 }

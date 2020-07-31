@@ -6,13 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/triou/philosophers/philo_two/philo_two.c
+/Users/triou/philosophers/philo_two/monitor.c
 philo_two.h
 /Users/triou/philosophers/philo_two/philo_two.h
-unistd.h
--
-string.h
--
 
 /Users/triou/philosophers/philo_two/philo_two.h
 pthread.h

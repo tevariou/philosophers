@@ -1,12 +1,9 @@
 #include "philo_two.h"
-#include <unistd.h>
-#include <string.h>
 
 static void  init(t_philosopher *philosopher_array, t_config *main_conf)
 {
     size_t          i;
     size_t          n;
-    struct timeval  last_eating;
 
     n = main_conf->number_of_philosopher;
     i = 0;
@@ -15,16 +12,22 @@ static void  init(t_philosopher *philosopher_array, t_config *main_conf)
         philosopher_array[i].conf = main_conf;
         philosopher_array[i].number = i;
         philosopher_array[i].state.counter = 0;
-        gettimeofday(&last_eating, NULL);
-        philosopher_array[i].state.last_eating = last_eating;
+        philosopher_array[i].state.last_eating.tv_sec = 0;
+        philosopher_array[i].state.last_eating.tv_usec = 0;
         i++;
     }
 }
 
-static void clean(t_philosopher *philo_array, t_config *conf, size_t n) {
-    sem_close(conf->print);
-    sem_close(conf->forks);
-    free(philo_array);
+static void  pwait(t_philosopher *philo_array, t_config *conf, pthread_t *monitor) {
+    size_t  i;
+
+    i = 0;
+    while (i < conf->number_of_philosopher)
+    {
+        pthread_join(philo_array[i].thread, NULL);
+        i++;
+    }
+    pthread_join(*monitor, NULL);
 }
 
 static int  run(
@@ -35,32 +38,35 @@ static int  run(
     size_t      i;
     size_t      n;
     pthread_t   monitor;
+    void        *(*f)(void *);
 
     n = conf->number_of_philosopher;
     i = 0;
     while (i < n)
     {
-        if (pthread_create(&philo_array[i].thread, NULL, &philosopher_run, philo_array + i))
-            return (EXIT_FAILURE);
+        f = (i % 2 == 0) ? &even_philosopher_run : &odd_philosopher_run;
+        if (pthread_create(&philo_array[i].thread, NULL, f, philo_array + i))
+        {
+            clean(philo_array, conf, n);
+            return (error("Philosophers: pthread_create\n"));
+        }
         i++;
     }
     if (pthread_create(&monitor, NULL, &monitor_run, philo_array))
     {
         clean(philo_array, conf, n);
-        return (EXIT_FAILURE);
+        return (error("Monitor: pthread_create\n"));
     }
-    pthread_detach(monitor);
-    i = 0;
-    while (i < n)
-    {
-        pthread_join(philo_array[i].thread, NULL);
-        i++;
-    }
+    pwait(philo_array, conf, &monitor);
+    clean(philo_array, conf, n);
     return (EXIT_SUCCESS);
 }
 
 static int sem_create(t_config *conf) {
-    conf->forks = sem_open("forks", O_CREAT | O_EXCL, 0600, conf->number_of_philosopher / 2);
+    size_t n;
+
+    n = conf->number_of_philosopher;
+    conf->forks = sem_open("forks", O_CREAT | O_EXCL, 0600, n);
     sem_unlink("forks");
     if (conf->forks == SEM_FAILED)
         return (EXIT_FAILURE);
@@ -87,7 +93,5 @@ int         main(int ac, char** av)
     if (!(philosopher_array = (t_philosopher *)malloc(size)))
         return (EXIT_FAILURE);
 	init(philosopher_array, &conf);
-	run(philosopher_array, &conf);
-	clean(philosopher_array, &conf, conf.number_of_philosopher);
-	return (EXIT_SUCCESS);
+    return (run(philosopher_array, &conf));
 }
