@@ -10,9 +10,8 @@ static void     eating(t_philosopher *philosopher, unsigned int time_to_eat) {
     print_status("is eating", n + 1, philosopher->conf);
     philosopher->state.last_eating = time;
     usleep(time_to_eat * 1000);
-    philosopher->state.counter += 1;
     n = philosopher->conf->number_of_time_each_philosophers_must_eat;
-    if (philosopher->state.counter == n)
+    if (++philosopher->state.counter == n)
         exit(0);
 }
 
@@ -24,7 +23,7 @@ static void     sleeping(t_philosopher *philosopher) {
     usleep(philosopher->conf->time_to_sleep * 1000);
 }
 
-_Noreturn void  philosopher_run(t_philosopher *philosopher)
+_Noreturn void  even_philosopher_run(t_philosopher *philosopher)
 {
     size_t          n;
     struct timeval  time;
@@ -40,5 +39,24 @@ _Noreturn void  philosopher_run(t_philosopher *philosopher)
         eating(philosopher, philosopher->conf->time_to_eat);
         sem_post(philosopher->conf->forks);
         sleeping(philosopher);
+    }
+}
+
+_Noreturn void  odd_philosopher_run(t_philosopher *philosopher)
+{
+    size_t          n;
+    struct timeval  time;
+
+    gettimeofday(&time, NULL);
+    philosopher->state.last_eating = time;
+    n = philosopher->number;
+    while (1) {
+        sleeping(philosopher);
+        print_status("is thinking", n + 1, philosopher->conf);
+        sem_wait(philosopher->conf->forks);
+        print_status("has taken a fork", n + 1, philosopher->conf);
+        print_status("has taken a fork", n + 1, philosopher->conf);
+        eating(philosopher, philosopher->conf->time_to_eat);
+        sem_post(philosopher->conf->forks);
     }
 }

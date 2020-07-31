@@ -32,14 +32,25 @@ int		ft_atoi(const char *str)
     return (number);
 }
 
-void	ft_putchar(char c)
+void    ft_append(char *dest, const char *str)
 {
-    write(1, &c, 1);
+    while (*dest)
+        dest++;
+    while (*str)
+        *dest++ = *str++;
 }
 
-void	ft_putnbr(uint64_t n)
+void	ft_putstr_fd(char const *s, int fd)
 {
+    if (s)
+        write(fd, s, ft_strlen(s));
+}
+
+void	ft_putnbr(char *s, uint64_t n)
+{
+    while (*s)
+        s++;
     if (n >= 10)
-        ft_putnbr(n / 10);
-    ft_putchar((char)((int)'0' + n % 10));
+        ft_putnbr(s + 1, n / 10);
+    *s = (char)((int)'0' + n % 10);
 }

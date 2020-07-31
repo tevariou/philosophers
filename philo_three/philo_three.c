@@ -17,6 +17,7 @@ static void  init(t_philosopher *philosopher_array, t_config *main_conf)
         philosopher_array[i].number = i;
         philosopher_array[i].state.counter = 0;
         philosopher_array[i].state.last_eating.tv_sec = 0;
+        philosopher_array[i].state.last_eating.tv_usec = 0;
         i++;
     }
 }
@@ -57,9 +58,12 @@ static int  run(
         pid_array[i] = fork();
         if (pid_array[i] == 0) {
             if (pthread_create(&monitor, NULL, &monitor_run, philo_array + i))
-                return (EXIT_FAILURE);
+                break;
             pthread_detach(monitor);
-            philosopher_run(philo_array + i);
+            if (i % 2 == 0)
+                even_philosopher_run(philo_array + i);
+            else
+                odd_philosopher_run(philo_array + i);
         }
         i++;
     }
@@ -72,7 +76,7 @@ static int sem_create(t_config *conf) {
     size_t n;
 
     n = conf->number_of_philosopher;
-    conf->forks = sem_open("forks", O_CREAT | O_EXCL, 0600, n / 2);
+    conf->forks = sem_open("forks", O_CREAT | O_EXCL, 0600, n);
     sem_unlink("forks");
     if (conf->forks == SEM_FAILED)
         return (EXIT_FAILURE);

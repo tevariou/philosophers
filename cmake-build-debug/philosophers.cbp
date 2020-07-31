@@ -185,6 +185,9 @@
 		<Unit filename="/Users/triou/philosophers/philo_one/utils.c">
 			<Option target="philo_one"/>
 		</Unit>
+		<Unit filename="/Users/triou/philosophers/philo_three/clean.c">
+			<Option target="philo_three"/>
+		</Unit>
 		<Unit filename="/Users/triou/philosophers/philo_three/config.c">
 			<Option target="philo_three"/>
 		</Unit>

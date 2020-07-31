@@ -2,9 +2,11 @@
   <dictionary name="triou">
     <words>
       <w>atos</w>
+      <w>dest</w>
       <w>errorf</w>
       <w>memcpy</w>
       <w>msec</w>
+      <w>nbrlen</w>
       <w>philo</w>
       <w>putchar</w>
       <w>putnbr</w>

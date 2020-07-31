@@ -1,16 +1,20 @@
 #include "philo_three.h"
 #include <unistd.h>
+#include <string.h>
 
-void print_(const char *status, size_t number, t_config *conf) {
-    struct timeval time;
+void print_(const char *status, size_t number) {
+    char            str[34];
+    struct timeval  time;
 
     gettimeofday(&time, NULL);
-    ft_putnbr(timeval_to_msec(time));
-    ft_putchar(' ');
-    ft_putnbr(number);
-    ft_putchar(' ');
-    write(1, status, ft_strlen(status));
-    ft_putchar('\n');
+    memset(str, 0, 34);
+    ft_putnbr(str, timeval_to_msec(time));
+    ft_append(str, " ");
+    ft_putnbr(str, number);
+    ft_append(str, " ");
+    ft_append(str, status);
+    ft_append(str, "\n");
+    ft_putstr_fd(str, 1);
 }
 
 static void is_alive(t_philosopher *philosopher) {
@@ -26,7 +30,7 @@ static void is_alive(t_philosopher *philosopher) {
     if (timeval_cmp(time, timeval_add(last_eating, time_to_die)))
     {
         sem_wait(philosopher->conf->print);
-        print_("died", philosopher->number + 1, philosopher->conf);
+        print_("died", philosopher->number + 1);
         exit(0);
     }
 }

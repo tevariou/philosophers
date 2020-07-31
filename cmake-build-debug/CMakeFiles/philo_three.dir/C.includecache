@@ -6,10 +6,16 @@
 
 #IncludeRegexTransform: 
 
-/Users/triou/philosophers/philo_three/monitor.c
+/Users/triou/philosophers/philo_three/philo_three.c
 philo_three.h
 /Users/triou/philosophers/philo_three/philo_three.h
 unistd.h
+-
+string.h
+-
+sys/wait.h
+-
+signal.h
 -
 
 /Users/triou/philosophers/philo_three/philo_three.h
@@ -22,5 +28,11 @@ stdlib.h
 stdbool.h
 -
 semaphore.h
+-
+
+/Users/triou/philosophers/philo_three/philosopher.c
+philo_three.h
+/Users/triou/philosophers/philo_three/philo_three.h
+unistd.h
 -
 

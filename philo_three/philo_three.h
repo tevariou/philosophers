@@ -35,14 +35,16 @@ typedef struct      s_philosopher {
 
 size_t	            ft_strlen(const char *s);
 int		            ft_atoi(const char *str);
-void	            ft_putchar(char c);
-void	            ft_putnbr(uint64_t n);
+void	            ft_putnbr(char *s, uint64_t n);
+void	            ft_append(char *dest, const char *str);
+void	            ft_putstr_fd(char const *s, int fd);
 uint64_t            timeval_to_msec(struct timeval time);
 bool                timeval_cmp(struct timeval a, struct timeval b);
 struct timeval      timeval_add(struct timeval a, unsigned int b);
 void                print_status(const char *status, size_t number, t_config *conf);
 
-_Noreturn void                philosopher_run(t_philosopher *philosopher);
+_Noreturn void      even_philosopher_run(t_philosopher *philosopher);
+_Noreturn void      odd_philosopher_run(t_philosopher *philosopher);
 _Noreturn void      *monitor_run(void *arg);
 int                 config(t_config *conf, int ac, char **av);
 
