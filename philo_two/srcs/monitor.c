@@ -1,6 +1,7 @@
 #include "philo_two.h"
 
-static bool	is_alive(t_philosopher *philosopher, size_t number) {
+static bool	is_alive(t_philosopher *philosopher, size_t number)
+{
 	struct timeval	time;
 	struct timeval	last_eating;
 	unsigned int	time_to_die;
@@ -17,7 +18,8 @@ static bool	is_alive(t_philosopher *philosopher, size_t number) {
 	return (true);
 }
 
-void		*monitor_run(void *arg) {
+void		*monitor_run(void *arg)
+{
 	t_philosopher	*philosopher_array;
 	t_config		*conf;
 	size_t			i;

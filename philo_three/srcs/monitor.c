@@ -1,7 +1,8 @@
 #include "philo_three.h"
 #include <string.h>
 
-static void	is_alive(t_philosopher *philosopher) {
+static void	is_alive(t_philosopher *philosopher)
+{
 	struct timeval	time;
 	struct timeval	last_eating;
 	unsigned int	time_to_die;
@@ -17,7 +18,8 @@ static void	is_alive(t_philosopher *philosopher) {
 	}
 }
 
-_Noreturn void	*monitor_run(void *arg) {
+_Noreturn void	*monitor_run(void *arg)
+{
 	t_philosopher	*philosopher;
 
 	philosopher = (t_philosopher *)arg;
