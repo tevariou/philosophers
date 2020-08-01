@@ -1,12 +1,12 @@
 #ifndef PHILOSOPHERS_PHILO_TWO_H
 #define PHILOSOPHERS_PHILO_TWO_H
 
-#include			<pthread.h>
-#include			<sys/time.h>
-#include			<stdlib.h>
-#include			<stdbool.h>
-#include			<semaphore.h>
-#include			<stdint.h>
+#include <pthread.h>
+#include <sys/time.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <semaphore.h>
+#include <stdint.h>
 
 #define				USAGE	"Usage: ./philosopher number_of_philosopher " \
 							"time_to_die time_to_eat time_to_sleep " \
@@ -45,7 +45,8 @@ int					ft_strcmp(const char *s1, const char *s2);
 uint64_t			timeval_to_msec(struct timeval time);
 int					timeval_cmp(struct timeval a, struct timeval b);
 struct timeval		timeval_add(struct timeval a, unsigned int b);
-int					print_status(const char *status, size_t number, t_config *conf);
+int					print_status(const char *status, size_t number,
+						t_config *conf);
 void				*even_philosopher_run(void *arg);
 void				*odd_philosopher_run(void *arg);
 void				*monitor_run(void *arg);
