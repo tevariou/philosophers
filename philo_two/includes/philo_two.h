@@ -1,5 +1,5 @@
-#ifndef				PHILOSOPHERS_PHILO_TWO_H
-#define				PHILOSOPHERS_PHILO_TWO_H
+#ifndef PHILOSOPHERS_PHILO_TWO_H
+#define PHILOSOPHERS_PHILO_TWO_H
 
 #include			<pthread.h>
 #include			<sys/time.h>
