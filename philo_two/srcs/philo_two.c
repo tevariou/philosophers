@@ -18,7 +18,12 @@ static void	init(t_philosopher *philosopher_array, t_config *main_conf)
 	}
 }
 
-static void	pwait(t_philosopher *philo_array, t_config *conf, pthread_t *monitor) {
+static void	pwait(
+	t_philosopher *philo_array,
+	t_config *conf,
+	pthread_t *monitor
+)
+{
 	size_t	i;
 
 	i = 0;

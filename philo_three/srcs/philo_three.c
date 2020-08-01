@@ -22,7 +22,12 @@ static void	init(t_philosopher *philosopher_array, t_config *main_conf)
 	}
 }
 
-static void	clean(t_philosopher *philo_array, pid_t *pid_array, t_config *conf) {
+static void	clean(
+	t_philosopher *philo_array,
+	pid_t *pid_array,
+	t_config *conf
+)
+{
 	size_t	i;
 
 	i = 0;
