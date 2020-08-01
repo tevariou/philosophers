@@ -30,7 +30,11 @@ static int	sleeping(t_philosopher *philosopher)
 	return (EXIT_SUCCESS);
 }
 
-static int	take_fork(t_philosopher *philosopher, pthread_mutex_t *first, pthread_mutex_t *second)
+static int	take_fork(
+	t_philosopher *philosopher,
+	pthread_mutex_t *first,
+	pthread_mutex_t *second
+)
 {
 	size_t	n;
 
