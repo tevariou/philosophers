@@ -1,6 +1,7 @@
 #include <sys/time.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 uint64_t		timeval_to_msec(struct timeval time)
 {
