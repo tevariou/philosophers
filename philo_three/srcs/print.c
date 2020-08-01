@@ -2,8 +2,8 @@
 #include <string.h>
 
 void	print_status(const char *status, size_t number, t_config *conf) {
-	char            str[34];
-	struct timeval time;
+	char			str[34];
+	struct timeval	time;
 
 	gettimeofday(&time, NULL);
 	sem_wait(conf->print);

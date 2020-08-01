@@ -1,10 +1,10 @@
 #include "philo_one.h"
 
 static int	init(
-			t_philosopher *philosopher_array,
-			pthread_mutex_t *fork_array,
-			t_config *main_conf
-		)
+				t_philosopher *philosopher_array,
+				pthread_mutex_t *fork_array,
+				t_config *main_conf
+			)
 {
 	size_t	i;
 	size_t	n;
@@ -32,7 +32,7 @@ static int	init(
 }
 
 static void	pwait(t_philosopher *philo_array, t_config *conf, pthread_t *monitor) {
-	size_t  i;
+	size_t	i;
 
 	i = 0;
 	while (i < conf->number_of_philosopher)
@@ -44,15 +44,15 @@ static void	pwait(t_philosopher *philo_array, t_config *conf, pthread_t *monitor
 }
 
 static int	run(
-			t_philosopher *philo_array,
-			pthread_mutex_t *fork_array,
-			t_config *conf
-		)
+				t_philosopher *philo_array,
+				pthread_mutex_t *fork_array,
+				t_config *conf
+			)
 {
-	size_t      i;
-	size_t      n;
-	pthread_t   monitor;
-	void        *(*f)(void *);
+	size_t		i;
+	size_t		n;
+	pthread_t	monitor;
+	void		*(*f)(void *);
 
 	n = conf->number_of_philosopher;
 	i = 0;
@@ -77,12 +77,12 @@ static int	run(
 }
 
 static int	alloc(
-			pthread_mutex_t **fork_array,
-			t_philosopher **philosopher_array,
-			t_config *conf
-		)
+				pthread_mutex_t **fork_array,
+				t_philosopher **philosopher_array,
+				t_config *conf
+			)
 {
-	size_t size;
+	size_t	size;
 
 	size = sizeof(pthread_mutex_t) * conf->number_of_philosopher;
 	if (!(*fork_array = (pthread_mutex_t *)malloc(size)))
@@ -102,9 +102,9 @@ static int	alloc(
 
 int			main(int ac, char** av)
 {
-	t_config        conf;
-	pthread_mutex_t *fork_array;
-	t_philosopher   *philosopher_array;
+	t_config		conf;
+	pthread_mutex_t	*fork_array;
+	t_philosopher	*philosopher_array;
 
 	if (config(&conf, ac, av))
 		return (EXIT_FAILURE);

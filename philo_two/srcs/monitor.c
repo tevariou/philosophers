@@ -1,9 +1,9 @@
 #include "philo_two.h"
 
 static bool	is_alive(t_philosopher *philosopher, size_t number) {
-	struct timeval  time;
-	struct timeval  last_eating;
-	unsigned int    time_to_die;
+	struct timeval	time;
+	struct timeval	last_eating;
+	unsigned int	time_to_die;
 
 	gettimeofday(&time, NULL);
 	last_eating = philosopher->state.last_eating;
@@ -18,11 +18,11 @@ static bool	is_alive(t_philosopher *philosopher, size_t number) {
 }
 
 void		*monitor_run(void *arg) {
-	t_philosopher   *philosopher_array;
-	t_config        *conf;
-	size_t          i;
-	int		        n;
-	size_t          counter;
+	t_philosopher	*philosopher_array;
+	t_config		*conf;
+	size_t			i;
+	int				n;
+	size_t			counter;
 
 	philosopher_array = (t_philosopher *)arg;
 	conf = philosopher_array[0].conf;

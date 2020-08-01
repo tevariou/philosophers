@@ -6,8 +6,8 @@
 
 static void	init(t_philosopher *philosopher_array, t_config *main_conf)
 {
-	size_t          i;
-	size_t          n;
+	size_t	i;
+	size_t	n;
 
 	n = main_conf->number_of_philosopher;
 	i = 0;
@@ -23,7 +23,7 @@ static void	init(t_philosopher *philosopher_array, t_config *main_conf)
 }
 
 static void	clean(t_philosopher *philo_array, pid_t *pid_array, t_config *conf) {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < conf->number_of_philosopher) {
@@ -42,11 +42,11 @@ static int	run(
 			t_config *conf
 		)
 {
-	size_t      i;
-	size_t      n;
-	pthread_t   monitor;
-	pid_t       *pid_array;
-	int         status;
+	size_t		i;
+	size_t		n;
+	pthread_t	monitor;
+	pid_t		*pid_array;
+	int			status;
 
 	n = conf->number_of_philosopher;
 	if (!(pid_array = (pid_t *)malloc(sizeof(pid_t) * n))) {
@@ -73,7 +73,7 @@ static int	run(
 }
 
 static int	sem_create(t_config *conf) {
-	size_t n;
+	size_t	n;
 
 	n = conf->number_of_philosopher;
 	conf->forks = sem_open("forks", O_CREAT | O_EXCL, 0600, n);
@@ -91,9 +91,9 @@ static int	sem_create(t_config *conf) {
 
 int			main(int ac, char** av)
 {
-	t_config        conf;
-	size_t          size;
-	t_philosopher   *philosopher_array;
+	t_config		conf;
+	size_t			size;
+	t_philosopher	*philosopher_array;
 
 	if (config(&conf, ac, av))
 		return (EXIT_FAILURE);

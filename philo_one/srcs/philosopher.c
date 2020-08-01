@@ -2,8 +2,8 @@
 #include <unistd.h>
 
 static int     eating(t_philosopher *philosopher, pthread_mutex_t *first, pthread_mutex_t *second) {
-	struct timeval time;
-	size_t         n;
+	struct timeval	time;
+	size_t			n;
 
 	n = philosopher->number;
 	gettimeofday(&time, NULL);
@@ -21,7 +21,7 @@ static int     eating(t_philosopher *philosopher, pthread_mutex_t *first, pthrea
 
 static int     sleeping(t_philosopher *philosopher)
 {
-	size_t n;
+	size_t	n;
 
 	n = philosopher->number;
 	if (print_status("is sleeping", n + 1, philosopher->conf))
@@ -32,7 +32,7 @@ static int     sleeping(t_philosopher *philosopher)
 
 static int take_fork(t_philosopher *philosopher, pthread_mutex_t *first, pthread_mutex_t *second)
 {
-	size_t          n;
+	size_t	n;
 
 	n = philosopher->number;
 	pthread_mutex_lock(first);
@@ -53,10 +53,10 @@ static int take_fork(t_philosopher *philosopher, pthread_mutex_t *first, pthread
 
 void  *even_philosopher_run(void *arg)
 {
-	t_philosopher   *philosopher;
-	pthread_mutex_t *first;
-	pthread_mutex_t *second;
-	size_t          n;
+	t_philosopher	*philosopher;
+	pthread_mutex_t	*first;
+	pthread_mutex_t	*second;
+	size_t			n;
 
 	philosopher = (t_philosopher *)arg;
 	gettimeofday(&philosopher->state.last_eating, NULL);
@@ -80,10 +80,10 @@ void  *even_philosopher_run(void *arg)
 
 void  *odd_philosopher_run(void *arg)
 {
-	t_philosopher   *philosopher;
-	pthread_mutex_t *first;
-	pthread_mutex_t *second;
-	size_t          n;
+	t_philosopher	*philosopher;
+	pthread_mutex_t	*first;
+	pthread_mutex_t	*second;
+	size_t			n;
 
 	philosopher = (t_philosopher *)arg;
 	gettimeofday(&philosopher->state.last_eating, NULL);

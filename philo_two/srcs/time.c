@@ -20,8 +20,8 @@ int             timeval_cmp(struct timeval a, struct timeval b) {
 
 struct timeval	timeval_add(struct timeval a, unsigned int b)
 {
-	uint64_t        time;
-	struct timeval result;
+	uint64_t		time;
+	struct timeval	result;
 
 	time = (a.tv_usec + b * 1000) / 1000000;
 	result.tv_sec = a.tv_sec + time;

@@ -3,8 +3,8 @@
 
 short	ft_atos(const char *str)
 {
-	int		            i;
-	unsigned int		number;
+	int				i;
+	unsigned int	number;
 
 	i = 0;
 	number = 0;

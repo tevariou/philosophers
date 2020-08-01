@@ -2,8 +2,8 @@
 #include <unistd.h>
 
 static void		eating(t_philosopher *philosopher) {
-	struct timeval time;
-	size_t         n;
+	struct timeval	time;
+	size_t			n;
 
 	n = philosopher->number;
 	gettimeofday(&time, NULL);
@@ -18,7 +18,7 @@ static void		eating(t_philosopher *philosopher) {
 }
 
 static void		sleeping(t_philosopher *philosopher) {
-	size_t n;
+	size_t	n;
 
 	n = philosopher->number;
 	print_status("is sleeping", n + 1, philosopher->conf);
@@ -26,7 +26,7 @@ static void		sleeping(t_philosopher *philosopher) {
 }
 
 static void		take_fork(t_philosopher *philosopher) {
-	size_t n;
+	size_t	n;
 
 	n = philosopher->number;
 	sem_wait(philosopher->conf->forks);
@@ -37,7 +37,7 @@ static void		take_fork(t_philosopher *philosopher) {
 
 _Noreturn void	even_philosopher_run(t_philosopher *philosopher)
 {
-	size_t n;
+	size_t	n;
 
 	gettimeofday(&philosopher->state.last_eating, NULL);
 	n = philosopher->number;
@@ -51,7 +51,7 @@ _Noreturn void	even_philosopher_run(t_philosopher *philosopher)
 
 _Noreturn void  odd_philosopher_run(t_philosopher *philosopher)
 {
-	size_t n;
+	size_t	n;
 
 	gettimeofday(&philosopher->state.last_eating, NULL);
 	n = philosopher->number;

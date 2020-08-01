@@ -2,9 +2,9 @@
 #include <string.h>
 
 static void	is_alive(t_philosopher *philosopher) {
-	struct timeval  time;
-	struct timeval  last_eating;
-	unsigned int    time_to_die;
+	struct timeval	time;
+	struct timeval	last_eating;
+	unsigned int	time_to_die;
 
 	gettimeofday(&time, NULL);
 	last_eating = philosopher->state.last_eating;
@@ -18,7 +18,7 @@ static void	is_alive(t_philosopher *philosopher) {
 }
 
 _Noreturn void	*monitor_run(void *arg) {
-	t_philosopher   *philosopher;
+	t_philosopher	*philosopher;
 
 	philosopher = (t_philosopher *)arg;
 	while (1)
