@@ -1,7 +1,7 @@
 #include "philo_one.h"
 #include <unistd.h>
 
-static int     eating(t_philosopher *philosopher, pthread_mutex_t *first, pthread_mutex_t *second) {
+static int	eating(t_philosopher *philosopher, pthread_mutex_t *first, pthread_mutex_t *second) {
 	struct timeval	time;
 	size_t			n;
 
@@ -19,7 +19,7 @@ static int     eating(t_philosopher *philosopher, pthread_mutex_t *first, pthrea
 	return (EXIT_SUCCESS);
 }
 
-static int     sleeping(t_philosopher *philosopher)
+static int	sleeping(t_philosopher *philosopher)
 {
 	size_t	n;
 
@@ -30,7 +30,7 @@ static int     sleeping(t_philosopher *philosopher)
 	return (EXIT_SUCCESS);
 }
 
-static int take_fork(t_philosopher *philosopher, pthread_mutex_t *first, pthread_mutex_t *second)
+static int	take_fork(t_philosopher *philosopher, pthread_mutex_t *first, pthread_mutex_t *second)
 {
 	size_t	n;
 
@@ -51,7 +51,7 @@ static int take_fork(t_philosopher *philosopher, pthread_mutex_t *first, pthread
 	return (EXIT_SUCCESS);
 }
 
-void  *even_philosopher_run(void *arg)
+void		*even_philosopher_run(void *arg)
 {
 	t_philosopher	*philosopher;
 	pthread_mutex_t	*first;
@@ -78,7 +78,7 @@ void  *even_philosopher_run(void *arg)
 	}
 }
 
-void  *odd_philosopher_run(void *arg)
+void		*odd_philosopher_run(void *arg)
 {
 	t_philosopher	*philosopher;
 	pthread_mutex_t	*first;

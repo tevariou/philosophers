@@ -49,7 +49,7 @@ _Noreturn void	even_philosopher_run(t_philosopher *philosopher)
 	}
 }
 
-_Noreturn void  odd_philosopher_run(t_philosopher *philosopher)
+_Noreturn void	odd_philosopher_run(t_philosopher *philosopher)
 {
 	size_t	n;
 
