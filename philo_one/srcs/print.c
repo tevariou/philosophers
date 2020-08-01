@@ -2,7 +2,7 @@
 #include "unistd.h"
 #include <string.h>
 
-int print_status(const char *status, size_t number, t_config *conf) {
+int	print_status(const char *status, size_t number, t_config *conf) {
 	struct timeval time;
 	char           str[34];
 

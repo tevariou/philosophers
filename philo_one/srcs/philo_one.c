@@ -1,13 +1,13 @@
 #include "philo_one.h"
 
-static int  init(
-			t_philosopher   *philosopher_array,
+static int	init(
+			t_philosopher *philosopher_array,
 			pthread_mutex_t *fork_array,
-			t_config        *main_conf
+			t_config *main_conf
 		)
 {
-	size_t          i;
-	size_t          n;
+	size_t	i;
+	size_t	n;
 
 	n = main_conf->number_of_philosopher;
 	i = 0;
@@ -31,7 +31,7 @@ static int  init(
 	return (EXIT_SUCCESS);
 }
 
-static void  pwait(t_philosopher *philo_array, t_config *conf, pthread_t *monitor) {
+static void	pwait(t_philosopher *philo_array, t_config *conf, pthread_t *monitor) {
 	size_t  i;
 
 	i = 0;
@@ -43,10 +43,10 @@ static void  pwait(t_philosopher *philo_array, t_config *conf, pthread_t *monito
 	pthread_join(*monitor, NULL);
 }
 
-static int  run(
-			t_philosopher   *philo_array,
+static int	run(
+			t_philosopher *philo_array,
 			pthread_mutex_t *fork_array,
-			t_config        *conf
+			t_config *conf
 		)
 {
 	size_t      i;
@@ -76,10 +76,10 @@ static int  run(
 	return (EXIT_SUCCESS);
 }
 
-static int  alloc(
+static int	alloc(
 			pthread_mutex_t **fork_array,
-			t_philosopher   **philosopher_array,
-			t_config        *conf
+			t_philosopher **philosopher_array,
+			t_config *conf
 		)
 {
 	size_t size;
@@ -100,7 +100,7 @@ static int  alloc(
 	return (EXIT_SUCCESS);
 }
 
-int         main(int ac, char** av)
+int			main(int ac, char** av)
 {
 	t_config        conf;
 	pthread_mutex_t *fork_array;

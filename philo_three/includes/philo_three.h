@@ -8,30 +8,30 @@
 #include            <semaphore.h>
 
 #define             USAGE        "Usage: ./philosopher number_of_philosopher " \
-                                 "time_to_die time_to_eat time_to_sleep " \
-                                 "[number_of_time_each_philosophers_must_eat]\n"
+								 "time_to_die time_to_eat time_to_sleep " \
+								 "[number_of_time_each_philosophers_must_eat]\n"
 #define             PARAMS       "Params must be short numbers\n"
 
 typedef struct      s_state {
-    struct timeval  last_eating;
-    int             counter;
+	struct timeval  last_eating;
+	int             counter;
 }                   t_state;
 
 typedef struct      s_config {
-    size_t          number_of_philosopher;
-    unsigned int    time_to_die;
-    unsigned int    time_to_eat;
-    unsigned int    time_to_sleep;
-    int             number_of_time_each_philosophers_must_eat;
-    sem_t           *forks;
-    sem_t           *print;
+	size_t          number_of_philosopher;
+	unsigned int    time_to_die;
+	unsigned int    time_to_eat;
+	unsigned int    time_to_sleep;
+	int             number_of_time_each_philosophers_must_eat;
+	sem_t           *forks;
+	sem_t           *print;
 }                   t_config;
 
 typedef struct      s_philosopher {
-    size_t          number;
-    pthread_t       thread;
-    t_state         state;
-    t_config        *conf;
+	size_t          number;
+	pthread_t       thread;
+	t_state         state;
+	t_config        *conf;
 }                   t_philosopher;
 
 size_t	            ft_strlen(const char *s);

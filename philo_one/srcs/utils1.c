@@ -33,7 +33,7 @@ void	ft_putnbr(char *s, uint64_t n)
 	*s = (char)((int)'0' + n % 10);
 }
 
-void    ft_append(char *dest, const char *str)
+void	ft_append(char *dest, const char *str)
 {
 	while (*dest)
 		dest++;
@@ -41,7 +41,7 @@ void    ft_append(char *dest, const char *str)
 		*dest++ = *str++;
 }
 
-int	    ft_strcmp(const char *s1, const char *s2)
+int		ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 && *s2 && *s1 == *s2)
 	{

@@ -1,12 +1,12 @@
 #include "philo_one.h"
 
-static int  error(const char *e)
+static int	error(const char *e)
 {
 	ft_putstr_fd(e, 2);
 	return (EXIT_FAILURE);
 }
 
-int         config(t_config *conf, int ac, char **av)
+int			config(t_config *conf, int ac, char **av)
 {
 	if (ac < 5)
 	{
