@@ -77,7 +77,8 @@ static int	run(
 	return (EXIT_SUCCESS);
 }
 
-static int	sem_create(t_config *conf) {
+static int	sem_create(t_config *conf)
+{
 	size_t	n;
 
 	n = conf->number_of_philosopher;
