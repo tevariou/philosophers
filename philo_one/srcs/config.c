@@ -8,13 +8,16 @@ static int	error(const char *e)
 
 int			config(t_config *conf, int ac, char **av)
 {
+	int	n;
+
 	if (ac < 5)
 	{
 		ft_putstr_fd(USAGE, 2);
 		return (EXIT_FAILURE);
 	}
-	if ((conf->number_of_philosopher = ft_atos(av[1])) < 0)
+	if ((n = ft_atos(av[1])) < 0)
 		return (error(PARAMS));
+	conf->number_of_philosopher = n;
 	if ((conf->time_to_die = ft_atos(av[2])) < 0)
 		return (error(PARAMS));
 	if ((conf->time_to_eat = ft_atos(av[3])) < 0)
