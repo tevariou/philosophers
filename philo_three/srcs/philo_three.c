@@ -31,7 +31,8 @@ static void	clean(
 	size_t	i;
 
 	i = 0;
-	while (i < conf->number_of_philosopher) {
+	while (i < conf->number_of_philosopher)
+	{
 		if (!kill(pid_array[i], 0))
 			kill(pid_array[i], SIGTERM);
 		i++;
@@ -54,14 +55,14 @@ static int	run(
 	int			status;
 
 	n = conf->number_of_philosopher;
-	if (!(pid_array = (pid_t *)malloc(sizeof(pid_t) * n))) {
+	if (!(pid_array = (pid_t *)malloc(sizeof(pid_t) * n)))
 		return (EXIT_FAILURE);
-	}
 	i = 0;
 	while (i < n)
 	{
 		pid_array[i] = fork();
-		if (pid_array[i] == 0) {
+		if (pid_array[i] == 0)
+		{
 			if (pthread_create(&monitor, NULL, &monitor_run, philo_array + i))
 				break;
 			pthread_detach(monitor);
@@ -88,7 +89,8 @@ static int	sem_create(t_config *conf)
 		return (EXIT_FAILURE);
 	conf->print = sem_open("print", O_CREAT | O_EXCL, 0600, 1);
 	sem_unlink("print");
-	if (conf->print == SEM_FAILED) {
+	if (conf->print == SEM_FAILED)
+	{
 		sem_close(conf->forks);
 		return (EXIT_FAILURE);
 	}
