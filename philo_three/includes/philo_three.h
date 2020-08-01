@@ -20,9 +20,9 @@ typedef struct      s_state {
 
 typedef struct      s_config {
 	size_t          number_of_philosopher;
-	unsigned int    time_to_die;
-	unsigned int    time_to_eat;
-	unsigned int    time_to_sleep;
+	int    			time_to_die;
+	int    			time_to_eat;
+	int				time_to_sleep;
 	int             number_of_time_each_philosophers_must_eat;
 	sem_t           *forks;
 	sem_t           *print;
