@@ -43,9 +43,9 @@ static void	clean(
 }
 
 static int	run(
-				t_philosopher *philo_array,
-				t_config *conf
-			)
+	t_philosopher *philo_array,
+	t_config *conf
+)
 {
 	size_t		i;
 	size_t		n;

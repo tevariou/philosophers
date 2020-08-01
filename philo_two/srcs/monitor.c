@@ -42,7 +42,7 @@ void		*monitor_run(void *arg)
 			i++;
 		}
 		if (counter == conf->number_of_philosopher)
-			break;
+			break ;
 	}
 	return (NULL);
 }

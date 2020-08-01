@@ -36,9 +36,9 @@ static void	pwait(
 }
 
 static int	run(
-				t_philosopher *philo_array,
-				t_config *conf
-			)
+	t_philosopher *philo_array,
+	t_config *conf
+)
 {
 	size_t		i;
 	size_t		n;
@@ -77,7 +77,8 @@ static int	sem_create(t_config *conf) {
 		return (EXIT_FAILURE);
 	conf->print = sem_open("print", O_CREAT | O_EXCL, 0600, 1);
 	sem_unlink("print");
-	if (conf->print == SEM_FAILED) {
+	if (conf->print == SEM_FAILED)
+	{
 		sem_close(conf->forks);
 		return (EXIT_FAILURE);
 	}
