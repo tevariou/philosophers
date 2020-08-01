@@ -69,9 +69,9 @@ void		*even_philosopher_run(void *arg)
 	{
 		if (print_status("is thinking", n + 1, philosopher->conf))
 			return (NULL);
-    	if (take_fork(philosopher, first, second))
+		if (take_fork(philosopher, first, second))
 			return (NULL);
-    	if (eating(philosopher, first, second))
+		if (eating(philosopher, first, second))
 			return (NULL);
 		if (sleeping(philosopher))
 			return (NULL);

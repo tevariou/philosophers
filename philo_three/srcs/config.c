@@ -22,6 +22,6 @@ int			config(t_config *conf, int ac, char **av)
 	if ((conf->time_to_sleep = ft_atos(av[4])) < 0)
 		return (error(PARAMS));
 	conf->number_of_time_each_philosophers_must_eat = (ac == 6)
-													  ? ft_atos(av[5]) : -1;
+		? ft_atos(av[5]) : -1;
 	return (EXIT_SUCCESS);
 }
