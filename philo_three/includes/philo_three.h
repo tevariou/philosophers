@@ -1,6 +1,7 @@
 #ifndef             PHILOSOPHERS_PHILO_THREE_H
 #define             PHILOSOPHERS_PHILO_THREE_H
 
+#include            <pthread.h>
 #include            <sys/time.h>
 #include            <stdlib.h>
 #include            <stdbool.h>
