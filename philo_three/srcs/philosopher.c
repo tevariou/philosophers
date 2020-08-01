@@ -1,7 +1,8 @@
 #include "philo_three.h"
 #include <unistd.h>
 
-static void		eating(t_philosopher *philosopher) {
+static void		eating(t_philosopher *philosopher)
+{
 	struct timeval	time;
 	size_t			n;
 
@@ -17,7 +18,8 @@ static void		eating(t_philosopher *philosopher) {
 		exit(0);
 }
 
-static void		sleeping(t_philosopher *philosopher) {
+static void		sleeping(t_philosopher *philosopher)
+{
 	size_t	n;
 
 	n = philosopher->number;
@@ -25,7 +27,8 @@ static void		sleeping(t_philosopher *philosopher) {
 	usleep(philosopher->conf->time_to_sleep * 1000);
 }
 
-static void		take_fork(t_philosopher *philosopher) {
+static void		take_fork(t_philosopher *philosopher)
+{
 	size_t	n;
 
 	n = philosopher->number;
@@ -41,7 +44,8 @@ _Noreturn void	even_philosopher_run(t_philosopher *philosopher)
 
 	gettimeofday(&philosopher->state.last_eating, NULL);
 	n = philosopher->number;
-	while (1) {
+	while (1)
+	{
 		print_status("is thinking", n + 1, philosopher->conf);
 		take_fork(philosopher);
 		eating(philosopher);
@@ -55,7 +59,8 @@ _Noreturn void	odd_philosopher_run(t_philosopher *philosopher)
 
 	gettimeofday(&philosopher->state.last_eating, NULL);
 	n = philosopher->number;
-	while (1) {
+	while (1)
+	{
 		sleeping(philosopher);
 		print_status("is thinking", n + 1, philosopher->conf);
 		take_fork(philosopher);

@@ -1,7 +1,8 @@
 #include "philo_two.h"
 #include <unistd.h>
 
-static int	eating(t_philosopher *philosopher) {
+static int	eating(t_philosopher *philosopher)
+{
 	struct timeval	time;
 	size_t			n;
 
@@ -62,7 +63,8 @@ void		*even_philosopher_run(void *arg)
 	philosopher = (t_philosopher *)arg;
 	gettimeofday(&philosopher->state.last_eating, NULL);
 	n = philosopher->number;
-	while (1) {
+	while (1)
+	{
 		if (print_status("is thinking", n + 1, philosopher->conf))
 			return (NULL);
 		if (take_fork(philosopher))
@@ -94,4 +96,3 @@ void		*odd_philosopher_run(void *arg)
 			return (NULL);
 	}
 }
-
