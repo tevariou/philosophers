@@ -1,7 +1,8 @@
 #include "philo_three.h"
 #include <string.h>
 
-void	print_status(const char *status, size_t number, t_config *conf) {
+void	print_status(const char *status, size_t number, t_config *conf)
+{
 	char			str[34];
 	struct timeval	time;
 
