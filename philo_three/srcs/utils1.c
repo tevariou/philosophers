@@ -9,7 +9,7 @@ short	ft_atos(const char *str)
 	i = 0;
 	number = 0;
 	while ((str[i] == ' ') || (str[i] == '\t') || (str[i] == '\n')
-		   || (str[i] == '\v') || (str[i] == '\f') || (str[i] == '\r'))
+		|| (str[i] == '\v') || (str[i] == '\f') || (str[i] == '\r'))
 		i++;
 	while ((str[i] >= '0') && (str[i] <= '9'))
 	{
