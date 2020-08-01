@@ -79,7 +79,7 @@ static int	sem_create(t_config *conf) {
 	return (EXIT_SUCCESS);
 }
 
-int			main(int ac, char** av)
+int			main(int ac, char **av)
 {
 	t_config		conf;
 	size_t			size;

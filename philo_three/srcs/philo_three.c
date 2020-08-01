@@ -38,9 +38,9 @@ static void	clean(t_philosopher *philo_array, pid_t *pid_array, t_config *conf) 
 }
 
 static int	run(
-			t_philosopher *philo_array,
-			t_config *conf
-		)
+				t_philosopher *philo_array,
+				t_config *conf
+			)
 {
 	size_t		i;
 	size_t		n;
@@ -89,7 +89,7 @@ static int	sem_create(t_config *conf) {
 	return (EXIT_SUCCESS);
 }
 
-int			main(int ac, char** av)
+int			main(int ac, char **av)
 {
 	t_config		conf;
 	size_t			size;

@@ -100,7 +100,7 @@ static int	alloc(
 	return (EXIT_SUCCESS);
 }
 
-int			main(int ac, char** av)
+int			main(int ac, char **av)
 {
 	t_config		conf;
 	pthread_mutex_t	*fork_array;
