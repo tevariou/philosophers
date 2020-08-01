@@ -1,7 +1,11 @@
 #include "philo_one.h"
 #include <unistd.h>
 
-static int	eating(t_philosopher *philosopher, pthread_mutex_t *first, pthread_mutex_t *second) {
+static int	eating(
+	t_philosopher *philosopher,
+	pthread_mutex_t *first,
+	pthread_mutex_t *second
+) {
 	struct timeval	time;
 	size_t			n;
 
