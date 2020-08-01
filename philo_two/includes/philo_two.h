@@ -6,6 +6,7 @@
 #include            <stdlib.h>
 #include            <stdbool.h>
 #include            <semaphore.h>
+#include			<stdint.h>
 
 #define             USAGE        "Usage: ./philosopher number_of_philosopher " \
 								 "time_to_die time_to_eat time_to_sleep " \
