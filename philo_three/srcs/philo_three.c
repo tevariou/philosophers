@@ -3,6 +3,7 @@
 #include <string.h>
 #include <sys/wait.h>
 #include <signal.h>
+#include <fcntl.h>
 
 static void	init(t_philosopher *philosopher_array, t_config *main_conf)
 {
