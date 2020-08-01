@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include <limits.h>
+#include <stdint.h>
 
 short	ft_atos(const char *str)
 {
