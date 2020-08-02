@@ -50,7 +50,7 @@ void				*odd_philosopher_run(void *arg);
 void				*monitor_run(void *arg);
 int					config(t_config *conf, int ac, char **av);
 void				clean(t_philosopher *philosopher_array,
-						pthread_mutex_t *fork_array,pthread_mutex_t
-						*mutex,size_t n);
+						pthread_mutex_t *fork_array, pthread_mutex_t *mutex,
+						size_t n);
 
 #endif
