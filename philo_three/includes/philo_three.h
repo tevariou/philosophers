@@ -1,17 +1,15 @@
 #ifndef PHILOSOPHERS_PHILO_THREE_H
-#define PHILOSOPHERS_PHILO_THREE_H
+# define PHILOSOPHERS_PHILO_THREE_H
 
-#include <pthread.h>
-#include <sys/time.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <semaphore.h>
-#include <stdint.h>
+# include <pthread.h>
+# include <sys/time.h>
+# include <stdlib.h>
+# include <stdbool.h>
+# include <semaphore.h>
+# include <stdint.h>
 
-#define USAGE	"Usage: ./philosopher number_of_philosopher " \
-				"time_to_die time_to_eat time_to_sleep " \
-				"[number_of_time_each_philosophers_must_eat]\n"
-#define PARAMS	"Params must be short numbers\n"
+# define USAGE	"Empty parameters\n"
+# define PARAMS	"Params must be short numbers\n"
 
 typedef struct		s_state {
 	struct timeval	last_eating;
