@@ -1,7 +1,7 @@
 #include "philo_three.h"
 #include <unistd.h>
 
-static void		eating(t_philosopher *philosopher)
+static void	eating(t_philosopher *philosopher)
 {
 	struct timeval	time;
 	size_t			n;
@@ -18,7 +18,7 @@ static void		eating(t_philosopher *philosopher)
 		exit(0);
 }
 
-static void		sleeping(t_philosopher *philosopher)
+static void	sleeping(t_philosopher *philosopher)
 {
 	size_t	n;
 
@@ -27,7 +27,7 @@ static void		sleeping(t_philosopher *philosopher)
 	usleep(philosopher->conf->time_to_sleep * 1000);
 }
 
-static void		take_fork(t_philosopher *philosopher)
+static void	take_fork(t_philosopher *philosopher)
 {
 	size_t	n;
 
@@ -38,7 +38,7 @@ static void		take_fork(t_philosopher *philosopher)
 	print_status("has taken a fork", n + 1, philosopher->conf);
 }
 
-_Noreturn void	even_philosopher_run(t_philosopher *philosopher)
+void		even_philosopher_run(t_philosopher *philosopher)
 {
 	size_t	n;
 
@@ -53,7 +53,7 @@ _Noreturn void	even_philosopher_run(t_philosopher *philosopher)
 	}
 }
 
-_Noreturn void	odd_philosopher_run(t_philosopher *philosopher)
+void		odd_philosopher_run(t_philosopher *philosopher)
 {
 	size_t	n;
 
