@@ -44,7 +44,8 @@ int					ft_strcmp(const char *s1, const char *s2);
 uint64_t			timeval_to_msec(struct timeval time);
 int					timeval_cmp(struct timeval a, struct timeval b);
 struct timeval		timeval_add(struct timeval a, unsigned int b);
-void				print_status(const char *status, size_t number, t_config *conf);
+void				print_status(const char *status, size_t number,
+						t_config *conf);
 _Noreturn void		even_philosopher_run(t_philosopher *philosopher);
 _Noreturn void		odd_philosopher_run(t_philosopher *philosopher);
 _Noreturn void		*monitor_run(void *arg);
