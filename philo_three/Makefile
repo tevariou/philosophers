@@ -12,7 +12,8 @@ SRCS	:=	philo_three.c \
 			print.c \
 			time.c \
 			utils1.c \
-			utils2.c
+			utils2.c \
+			clean.c
 INCS	:=	$(INC_DIR)/philo_three.h
 OBJS	:=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 

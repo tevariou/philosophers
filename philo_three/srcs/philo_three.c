@@ -2,7 +2,6 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
-#include <signal.h>
 #include <fcntl.h>
 
 static void	init(t_philosopher *philosopher_array, t_config *main_conf)
@@ -23,43 +22,18 @@ static void	init(t_philosopher *philosopher_array, t_config *main_conf)
 	}
 }
 
-static void	clean(
-	t_philosopher *philo_array,
-	pid_t *pid_array,
-	t_config *conf
-)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < conf->number_of_philosopher)
-	{
-		if (!kill(pid_array[i], 0))
-			kill(pid_array[i], SIGTERM);
-		i++;
-	}
-	free(pid_array);
-	sem_close(conf->print);
-	sem_close(conf->forks);
-	free(philo_array);
-}
-
 static int	run(
 	t_philosopher *philo_array,
+	pid_t		*pid_array,
 	t_config *conf
 )
 {
 	size_t		i;
-	size_t		n;
 	pthread_t	monitor;
-	pid_t		*pid_array;
 	int			status;
 
-	n = conf->number_of_philosopher;
-	if (!(pid_array = (pid_t *)malloc(sizeof(pid_t) * n)))
-		return (EXIT_FAILURE);
 	i = 0;
-	while (i < n)
+	while (i < conf->number_of_philosopher)
 	{
 		pid_array[i] = fork();
 		if (pid_array[i] == 0)
@@ -103,14 +77,21 @@ int			main(int ac, char **av)
 	t_config		conf;
 	size_t			size;
 	t_philosopher	*philosopher_array;
+	pid_t			*pid_array;
 
 	if (config(&conf, ac, av))
-		return (EXIT_FAILURE);
-	if (sem_create(&conf))
 		return (EXIT_FAILURE);
 	size = sizeof(t_philosopher) * conf.number_of_philosopher;
 	if (!(philosopher_array = (t_philosopher *)malloc(size)))
 		return (EXIT_FAILURE);
+	size = sizeof(pid_t) * conf.number_of_philosopher;
+	if (!(pid_array = (pid_t *)malloc(sizeof(pid_t) * size)))
+	{
+		free(philosopher_array);
+		return (EXIT_FAILURE);
+	}
+	if (sem_create(&conf))
+		return (EXIT_FAILURE);
 	init(philosopher_array, &conf);
-	return (run(philosopher_array, &conf));
+	return (run(philosopher_array, pid_array, &conf));
 }

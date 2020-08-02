@@ -48,5 +48,7 @@ void				even_philosopher_run(t_philosopher *philosopher);
 void				odd_philosopher_run(t_philosopher *philosopher);
 void				*monitor_run(void *arg);
 int					config(t_config *conf, int ac, char **av);
+void				clean(t_philosopher *philo_array, pid_t *pid_array,
+						t_config *conf);
 
 #endif
