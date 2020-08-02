@@ -65,7 +65,7 @@ static int	run(
 		if (pid_array[i] == 0)
 		{
 			if (pthread_create(&monitor, NULL, &monitor_run, philo_array + i))
-				break;
+				break ;
 			pthread_detach(monitor);
 			if (!(i % 2))
 				even_philosopher_run(philo_array + i);
