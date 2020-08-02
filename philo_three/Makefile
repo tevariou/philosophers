@@ -1,7 +1,7 @@
 NAME	:=	philo_three
 
 CC		:=	gcc
-CFLAGS	:=	-Wall -Werror -Wextra
+CFLAGS	:=	-pthread -Wall -Werror -Wextra
 SRC_DIR :=	srcs
 OBJ_DIR	:=	objs
 INC_DIR :=	includes
