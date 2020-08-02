@@ -18,7 +18,7 @@ static void	is_alive(t_philosopher *philosopher)
 	}
 }
 
-_Noreturn void	*monitor_run(void *arg)
+void		*monitor_run(void *arg)
 {
 	t_philosopher	*philosopher;
 

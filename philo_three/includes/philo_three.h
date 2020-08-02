@@ -44,9 +44,9 @@ int					timeval_cmp(struct timeval a, struct timeval b);
 struct timeval		timeval_add(struct timeval a, unsigned int b);
 void				print_status(const char *status, size_t number,
 						t_config *conf);
-_Noreturn void		even_philosopher_run(t_philosopher *philosopher);
-_Noreturn void		odd_philosopher_run(t_philosopher *philosopher);
-_Noreturn void		*monitor_run(void *arg);
+void				even_philosopher_run(t_philosopher *philosopher);
+void				odd_philosopher_run(t_philosopher *philosopher);
+void				*monitor_run(void *arg);
 int					config(t_config *conf, int ac, char **av);
 
 #endif
