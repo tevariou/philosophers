@@ -1,14 +1,14 @@
-#ifndef				PHILOSOPHERS_PHILO_ONE_H
-# define				PHILOSOPHERS_PHILO_ONE_H
+#ifndef PHILOSOPHERS_PHILO_ONE_H
+# define PHILOSOPHERS_PHILO_ONE_H
 
-# include			<pthread.h>
-# include			<sys/time.h>
-# include			<stdlib.h>
-# include			<stdbool.h>
-# include			<stdint.h>
+# include <pthread.h>
+# include <sys/time.h>
+# include <stdlib.h>
+# include <stdbool.h>
+# include <stdint.h>
 
-# define			USAGE	"Empty parameters\n"
-# define			PARAMS	"Params must be short numbers\n"
+# define USAGE	"Empty parameters\n"
+# define PARAMS	"Params must be short numbers\n"
 
 typedef struct		s_state {
 	struct timeval	last_eating;
