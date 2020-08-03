@@ -15,12 +15,12 @@
 
 void	print_status(const char *status, size_t number, t_config *conf)
 {
-	char			str[34];
+	char			str[53];
 	struct timeval	time;
 
 	gettimeofday(&time, NULL);
 	sem_wait(conf->print);
-	memset(str, 0, 34);
+	memset(str, 0, 53);
 	ft_putnbr(str, timeval_to_msec(time));
 	ft_append(str, " ");
 	ft_putnbr(str, number);

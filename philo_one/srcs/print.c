@@ -17,7 +17,7 @@
 int	print_status(const char *status, size_t number, t_config *conf)
 {
 	struct timeval	time;
-	char			str[34];
+	char			str[53];
 
 	gettimeofday(&time, NULL);
 	pthread_mutex_lock(&conf->mutex);
@@ -28,7 +28,7 @@ int	print_status(const char *status, size_t number, t_config *conf)
 	}
 	if (!ft_strcmp("died", status))
 		conf->is_finished = true;
-	memset(str, 0, 34);
+	memset(str, 0, 53);
 	ft_putnbr(str, timeval_to_msec(time));
 	ft_append(str, " ");
 	ft_putnbr(str, number);

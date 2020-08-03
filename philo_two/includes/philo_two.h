@@ -20,7 +20,7 @@
 # include <semaphore.h>
 # include <stdint.h>
 
-# define USAGE	"Empty parameters\n"
+# define USAGE	"Wrong number of parameters\n"
 # define PARAMS	"Params must be short numbers\n"
 
 typedef struct		s_state {
