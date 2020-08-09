@@ -40,6 +40,7 @@ typedef struct		s_config {
 typedef struct		s_philosopher {
 	size_t			number;
 	pthread_t		thread;
+	pthread_mutex_t	eating;
 	t_state			state;
 	pthread_mutex_t	*left;
 	pthread_mutex_t	*right;
@@ -55,6 +56,7 @@ int					ft_strcmp(const char *s1, const char *s2);
 uint64_t			timeval_to_msec(struct timeval time);
 int					timeval_cmp(struct timeval a, struct timeval b);
 struct timeval		timeval_add(struct timeval a, unsigned int b);
+void				ft_sleep(int msec);
 int					print_status(const char *status, size_t number,
 						t_config *conf);
 void				*even_philosopher_run(void *arg);

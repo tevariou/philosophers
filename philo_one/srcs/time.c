@@ -14,6 +14,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <unistd.h>
 
 uint64_t			timeval_to_msec(struct timeval time)
 {
@@ -43,4 +44,21 @@ struct timeval		timeval_add(struct timeval a, unsigned int b)
 	time = (a.tv_usec + b * 1000) % 1000000;
 	result.tv_usec = time;
 	return (result);
+}
+
+void				ft_sleep(int msec)
+{
+	struct timeval start;
+	struct timeval now;
+	int res;
+
+	gettimeofday(&start, NULL);
+	now = start;
+	res = 0;
+	while (res < msec)
+	{
+		usleep(500);
+		gettimeofday(&now, NULL);
+		res = timeval_to_msec(now) - timeval_to_msec(start);
+	}
 }

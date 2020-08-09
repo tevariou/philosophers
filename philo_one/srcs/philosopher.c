@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "philo_one.h"
-#include <unistd.h>
 
 static int	eating(
 	t_philosopher *philosopher,
@@ -23,13 +22,18 @@ static int	eating(
 	size_t			n;
 
 	n = philosopher->number;
+	pthread_mutex_lock(&philosopher->eating);
 	gettimeofday(&time, NULL);
 	if (print_status("is eating", n + 1, philosopher->conf))
+	{
+		pthread_mutex_unlock(&philosopher->eating);
 		return (EXIT_FAILURE);
+	}
 	philosopher->state.last_eating = time;
-	usleep(philosopher->conf->time_to_eat * 1000);
-	pthread_mutex_unlock(second);
+	pthread_mutex_unlock(&philosopher->eating);
+	ft_sleep(philosopher->conf->time_to_eat);
 	pthread_mutex_unlock(first);
+	pthread_mutex_unlock(second);
 	n = philosopher->conf->number_of_time_each_philosophers_must_eat;
 	if (++philosopher->state.counter == (int)n)
 		return (EXIT_FAILURE);
@@ -43,7 +47,7 @@ static int	sleeping(t_philosopher *philosopher)
 	n = philosopher->number;
 	if (print_status("is sleeping", n + 1, philosopher->conf))
 		return (EXIT_FAILURE);
-	usleep(philosopher->conf->time_to_sleep * 1000);
+	ft_sleep(philosopher->conf->time_to_sleep);
 	return (EXIT_SUCCESS);
 }
 

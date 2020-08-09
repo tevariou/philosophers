@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo_one.h"
+#include <unistd.h>
 
 static bool	is_alive(t_philosopher *philosopher, size_t number)
 {
@@ -19,14 +20,18 @@ static bool	is_alive(t_philosopher *philosopher, size_t number)
 	unsigned int	time_to_die;
 
 	gettimeofday(&time, NULL);
+	pthread_mutex_lock(&philosopher->eating);
 	last_eating = philosopher->state.last_eating;
 	time_to_die = philosopher->conf->time_to_die;
 	if (last_eating.tv_sec
 		&& timeval_cmp(time, timeval_add(last_eating, time_to_die)) >= 0)
 	{
 		print_status("died", number + 1, philosopher->conf);
+		pthread_mutex_unlock(&philosopher->eating);
 		return (false);
 	}
+	usleep(2000);
+	pthread_mutex_unlock(&philosopher->eating);
 	return (true);
 }
 

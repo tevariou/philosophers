@@ -24,6 +24,7 @@ void	clean(
 	i = 0;
 	while (i < n)
 	{
+		pthread_mutex_destroy(&philosopher_array[i].eating);
 		pthread_mutex_destroy(&fork_array[i]);
 		i++;
 	}
