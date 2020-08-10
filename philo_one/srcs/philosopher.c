@@ -76,7 +76,7 @@ static int	take_fork(
 	return (EXIT_SUCCESS);
 }
 
-void		*even_philosopher_run(void *arg)
+void		*philosopher_run(void *arg)
 {
 	t_philosopher	*philosopher;
 	pthread_mutex_t	*first;
@@ -99,33 +99,6 @@ void		*even_philosopher_run(void *arg)
 		if (eating(philosopher, first, second))
 			return (NULL);
 		if (sleeping(philosopher))
-			return (NULL);
-	}
-}
-
-void		*odd_philosopher_run(void *arg)
-{
-	t_philosopher	*philosopher;
-	pthread_mutex_t	*first;
-	pthread_mutex_t	*second;
-	size_t			n;
-
-	philosopher = (t_philosopher *)arg;
-	gettimeofday(&philosopher->state.last_eating, NULL);
-	n = philosopher->number;
-	first = (philosopher->left > philosopher->right)
-		? philosopher->right : philosopher->left;
-	second = (philosopher->left > philosopher->right)
-		? philosopher->left : philosopher->right;
-	while (1)
-	{
-		if (sleeping(philosopher))
-			return (NULL);
-		if (print_status("is thinking", n + 1, philosopher->conf))
-			return (NULL);
-		if (take_fork(philosopher, first, second))
-			return (NULL);
-		if (eating(philosopher, first, second))
 			return (NULL);
 	}
 }

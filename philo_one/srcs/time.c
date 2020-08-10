@@ -27,9 +27,9 @@ int					timeval_cmp(struct timeval a, struct timeval b)
 		return (1);
 	if (a.tv_sec < b.tv_sec)
 		return (-1);
-	if (a.tv_usec > b.tv_usec)
+	if (a.tv_usec / 1000 > b.tv_usec / 1000)
 		return (1);
-	if (a.tv_usec < b.tv_usec)
+	if (a.tv_usec / 1000 < b.tv_usec / 1000)
 		return (-1);
 	return (0);
 }

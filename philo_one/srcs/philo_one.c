@@ -76,7 +76,7 @@ static int	run(
 	i = 0;
 	while (i < n)
 	{
-		f = (i == 0) ? &odd_philosopher_run : &even_philosopher_run;
+		f = &philosopher_run;
 		if (pthread_create(&philo_array[i].thread, NULL, f, philo_array + i))
 		{
 			clean(philo_array, fork_array, &conf->mutex, n);

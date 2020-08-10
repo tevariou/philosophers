@@ -59,8 +59,7 @@ struct timeval		timeval_add(struct timeval a, unsigned int b);
 void				ft_sleep(int msec);
 int					print_status(const char *status, size_t number,
 						t_config *conf);
-void				*even_philosopher_run(void *arg);
-void				*odd_philosopher_run(void *arg);
+void				*philosopher_run(void *arg);
 void				*monitor_run(void *arg);
 int					config(t_config *conf, int ac, char **av);
 void				clean(t_philosopher *philosopher_array,
