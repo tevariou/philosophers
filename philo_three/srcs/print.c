@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "philo_three.h"
-#include <string.h>
 
 void	print_status(const char *status, size_t number, t_config *conf)
 {
@@ -20,7 +19,7 @@ void	print_status(const char *status, size_t number, t_config *conf)
 
 	gettimeofday(&time, NULL);
 	sem_wait(conf->print);
-	memset(str, 0, 53);
+	ft_memset(str, 0, 53);
 	ft_putnbr(str, timeval_to_msec(time));
 	ft_append(str, " ");
 	ft_putnbr(str, number);

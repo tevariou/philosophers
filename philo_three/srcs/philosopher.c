@@ -22,7 +22,7 @@ static void	eating(t_philosopher *philosopher)
 	gettimeofday(&time, NULL);
 	print_status("is eating", n + 1, philosopher->conf);
 	philosopher->state.last_eating = time;
-	usleep(philosopher->conf->time_to_eat * 1000);
+	ft_sleep(philosopher->conf->time_to_eat);
 	sem_post(philosopher->conf->forks);
 	sem_post(philosopher->conf->forks);
 	n = philosopher->conf->number_of_time_each_philosophers_must_eat;
@@ -36,7 +36,7 @@ static void	sleeping(t_philosopher *philosopher)
 
 	n = philosopher->number;
 	print_status("is sleeping", n + 1, philosopher->conf);
-	usleep(philosopher->conf->time_to_sleep * 1000);
+	ft_sleep(philosopher->conf->time_to_sleep);
 }
 
 static void	take_fork(t_philosopher *philosopher)
