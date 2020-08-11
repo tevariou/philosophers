@@ -28,6 +28,7 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 		philosopher_array[i].state.counter = 0;
 		philosopher_array[i].state.last_eating.tv_sec = 0;
 		philosopher_array[i].state.last_eating.tv_usec = 0;
+		ft_memset(id, 0, 11);
 		ft_putnbr(id, i);
 		philosopher_array[i].eating = sem_open(id, O_CREAT | O_EXCL, 0600, 1);
         sem_unlink(id);

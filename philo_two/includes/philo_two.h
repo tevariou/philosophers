@@ -53,6 +53,7 @@ void				ft_putnbr(char *s, uint64_t n);
 void				ft_append(char *dest, const char *str);
 void				ft_putstr_fd(char const *s, int fd);
 int					ft_strcmp(const char *s1, const char *s2);
+void	            *ft_memset(void *s, int c, size_t n);
 uint64_t			timeval_to_msec(struct timeval time);
 int					timeval_cmp(struct timeval a, struct timeval b);
 struct timeval		timeval_add(struct timeval a, unsigned int b);

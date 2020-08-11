@@ -11,8 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo_two.h"
-#include "unistd.h"
-#include <string.h>
+#include <unistd.h>
 
 int	print_status(const char *status, size_t number, t_philosopher *philosopher)
 {
@@ -30,7 +29,7 @@ int	print_status(const char *status, size_t number, t_philosopher *philosopher)
         philosopher->conf->is_finished = true;
     if (!ft_strcmp("is eating", status))
         philosopher->state.last_eating = time;
-	memset(str, 0, 53);
+	ft_memset(str, 0, 53);
 	ft_putnbr(str, timeval_to_msec(time));
 	ft_append(str, " ");
 	ft_putnbr(str, number);
