@@ -24,9 +24,10 @@ void	clean(
 	i = 0;
 	while (i < conf->number_of_philosopher)
 	{
-		if (!kill(pid_array[i], 0))
+        if (!kill(pid_array[i], 0))
 			kill(pid_array[i], SIGTERM);
-		i++;
+        sem_close(philo_array[i].eating);
+        i++;
 	}
 	free(pid_array);
 	sem_close(conf->print);

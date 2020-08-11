@@ -16,12 +16,13 @@
 #include <sys/wait.h>
 #include <fcntl.h>
 
-static void	init(t_philosopher *philosopher_array, t_config *main_conf)
+static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 {
 	size_t	i;
 	size_t	n;
+    char    id[11];
 
-	n = main_conf->number_of_philosopher;
+    n = main_conf->number_of_philosopher;
 	i = 0;
 	while (i < n)
 	{
@@ -30,8 +31,15 @@ static void	init(t_philosopher *philosopher_array, t_config *main_conf)
 		philosopher_array[i].state.counter = 0;
 		philosopher_array[i].state.last_eating.tv_sec = 0;
 		philosopher_array[i].state.last_eating.tv_usec = 0;
+        ft_memset(id, 0, 11);
+        ft_putnbr(id, i);
+        philosopher_array[i].eating = sem_open(id, O_CREAT | O_EXCL, 0600, 1);
+        sem_unlink(id);
+        if (philosopher_array[i].eating == SEM_FAILED)
+            return (EXIT_FAILURE);
 		i++;
 	}
+    return (EXIT_SUCCESS);
 }
 
 static int	run(
@@ -104,6 +112,10 @@ int			main(int ac, char **av)
 	}
 	if (sem_create(&conf))
 		return (EXIT_FAILURE);
-	init(philosopher_array, &conf);
+	if (init(philosopher_array, &conf))
+    {
+	    clean(philosopher_array, pid_array, &conf);
+        return (EXIT_FAILURE);
+    }
 	return (run(philosopher_array, pid_array, &conf));
 }

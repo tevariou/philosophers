@@ -42,6 +42,7 @@ typedef struct		s_philosopher {
 	size_t			number;
 	pthread_t		thread;
 	t_state			state;
+	sem_t           *eating;
 	t_config		*conf;
 }					t_philosopher;
 
