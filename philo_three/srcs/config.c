@@ -21,7 +21,10 @@ static int	error(const char *e)
 int			config(t_config *conf, int ac, char **av)
 {
 	int	n;
+	struct timeval time;
 
+	gettimeofday(&time, NULL);
+	time.tv_sec += 1;
 	if (ac < 5)
 	{
 		ft_putstr_fd(USAGE, 2);
@@ -38,5 +41,6 @@ int			config(t_config *conf, int ac, char **av)
 		return (error(PARAMS));
 	conf->number_of_time_each_philosophers_must_eat = (ac == 6)
 		? ft_atos(av[5]) : -1;
+	conf->start = time;
 	return (EXIT_SUCCESS);
 }

@@ -34,6 +34,7 @@ typedef struct		s_config {
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				number_of_time_each_philosophers_must_eat;
+	struct timeval  start;
 	sem_t			*forks;
 	sem_t			*print;
 }					t_config;

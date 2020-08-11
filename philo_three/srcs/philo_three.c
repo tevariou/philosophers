@@ -42,6 +42,18 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
     return (EXIT_SUCCESS);
 }
 
+static void psync(struct timeval start)
+{
+    struct timeval time;
+    uint64_t msec;
+
+    gettimeofday(&time, NULL);
+    msec = timeval_to_msec(start) - timeval_to_msec(time);
+    if (msec <= 0)
+        return ;
+    ft_sleep(msec);
+}
+
 static int	run(
 	t_philosopher *philo_array,
 	pid_t *pid_array,
@@ -51,20 +63,24 @@ static int	run(
 	size_t		i;
 	pthread_t	monitor;
 	int			status;
+	void        (*f)(t_philosopher *);
 
 	i = 0;
 	while (i < conf->number_of_philosopher)
 	{
-		pid_array[i] = fork();
+		if ((pid_array[i] = fork()) < 0)
+        {
+            clean(philo_array, pid_array, conf);
+            return (EXIT_FAILURE);
+        }
 		if (pid_array[i] == 0)
 		{
+		    psync(conf->start);
 			if (pthread_create(&monitor, NULL, &monitor_run, philo_array + i))
 				break ;
 			pthread_detach(monitor);
-			if (!(i % 2))
-				even_philosopher_run(philo_array + i);
-			else
-				odd_philosopher_run(philo_array + i);
+			f = (i % 2) ? even_philosopher_run : odd_philosopher_run;
+			f(philo_array + i);
 		}
 		i++;
 	}
