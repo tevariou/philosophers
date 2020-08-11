@@ -43,6 +43,7 @@ typedef struct		s_philosopher {
 	size_t			number;
 	pthread_t		thread;
 	t_state			state;
+	sem_t           *eating;
 	t_config		*conf;
 }					t_philosopher;
 
@@ -55,8 +56,9 @@ int					ft_strcmp(const char *s1, const char *s2);
 uint64_t			timeval_to_msec(struct timeval time);
 int					timeval_cmp(struct timeval a, struct timeval b);
 struct timeval		timeval_add(struct timeval a, unsigned int b);
+void				ft_sleep(int msec);
 int					print_status(const char *status, size_t number,
-						t_config *conf);
+						t_philosopher *philosopher);
 void				*even_philosopher_run(void *arg);
 void				*odd_philosopher_run(void *arg);
 void				*monitor_run(void *arg);

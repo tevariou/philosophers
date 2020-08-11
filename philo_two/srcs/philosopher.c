@@ -20,13 +20,16 @@ static int	eating(t_philosopher *philosopher)
 
 	n = philosopher->number;
 	gettimeofday(&time, NULL);
-	if (print_status("is eating", n + 1, philosopher->conf))
+	sem_wait(philosopher->eating);
+	if (print_status("is eating", n + 1, philosopher))
 	{
 		sem_post(philosopher->conf->forks);
+        sem_post(philosopher->conf->forks);
+        sem_post(philosopher->eating);
 		return (EXIT_FAILURE);
 	}
-	philosopher->state.last_eating = time;
-	usleep(philosopher->conf->time_to_eat * 1000);
+    sem_post(philosopher->eating);
+    ft_sleep(philosopher->conf->time_to_eat);
 	sem_post(philosopher->conf->forks);
 	sem_post(philosopher->conf->forks);
 	n = philosopher->conf->number_of_time_each_philosophers_must_eat;
@@ -40,9 +43,9 @@ static int	sleeping(t_philosopher *philosopher)
 	size_t	n;
 
 	n = philosopher->number;
-	if (print_status("is sleeping", n + 1, philosopher->conf))
+	if (print_status("is sleeping", n + 1, philosopher))
 		return (EXIT_FAILURE);
-	usleep(philosopher->conf->time_to_sleep * 1000);
+	ft_sleep(philosopher->conf->time_to_sleep);
 	return (EXIT_SUCCESS);
 }
 
@@ -52,13 +55,13 @@ static int	take_fork(t_philosopher *philosopher)
 
 	n = philosopher->number;
 	sem_wait(philosopher->conf->forks);
-	if (print_status("has taken a fork", n + 1, philosopher->conf))
+	if (print_status("has taken a fork", n + 1, philosopher))
 	{
 		sem_post(philosopher->conf->forks);
 		return (EXIT_FAILURE);
 	}
 	sem_wait(philosopher->conf->forks);
-	if (print_status("has taken a fork", n + 1, philosopher->conf))
+	if (print_status("has taken a fork", n + 1, philosopher))
 	{
 		sem_post(philosopher->conf->forks);
 		sem_post(philosopher->conf->forks);
@@ -77,7 +80,7 @@ void		*even_philosopher_run(void *arg)
 	n = philosopher->number;
 	while (1)
 	{
-		if (print_status("is thinking", n + 1, philosopher->conf))
+		if (print_status("is thinking", n + 1, philosopher))
 			return (NULL);
 		if (take_fork(philosopher))
 			return (NULL);
@@ -100,7 +103,7 @@ void		*odd_philosopher_run(void *arg)
 	{
 		if (sleeping(philosopher))
 			return (NULL);
-		if (print_status("is thinking", n + 1, philosopher->conf))
+		if (print_status("is thinking", n + 1, philosopher))
 			return (NULL);
 		if (take_fork(philosopher))
 			return (NULL);

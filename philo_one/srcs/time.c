@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include <sys/time.h>
-#include <stdbool.h>
-#include <stdlib.h>
 #include <stdint.h>
 #include <unistd.h>
 
@@ -50,12 +48,12 @@ void				ft_sleep(int msec)
 {
 	struct timeval start;
 	struct timeval now;
-	int res;
+	unsigned int res;
 
 	gettimeofday(&start, NULL);
 	now = start;
 	res = 0;
-	while (res < msec)
+	while (res < (unsigned int)msec)
 	{
 		usleep(500);
 		gettimeofday(&now, NULL);

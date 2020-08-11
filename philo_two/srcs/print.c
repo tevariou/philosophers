@@ -14,20 +14,22 @@
 #include "unistd.h"
 #include <string.h>
 
-int	print_status(const char *status, size_t number, t_config *conf)
+int	print_status(const char *status, size_t number, t_philosopher *philosopher)
 {
 	struct timeval	time;
 	char			str[53];
 
 	gettimeofday(&time, NULL);
-	sem_wait(conf->print);
-	if (conf->is_finished)
+	sem_wait(philosopher->conf->print);
+	if (philosopher->conf->is_finished)
 	{
-		sem_post(conf->print);
+		sem_post(philosopher->conf->print);
 		return (EXIT_FAILURE);
 	}
 	if (!ft_strcmp("died", status))
-		conf->is_finished = true;
+        philosopher->conf->is_finished = true;
+    if (!ft_strcmp("is eating", status))
+        philosopher->state.last_eating = time;
 	memset(str, 0, 53);
 	ft_putnbr(str, timeval_to_msec(time));
 	ft_append(str, " ");
@@ -36,6 +38,6 @@ int	print_status(const char *status, size_t number, t_config *conf)
 	ft_append(str, status);
 	ft_append(str, "\n");
 	ft_putstr_fd(str, 1);
-	sem_post(conf->print);
+	sem_post(philosopher->conf->print);
 	return (EXIT_SUCCESS);
 }

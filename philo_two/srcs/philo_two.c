@@ -13,10 +13,11 @@
 #include "philo_two.h"
 #include <fcntl.h>
 
-static void	init(t_philosopher *philosopher_array, t_config *main_conf)
+static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 {
 	size_t	i;
 	size_t	n;
+	char    id[11];
 
 	n = main_conf->number_of_philosopher;
 	i = 0;
@@ -27,8 +28,17 @@ static void	init(t_philosopher *philosopher_array, t_config *main_conf)
 		philosopher_array[i].state.counter = 0;
 		philosopher_array[i].state.last_eating.tv_sec = 0;
 		philosopher_array[i].state.last_eating.tv_usec = 0;
+		ft_putnbr(id, i);
+		philosopher_array[i].eating = sem_open(id, O_CREAT | O_EXCL, 0600, 1);
+        sem_unlink(id);
+        if (philosopher_array[i].eating == SEM_FAILED)
+        {
+            clean(philosopher_array, main_conf);
+            return (EXIT_FAILURE);
+        }
 		i++;
 	}
+    return (EXIT_SUCCESS);
 }
 
 static void	pwait(
@@ -112,6 +122,7 @@ int			main(int ac, char **av)
 	size = sizeof(t_philosopher) * conf.number_of_philosopher;
 	if (!(philosopher_array = (t_philosopher *)malloc(size)))
 		return (EXIT_FAILURE);
-	init(philosopher_array, &conf);
+	if (init(philosopher_array, &conf))
+        return (EXIT_FAILURE);
 	return (run(philosopher_array, &conf));
 }
