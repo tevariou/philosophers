@@ -33,10 +33,10 @@ void	ft_putstr_fd(char const *s, int fd)
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-    unsigned char	*d;
+	unsigned char	*d;
 
-    d = (unsigned char *)s;
-    while (n--)
-        *d++ = c;
-    return (s);
+	d = (unsigned char *)s;
+	while (n--)
+		*d++ = c;
+	return (s);
 }

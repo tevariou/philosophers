@@ -34,7 +34,7 @@ typedef struct		s_config {
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				number_of_time_each_philosophers_must_eat;
-	struct timeval  start;
+	struct timeval	start;
 	sem_t			*forks;
 	sem_t			*print;
 }					t_config;
@@ -43,7 +43,7 @@ typedef struct		s_philosopher {
 	size_t			number;
 	pthread_t		thread;
 	t_state			state;
-	sem_t           *eating;
+	sem_t			*eating;
 	t_config		*conf;
 }					t_philosopher;
 
@@ -53,7 +53,7 @@ void				ft_putnbr(char *s, uint64_t n);
 void				ft_append(char *dest, const char *str);
 void				ft_putstr_fd(char const *s, int fd);
 int					ft_strcmp(const char *s1, const char *s2);
-void	            *ft_memset(void *s, int c, size_t n);
+void				*ft_memset(void *s, int c, size_t n);
 uint64_t			timeval_to_msec(struct timeval time);
 int					timeval_cmp(struct timeval a, struct timeval b);
 struct timeval		timeval_add(struct timeval a, unsigned int b);

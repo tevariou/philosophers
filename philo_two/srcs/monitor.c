@@ -19,18 +19,18 @@ static bool	is_alive(t_philosopher *philosopher, size_t number)
 	unsigned int	time_to_die;
 
 	gettimeofday(&time, NULL);
-    sem_wait(philosopher->eating);
-    last_eating = philosopher->state.last_eating;
+	sem_wait(philosopher->eating);
+	last_eating = philosopher->state.last_eating;
 	time_to_die = philosopher->conf->time_to_die;
 	if (last_eating.tv_sec
 		&& timeval_cmp(time, timeval_add(last_eating, time_to_die)) > 0)
 	{
 		print_status("died", number + 1, philosopher);
-        sem_post(philosopher->eating);
-        return (false);
+		sem_post(philosopher->eating);
+		return (false);
 	}
-    sem_post(philosopher->eating);
-    return (true);
+	sem_post(philosopher->eating);
+	return (true);
 }
 
 void		*monitor_run(void *arg)

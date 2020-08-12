@@ -20,9 +20,9 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 {
 	size_t	i;
 	size_t	n;
-    char    id[11];
+	char    id[11];
 
-    n = main_conf->number_of_philosopher;
+	n = main_conf->number_of_philosopher;
 	i = 0;
 	while (i < n)
 	{
@@ -31,27 +31,27 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 		philosopher_array[i].state.counter = 0;
 		philosopher_array[i].state.last_eating.tv_sec = 0;
 		philosopher_array[i].state.last_eating.tv_usec = 0;
-        ft_memset(id, 0, 11);
-        ft_putnbr(id, i);
-        philosopher_array[i].eating = sem_open(id, O_CREAT | O_EXCL, 0600, 1);
-        sem_unlink(id);
-        if (philosopher_array[i].eating == SEM_FAILED)
-            return (EXIT_FAILURE);
+		ft_memset(id, 0, 11);
+		ft_putnbr(id, i);
+		philosopher_array[i].eating = sem_open(id, O_CREAT | O_EXCL, 0600, 1);
+		sem_unlink(id);
+		if (philosopher_array[i].eating == SEM_FAILED)
+			return (EXIT_FAILURE);
 		i++;
 	}
-    return (EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
 
-static void psync(struct timeval start)
+static void	psync(struct timeval start)
 {
-    struct timeval time;
-    uint64_t msec;
+	struct timeval time;
+	uint64_t msec;
 
-    gettimeofday(&time, NULL);
-    msec = timeval_to_msec(start) - timeval_to_msec(time);
-    if (msec <= 0)
-        return ;
-    ft_sleep(msec);
+	gettimeofday(&time, NULL);
+	msec = timeval_to_msec(start) - timeval_to_msec(time);
+	if (msec <= 0)
+		return ;
+	ft_sleep(msec);
 }
 
 static int	run(
@@ -69,13 +69,13 @@ static int	run(
 	while (i < conf->number_of_philosopher)
 	{
 		if ((pid_array[i] = fork()) < 0)
-        {
-            clean(philo_array, pid_array, conf);
-            return (EXIT_FAILURE);
-        }
+		{
+			clean(philo_array, pid_array, conf);
+			return (EXIT_FAILURE);
+		}
 		if (pid_array[i] == 0)
 		{
-		    psync(conf->start);
+			psync(conf->start);
 			if (pthread_create(&monitor, NULL, &monitor_run, philo_array + i))
 				break ;
 			pthread_detach(monitor);
@@ -129,9 +129,9 @@ int			main(int ac, char **av)
 	if (sem_create(&conf))
 		return (EXIT_FAILURE);
 	if (init(philosopher_array, &conf))
-    {
-	    clean(philosopher_array, pid_array, &conf);
-        return (EXIT_FAILURE);
-    }
+	{
+		clean(philosopher_array, pid_array, &conf);
+		return (EXIT_FAILURE);
+	}
 	return (run(philosopher_array, pid_array, &conf));
 }

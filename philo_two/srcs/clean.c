@@ -21,8 +21,8 @@ void	clean(t_philosopher *philo_array, t_config *conf)
 	i = 0;
 	while (i < conf->number_of_philosopher)
     {
-	    sem_close(philo_array[i].eating);
-	    i++;
+		sem_close(philo_array[i].eating);
+		i++;
     }
 	free(philo_array);
 }

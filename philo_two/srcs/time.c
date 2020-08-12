@@ -45,19 +45,19 @@ struct timeval	timeval_add(struct timeval a, unsigned int b)
 	return (result);
 }
 
-void				ft_sleep(int msec)
+void			ft_sleep(int msec)
 {
-    struct timeval start;
-    struct timeval now;
-    unsigned int res;
+	struct timeval start;
+	struct timeval now;
+	unsigned int res;
 
-    gettimeofday(&start, NULL);
-    now = start;
-    res = 0;
-    while (res < (unsigned int)msec)
-    {
-        usleep(500);
-        gettimeofday(&now, NULL);
-        res = timeval_to_msec(now) - timeval_to_msec(start);
-    }
+	gettimeofday(&start, NULL);
+	now = start;
+	res = 0;
+	while (res < (unsigned int)msec)
+	{
+		usleep(500);
+		gettimeofday(&now, NULL);
+		res = timeval_to_msec(now) - timeval_to_msec(start);
+	}
 }

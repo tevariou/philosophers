@@ -44,7 +44,7 @@ struct timeval		timeval_add(struct timeval a, unsigned int b)
 	return (result);
 }
 
-void				ft_sleep(int msec)
+void			ft_sleep(int msec)
 {
 	struct timeval start;
 	struct timeval now;
