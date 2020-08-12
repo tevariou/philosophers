@@ -20,7 +20,7 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 {
 	size_t	i;
 	size_t	n;
-	char    id[11];
+	char	id[11];
 
 	n = main_conf->number_of_philosopher;
 	i = 0;
@@ -44,8 +44,8 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 
 static void	psync(struct timeval start)
 {
-	struct timeval time;
-	uint64_t msec;
+	struct timeval	time;
+	uint64_t		msec;
 
 	gettimeofday(&time, NULL);
 	msec = timeval_to_msec(start) - timeval_to_msec(time);

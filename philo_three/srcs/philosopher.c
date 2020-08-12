@@ -20,11 +20,11 @@ static void	eating(t_philosopher *philosopher)
 
 	n = philosopher->number;
 	gettimeofday(&time, NULL);
-    sem_wait(philosopher->eating);
-    print_status("is eating", n + 1, philosopher->conf);
+	sem_wait(philosopher->eating);
+	print_status("is eating", n + 1, philosopher->conf);
 	philosopher->state.last_eating = time;
-    sem_post(philosopher->eating);
-    ft_sleep(philosopher->conf->time_to_eat);
+	sem_post(philosopher->eating);
+	ft_sleep(philosopher->conf->time_to_eat);
 	sem_post(philosopher->conf->forks);
 	sem_post(philosopher->conf->forks);
 	n = philosopher->conf->number_of_time_each_philosophers_must_eat;
