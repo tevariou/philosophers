@@ -18,12 +18,15 @@ static bool	is_alive(t_philosopher *philosopher, size_t number)
 	struct timeval	time;
 	struct timeval	last_eating;
 	unsigned int	time_to_die;
+	unsigned int	time_to_eat;
 
 	gettimeofday(&time, NULL);
 	pthread_mutex_lock(&philosopher->eating);
 	last_eating = philosopher->state.last_eating;
 	time_to_die = philosopher->conf->time_to_die;
+	time_to_eat = philosopher->conf->time_to_eat;
 	if (last_eating.tv_sec
+		&& timeval_cmp(time, timeval_add(last_eating, time_to_eat)) >= 0
 		&& timeval_cmp(time, timeval_add(last_eating, time_to_die)) > 0)
 	{
 		print_status("died", number + 1, philosopher->conf);
