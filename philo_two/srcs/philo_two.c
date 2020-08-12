@@ -31,15 +31,15 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 		ft_memset(id, 0, 11);
 		ft_putnbr(id, i);
 		philosopher_array[i].eating = sem_open(id, O_CREAT | O_EXCL, 0600, 1);
-        sem_unlink(id);
-        if (philosopher_array[i].eating == SEM_FAILED)
-        {
-            clean(philosopher_array, main_conf);
-            return (EXIT_FAILURE);
-        }
+		sem_unlink(id);
+		if (philosopher_array[i].eating == SEM_FAILED)
+		{
+			clean(philosopher_array, main_conf);
+			return (EXIT_FAILURE);
+		}
 		i++;
 	}
-    return (EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
 
 static void	pwait(
@@ -124,6 +124,6 @@ int			main(int ac, char **av)
 	if (!(philosopher_array = (t_philosopher *)malloc(size)))
 		return (EXIT_FAILURE);
 	if (init(philosopher_array, &conf))
-        return (EXIT_FAILURE);
+		return (EXIT_FAILURE);
 	return (run(philosopher_array, &conf));
 }

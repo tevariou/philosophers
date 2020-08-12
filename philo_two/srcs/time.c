@@ -14,7 +14,6 @@
 #include <stdint.h>
 #include <unistd.h>
 
-
 uint64_t		timeval_to_msec(struct timeval time)
 {
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);

@@ -26,9 +26,9 @@ int	print_status(const char *status, size_t number, t_philosopher *philosopher)
 		return (EXIT_FAILURE);
 	}
 	if (!ft_strcmp("died", status))
-        philosopher->conf->is_finished = true;
-    if (!ft_strcmp("is eating", status))
-        philosopher->state.last_eating = time;
+		philosopher->conf->is_finished = true;
+	if (!ft_strcmp("is eating", status))
+		philosopher->state.last_eating = time;
 	ft_memset(str, 0, 53);
 	ft_putnbr(str, timeval_to_msec(time));
 	ft_append(str, " ");

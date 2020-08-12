@@ -46,9 +46,9 @@ struct timeval		timeval_add(struct timeval a, unsigned int b)
 
 void			ft_sleep(int msec)
 {
-	struct timeval start;
-	struct timeval now;
-	unsigned int res;
+	struct timeval	start;
+	struct timeval	now;
+	unsigned int	res;
 
 	gettimeofday(&start, NULL);
 	now = start;
