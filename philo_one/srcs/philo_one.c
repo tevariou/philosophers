@@ -12,6 +12,7 @@
 
 #include "philo_one.h"
 #include <unistd.h>
+#include <string.h>
 
 static int	init(
 	t_philosopher *philosopher_array,
@@ -64,7 +65,6 @@ static void	pwait(
 
 static int	run(
 	t_philosopher *philo_array,
-	pthread_mutex_t *fork_array,
 	t_config *conf
 )
 {
@@ -129,7 +129,7 @@ int			main(int ac, char **av)
 		return (EXIT_FAILURE);
 	if (init(philosopher_array, fork_array, &conf))
 		return (EXIT_FAILURE);
-	ret = run(philosopher_array, fork_array, &conf);
+	ret = run(philosopher_array, &conf);
 	n = conf.number_of_philosopher;
 	clean(philosopher_array, fork_array, &conf.mutex, n);
 	return (ret);
