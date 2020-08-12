@@ -17,7 +17,7 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 {
 	size_t	i;
 	size_t	n;
-	char    id[11];
+	char	id[11];
 
 	n = main_conf->number_of_philosopher;
 	i = 0;
