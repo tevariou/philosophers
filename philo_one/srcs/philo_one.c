@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "philo_one.h"
+#include <unistd.h>
 
 static int	init(
 	t_philosopher *philosopher_array,
@@ -82,6 +83,7 @@ static int	run(
 			clean(philo_array, fork_array, &conf->mutex, n);
 			return (EXIT_FAILURE);
 		}
+		usleep(500);
 		i++;
 	}
 	if (pthread_create(&monitor, NULL, &monitor_run, philo_array))
