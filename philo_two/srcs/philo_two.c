@@ -12,6 +12,7 @@
 
 #include "philo_two.h"
 #include <fcntl.h>
+#include <unistd.h>
 
 static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 {
@@ -79,6 +80,7 @@ static int	run(
 			clean(philo_array, conf);
 			return (EXIT_FAILURE);
 		}
+		usleep(500);
 		i++;
 	}
 	if (pthread_create(&monitor, NULL, &monitor_run, philo_array))
