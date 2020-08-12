@@ -79,10 +79,7 @@ static int	run(
 	{
 		f = (i % 2 == 0) ? &odd_philosopher_run : &even_philosopher_run;
 		if (pthread_create(&philo_array[i].thread, NULL, f, philo_array + i))
-		{
-			clean(philo_array, fork_array, &conf->mutex, n);
 			return (EXIT_FAILURE);
-		}
 		usleep(500);
 		i++;
 	}
@@ -92,7 +89,6 @@ static int	run(
 		return (EXIT_FAILURE);
 	}
 	pwait(philo_array, conf, &monitor);
-	clean(philo_array, fork_array, &conf->mutex, n);
 	return (EXIT_SUCCESS);
 }
 
@@ -125,6 +121,8 @@ int			main(int ac, char **av)
 	t_config		conf;
 	pthread_mutex_t	*fork_array;
 	t_philosopher	*philosopher_array;
+	int				ret;
+	size_t			n;
 
 	if (config(&conf, ac, av))
 		return (EXIT_FAILURE);
@@ -132,5 +130,8 @@ int			main(int ac, char **av)
 		return (EXIT_FAILURE);
 	if (init(philosopher_array, fork_array, &conf))
 		return (EXIT_FAILURE);
-	return (run(philosopher_array, fork_array, &conf));
+	ret = run(philosopher_array, fork_array, &conf);
+	n = conf.number_of_philosopher;
+	clean(philosopher_array, fork_array, &conf.mutex, n);
+	return (ret);
 }
