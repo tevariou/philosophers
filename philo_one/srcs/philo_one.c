@@ -84,10 +84,7 @@ static int	run(
 		i++;
 	}
 	if (pthread_create(&monitor, NULL, &monitor_run, philo_array))
-	{
-		clean(philo_array, fork_array, &conf->mutex, n);
 		return (EXIT_FAILURE);
-	}
 	pwait(philo_array, conf, &monitor);
 	return (EXIT_SUCCESS);
 }
@@ -106,6 +103,7 @@ static int	alloc(
 		pthread_mutex_destroy(&conf->mutex);
 		return (EXIT_FAILURE);
 	}
+	memset(*fork_array, 0, size);
 	size = sizeof(t_philosopher) * conf->number_of_philosopher;
 	if (!(*philosopher_array = (t_philosopher *)malloc(size)))
 	{
@@ -113,6 +111,7 @@ static int	alloc(
 		free(*fork_array);
 		return (EXIT_FAILURE);
 	}
+	memset(*philosopher_array, 0, size);
 	return (EXIT_SUCCESS);
 }
 
