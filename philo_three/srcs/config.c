@@ -20,8 +20,8 @@ static int	error(const char *e)
 
 int			config(t_config *conf, int ac, char **av)
 {
-	int	n;
-	struct timeval time;
+	int				n;
+	struct timeval	time;
 
 	gettimeofday(&time, NULL);
 	time.tv_sec += 1;

@@ -63,16 +63,12 @@ static int	run(
 	size_t		i;
 	pthread_t	monitor;
 	int			status;
-	void        (*f)(t_philosopher *);
+	void		(*f)(t_philosopher *);
 
 	i = 0;
 	while (i < conf->number_of_philosopher)
 	{
-		if ((pid_array[i] = fork()) < 0)
-		{
-			clean(philo_array, pid_array, conf);
-			return (EXIT_FAILURE);
-		}
+		pid_array[i] = fork();
 		if (pid_array[i] == 0)
 		{
 			psync(conf->start);
