@@ -17,6 +17,7 @@ static int	eating(t_philosopher *philosopher)
 {
 	struct timeval	time;
 	size_t			n;
+	int				ret;
 
 	n = philosopher->number;
 	gettimeofday(&time, NULL);
@@ -33,9 +34,10 @@ static int	eating(t_philosopher *philosopher)
 	sem_post(philosopher->conf->forks);
 	sem_post(philosopher->conf->forks);
 	n = philosopher->conf->number_of_time_each_philosophers_must_eat;
-	if (++philosopher->state.counter == (int)n)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	sem_wait(philosopher->eating);
+	ret = (++philosopher->state.counter == (int)n) ? EXIT_FAILURE : EXIT_SUCCESS;
+	sem_post(philosopher->eating);
+	return (ret);
 }
 
 static int	sleeping(t_philosopher *philosopher)

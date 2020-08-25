@@ -32,7 +32,6 @@ static bool	is_alive(t_philosopher *philosopher, size_t number)
 		sem_post(philosopher->eating);
 		return (false);
 	}
-	sem_post(philosopher->eating);
 	return (true);
 }
 
@@ -57,6 +56,7 @@ void		*monitor_run(void *arg)
 				return (NULL);
 			if (philosopher_array[i].state.counter == n)
 				counter++;
+			sem_post(philosopher_array[i].eating);
 			i++;
 		}
 		if (counter == conf->number_of_philosopher)
