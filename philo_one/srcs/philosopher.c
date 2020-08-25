@@ -20,6 +20,7 @@ static int	eating(
 {
 	struct timeval	time;
 	size_t			n;
+	int				ret;
 
 	n = philosopher->number;
 	pthread_mutex_lock(&philosopher->eating);
@@ -35,9 +36,10 @@ static int	eating(
 	pthread_mutex_unlock(first);
 	pthread_mutex_unlock(second);
 	n = philosopher->conf->number_of_time_each_philosophers_must_eat;
-	if (++philosopher->state.counter == (int)n)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	pthread_mutex_lock(&philosopher->state.mutex);
+	ret = (++philosopher->state.counter == (int)n) ? EXIT_FAILURE : EXIT_SUCCESS;
+	pthread_mutex_unlock(&philosopher->state.mutex);
+	return (ret);
 }
 
 static int	sleeping(t_philosopher *philosopher)

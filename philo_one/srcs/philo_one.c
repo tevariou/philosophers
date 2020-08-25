@@ -28,7 +28,8 @@ static int	init(
 	while (i < n)
 	{
 		if (pthread_mutex_init(&fork_array[i], NULL)
-			|| pthread_mutex_init(&philosopher_array[i].eating, NULL))
+			|| pthread_mutex_init(&philosopher_array[i].eating, NULL)
+			|| pthread_mutex_init(&philosopher_array[i].state.mutex, NULL))
 		{
 			clean(philosopher_array, fork_array, &main_conf->mutex, i + 1);
 			return (EXIT_FAILURE);

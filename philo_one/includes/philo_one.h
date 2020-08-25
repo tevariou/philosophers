@@ -25,6 +25,7 @@
 typedef struct		s_state {
 	struct timeval	last_eating;
 	int				counter;
+	pthread_mutex_t	mutex;
 }					t_state;
 
 typedef struct		s_config {

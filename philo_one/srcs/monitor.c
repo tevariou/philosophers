@@ -56,8 +56,10 @@ void		*monitor_run(void *arg)
 		{
 			if (!is_alive(philosopher_array + i, i))
 				return (NULL);
+			pthread_mutex_lock(&philosopher_array[i].state.mutex);
 			if (philosopher_array[i].state.counter == n)
 				counter++;
+			pthread_mutex_unlock(&philosopher_array[i].state.mutex);
 			i++;
 		}
 		if (counter == conf->number_of_philosopher)
