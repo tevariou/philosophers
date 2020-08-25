@@ -37,7 +37,7 @@ static bool	is_alive(t_philosopher *philosopher, size_t number)
 	return (true);
 }
 
-static int	increment(t_philosopher *philosopher)
+static int	increment(t_philosopher *philosopher, int n)
 {
 	int	ret;
 
@@ -68,7 +68,7 @@ void		*monitor_run(void *arg)
 		{
 			if (!is_alive(philosopher_array + i, i))
 				return (NULL);
-			counter += increment(philosopher_array + i);
+			counter += increment(philosopher_array + i, n);
 			i++;
 		}
 		if (counter == conf->number_of_philosopher)
