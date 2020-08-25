@@ -45,8 +45,8 @@ static int	increment(t_philosopher *philosopher)
 	pthread_mutex_lock(&philosopher->state.mutex);
 	if (philosopher->state.counter == n)
 		ret += 1;
-	pthread_mutex_unlock(&philosopher_array[i].state.mutex);
-	return ret;
+	pthread_mutex_unlock(&philosopher->state.mutex);
+	return (ret);
 }
 
 void		*monitor_run(void *arg)
