@@ -37,6 +37,18 @@ static bool	is_alive(t_philosopher *philosopher, size_t number)
 	return (true);
 }
 
+static int	increment(t_philosopher *philosopher)
+{
+	int	ret;
+
+	ret = 0;
+	pthread_mutex_lock(&philosopher->state.mutex);
+	if (philosopher->state.counter == n)
+		ret += 1;
+	pthread_mutex_unlock(&philosopher_array[i].state.mutex);
+	return ret;
+}
+
 void		*monitor_run(void *arg)
 {
 	t_philosopher	*philosopher_array;
@@ -56,10 +68,7 @@ void		*monitor_run(void *arg)
 		{
 			if (!is_alive(philosopher_array + i, i))
 				return (NULL);
-			pthread_mutex_lock(&philosopher_array[i].state.mutex);
-			if (philosopher_array[i].state.counter == n)
-				counter++;
-			pthread_mutex_unlock(&philosopher_array[i].state.mutex);
+			counter += increment(philosopher_array + i);
 			i++;
 		}
 		if (counter == conf->number_of_philosopher)

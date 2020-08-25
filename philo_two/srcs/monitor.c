@@ -54,8 +54,7 @@ void		*monitor_run(void *arg)
 		{
 			if (!is_alive(philosopher_array + i, i))
 				return (NULL);
-			if (philosopher_array[i].state.counter == n)
-				counter++;
+			counter += (philosopher_array[i].state.counter == n) ? 1 : 0;
 			sem_post(philosopher_array[i].eating);
 			i++;
 		}

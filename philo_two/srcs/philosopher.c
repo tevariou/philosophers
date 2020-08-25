@@ -35,7 +35,7 @@ static int	eating(t_philosopher *philosopher)
 	sem_post(philosopher->conf->forks);
 	n = philosopher->conf->number_of_time_each_philosophers_must_eat;
 	sem_wait(philosopher->eating);
-	ret = (++philosopher->state.counter == (int)n) ? EXIT_FAILURE : EXIT_SUCCESS;
+	ret = (++philosopher->state.counter == (int)n) ? 1 : 0;
 	sem_post(philosopher->eating);
 	return (ret);
 }

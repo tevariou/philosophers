@@ -37,7 +37,7 @@ static int	eating(
 	pthread_mutex_unlock(second);
 	n = philosopher->conf->number_of_time_each_philosophers_must_eat;
 	pthread_mutex_lock(&philosopher->state.mutex);
-	ret = (++philosopher->state.counter == (int)n) ? EXIT_FAILURE : EXIT_SUCCESS;
+	ret = (++philosopher->state.counter == (int)n) ? 1 : 0;
 	pthread_mutex_unlock(&philosopher->state.mutex);
 	return (ret);
 }
