@@ -36,7 +36,7 @@ typedef struct		s_config {
 	int				number_of_time_each_philosophers_must_eat;
 	sem_t			*forks;
 	sem_t			*print;
-	int             wait;
+	size_t			wait;
 	bool			is_finished;
 }					t_config;
 
