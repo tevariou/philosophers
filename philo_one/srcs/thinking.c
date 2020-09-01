@@ -19,7 +19,6 @@ static bool	is_turn(t_philosopher *philosopher, size_t n, size_t total)
 
 int			thinking(t_philosopher *philosopher)
 {
-	int		counter;
 	size_t	n;
 	size_t	total;
 	int 	time_to_wait;
@@ -28,7 +27,6 @@ int			thinking(t_philosopher *philosopher)
 	total = philosopher->conf->number_of_philosopher;
 	if (print_status("is thinking", n + 1, philosopher->conf))
 		return (EXIT_FAILURE);
-	counter = philosopher->state.counter;
 	time_to_wait = philosopher->conf->time_to_sleep - 10;
 	if (total % 2 == 0 || time_to_wait <= 0)
 		return (EXIT_SUCCESS);
