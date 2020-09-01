@@ -36,6 +36,7 @@ typedef struct		s_config {
 	int				number_of_time_each_philosophers_must_eat;
 	sem_t			*forks;
 	sem_t			*print;
+	int             wait;
 	bool			is_finished;
 }					t_config;
 
@@ -58,6 +59,7 @@ uint64_t			timeval_to_msec(struct timeval time);
 int					timeval_cmp(struct timeval a, struct timeval b);
 struct timeval		timeval_add(struct timeval a, unsigned int b);
 void				ft_sleep(int msec);
+int					thinking(t_philosopher *philosopher);
 int					print_status(const char *status, size_t number,
 						t_philosopher *philosopher);
 void				*even_philosopher_run(void *arg);

@@ -82,7 +82,7 @@ void		*even_philosopher_run(void *arg)
 	n = philosopher->number;
 	while (1)
 	{
-		if (print_status("is thinking", n + 1, philosopher))
+		if (thinking(philosopher))
 			return (NULL);
 		if (take_fork(philosopher))
 			return (NULL);
@@ -105,7 +105,7 @@ void		*odd_philosopher_run(void *arg)
 	{
 		if (sleeping(philosopher))
 			return (NULL);
-		if (print_status("is thinking", n + 1, philosopher))
+		if (thinking(philosopher))
 			return (NULL);
 		if (take_fork(philosopher))
 			return (NULL);

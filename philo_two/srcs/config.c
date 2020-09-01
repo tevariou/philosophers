@@ -39,5 +39,6 @@ int			config(t_config *conf, int ac, char **av)
 	conf->number_of_time_each_philosophers_must_eat = (ac == 6)
 		? ft_atos(av[5]) : -1;
 	conf->is_finished = false;
+	conf->wait = 0;
 	return (EXIT_SUCCESS);
 }
