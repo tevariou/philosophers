@@ -21,7 +21,7 @@ int			thinking(t_philosopher *philosopher)
 {
 	size_t	n;
 	size_t	total;
-	int 	time_to_wait;
+	int		time_to_wait;
 
 	n = philosopher->number;
 	total = philosopher->conf->number_of_philosopher;

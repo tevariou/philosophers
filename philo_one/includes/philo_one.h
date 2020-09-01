@@ -36,7 +36,7 @@ typedef struct		s_config {
 	int				number_of_time_each_philosophers_must_eat;
 	pthread_mutex_t	mutex;
 	bool			is_finished;
-	size_t 			wait;
+	size_t			wait;
 }					t_config;
 
 typedef struct		s_philosopher {

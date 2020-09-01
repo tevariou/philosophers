@@ -62,7 +62,7 @@ static int	take_fork(
 	size_t	n;
 
 	n = philosopher->number;
-    pthread_mutex_lock(first);
+	pthread_mutex_lock(first);
 	if (print_status("has taken a fork", n + 1, philosopher->conf))
 	{
 		pthread_mutex_unlock(first);
