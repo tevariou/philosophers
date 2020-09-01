@@ -81,7 +81,6 @@ static int	run(
 		f = (i % 2 == 0) ? &odd_philosopher_run : &even_philosopher_run;
 		if (pthread_create(&philo_array[i].thread, NULL, f, philo_array + i))
 			return (EXIT_FAILURE);
-		usleep(500);
 		i++;
 	}
 	if (pthread_create(&monitor, NULL, &monitor_run, philo_array))

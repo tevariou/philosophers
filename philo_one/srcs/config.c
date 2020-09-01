@@ -30,6 +30,7 @@ int			config(t_config *conf, int ac, char **av)
 	if ((n = ft_atos(av[1])) < 0)
 		return (error(PARAMS));
 	conf->number_of_philosopher = n;
+	conf->wait = 0;
 	if ((conf->time_to_die = ft_atos(av[2])) < 0)
 		return (error(PARAMS));
 	if ((conf->time_to_eat = ft_atos(av[3])) < 0)

@@ -62,7 +62,7 @@ static int	take_fork(
 	size_t	n;
 
 	n = philosopher->number;
-	pthread_mutex_lock(first);
+    pthread_mutex_lock(first);
 	if (print_status("has taken a fork", n + 1, philosopher->conf))
 	{
 		pthread_mutex_unlock(first);
@@ -94,7 +94,7 @@ void		*even_philosopher_run(void *arg)
 		? philosopher->left : philosopher->right;
 	while (1)
 	{
-		if (print_status("is thinking", n + 1, philosopher->conf))
+		if (thinking(philosopher))
 			return (NULL);
 		if (take_fork(philosopher, first, second))
 			return (NULL);
@@ -123,7 +123,7 @@ void		*odd_philosopher_run(void *arg)
 	{
 		if (sleeping(philosopher))
 			return (NULL);
-		if (print_status("is thinking", n + 1, philosopher->conf))
+		if (thinking(philosopher))
 			return (NULL);
 		if (take_fork(philosopher, first, second))
 			return (NULL);

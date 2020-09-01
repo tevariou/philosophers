@@ -1,7 +1,7 @@
 NAME	:=	philo_one
 
 CC		:=	gcc
-CFLAGS	:=	-Wall -Werror -Wextra -pthread
+CFLAGS	:=	-Wall -Werror -Wextra -pthread -fsanitize=thread
 SRC_DIR :=	srcs
 OBJ_DIR	:=	objs
 INC_DIR :=	includes
@@ -13,7 +13,8 @@ SRCS	:=	philo_one.c \
 			print.c \
 			time.c \
 			utils1.c \
-			utils2.c
+			utils2.c \
+			thinking.c
 INCS	:=	$(INC_DIR)/philo_one.h
 OBJS	:=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
