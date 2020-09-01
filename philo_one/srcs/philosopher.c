@@ -83,11 +83,9 @@ void		*even_philosopher_run(void *arg)
 	t_philosopher	*philosopher;
 	pthread_mutex_t	*first;
 	pthread_mutex_t	*second;
-	size_t			n;
 
 	philosopher = (t_philosopher *)arg;
 	gettimeofday(&philosopher->state.last_eating, NULL);
-	n = philosopher->number;
 	first = (philosopher->left > philosopher->right)
 		? philosopher->right : philosopher->left;
 	second = (philosopher->left > philosopher->right)
@@ -110,11 +108,9 @@ void		*odd_philosopher_run(void *arg)
 	t_philosopher	*philosopher;
 	pthread_mutex_t	*first;
 	pthread_mutex_t	*second;
-	size_t			n;
 
 	philosopher = (t_philosopher *)arg;
 	gettimeofday(&philosopher->state.last_eating, NULL);
-	n = philosopher->number;
 	first = (philosopher->left > philosopher->right)
 		? philosopher->right : philosopher->left;
 	second = (philosopher->left > philosopher->right)
