@@ -14,16 +14,30 @@
 #include "unistd.h"
 #include <string.h>
 
-int	print_status(const char *status, size_t number, t_config *conf)
+static void update(t_config *conf, const char *status)
+{
+	if (!ft_strcmp("died", status))
+	{
+		pthread_mutex_lock(&conf->mutex);
+		conf->is_finished = true;
+		pthread_mutex_unlock(&conf->mutex);
+	}
+}
+
+int			print_status(const char *status, size_t number, t_config *conf)
 {
 	struct timeval	time;
 	char			str[53];
 
 	gettimeofday(&time, NULL);
+	pthread_mutex_lock(&conf->mutex);
 	if (conf->is_finished)
+	{
+		pthread_mutex_unlock(&conf->mutex);
 		return (EXIT_FAILURE);
-	if (!ft_strcmp("died", status))
-		conf->is_finished = true;
+	}
+	pthread_mutex_unlock(&conf->mutex);
+	update(conf, status);
 	memset(str, 0, 53);
 	ft_putnbr(str, timeval_to_msec(time));
 	ft_append(str, " ");
