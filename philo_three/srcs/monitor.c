@@ -23,6 +23,7 @@ static void	is_alive(t_philosopher *philosopher)
 	gettimeofday(&time, NULL);
 	sem_wait(philosopher->eating);
 	last_eating = philosopher->state.last_eating;
+	sem_post(philosopher->eating);
 	time_to_die = philosopher->conf->time_to_die;
 	time_to_eat = philosopher->conf->time_to_eat;
 	if (last_eating.tv_sec
@@ -30,10 +31,8 @@ static void	is_alive(t_philosopher *philosopher)
 		&& timeval_cmp(time, timeval_add(last_eating, time_to_die)) > 0)
 	{
 		print_status("died", philosopher->number + 1, philosopher->conf);
-		sem_post(philosopher->eating);
 		exit(0);
 	}
-	sem_post(philosopher->eating);
 }
 
 void		*monitor_run(void *arg)
