@@ -12,12 +12,11 @@
 
 #include "philo_three.h"
 
-void	print_status(const char *status, size_t number, t_config *conf)
+void	print_status(const char *status, size_t number)
 {
 	char			str[53];
 	struct timeval	time;
 
-	sem_wait(conf->print);
 	gettimeofday(&time, NULL);
 	ft_memset(str, 0, 53);
 	ft_putnbr(str, timeval_to_msec(time));
@@ -27,5 +26,4 @@ void	print_status(const char *status, size_t number, t_config *conf)
 	ft_append(str, status);
 	ft_append(str, "\n");
 	ft_putstr_fd(str, 1);
-	sem_post(conf->print);
 }

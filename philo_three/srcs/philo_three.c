@@ -96,13 +96,6 @@ static int	sem_create(t_config *conf)
 	sem_unlink("/forks");
 	if (conf->forks == SEM_FAILED)
 		return (EXIT_FAILURE);
-	conf->print = sem_open("/print", O_CREAT | O_EXCL, 0600, 1);
-	sem_unlink("/print");
-	if (conf->print == SEM_FAILED)
-	{
-		sem_close(conf->forks);
-		return (EXIT_FAILURE);
-	}
 	return (EXIT_SUCCESS);
 }
 

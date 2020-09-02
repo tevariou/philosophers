@@ -19,12 +19,8 @@ int	print_status(const char *status, size_t number, t_philosopher *philosopher)
 	char			str[53];
 
 	gettimeofday(&time, NULL);
-	sem_wait(philosopher->conf->print);
 	if (philosopher->conf->is_finished)
-	{
-		sem_post(philosopher->conf->print);
 		return (EXIT_FAILURE);
-	}
 	if (!ft_strcmp("died", status))
 		philosopher->conf->is_finished = true;
 	if (!ft_strcmp("is eating", status))
@@ -37,6 +33,5 @@ int	print_status(const char *status, size_t number, t_philosopher *philosopher)
 	ft_append(str, status);
 	ft_append(str, "\n");
 	ft_putstr_fd(str, 1);
-	sem_post(philosopher->conf->print);
 	return (EXIT_SUCCESS);
 }
