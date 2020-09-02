@@ -25,7 +25,7 @@ static bool	is_alive(t_philosopher *philosopher, size_t number)
 	sem_post(philosopher->eating);
 	time_to_die = philosopher->conf->time_to_die;
 	time_to_eat = philosopher->conf->time_to_eat;
-	if (last_eating.tv_sec
+	if (!last_eating.tv_sec
 		|| timeval_cmp(time, timeval_add(last_eating, time_to_eat)) <= 0)
 		return (true);
 	sem_wait(philosopher->eating);
