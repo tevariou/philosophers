@@ -33,7 +33,11 @@ static void	update(
 	}
 }
 
-int			print_status(const char *status, size_t number, t_philosopher *philosopher)
+int			print_status(
+		const char *status,
+		size_t number,
+		t_philosopher *philosopher
+)
 {
 	struct timeval	time;
 	char			str[53];

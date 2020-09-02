@@ -60,8 +60,7 @@ void		*monitor_run(void *arg)
 				return (NULL);
 			sem_wait(philosopher_array[i].eating);
 			counter += (philosopher_array[i].state.counter == n) ? 1 : 0;
-			sem_post(philosopher_array[i].eating);
-			i++;
+			sem_post(philosopher_array[i++].eating);
 		}
 		if (counter == conf->number_of_philosopher)
 			break ;
