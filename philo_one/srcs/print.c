@@ -14,7 +14,7 @@
 #include "unistd.h"
 #include <string.h>
 
-static void update(t_config *conf, const char *status)
+static void	update(t_config *conf, const char *status)
 {
 	if (!ft_strcmp("died", status))
 	{
