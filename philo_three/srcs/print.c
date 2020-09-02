@@ -17,8 +17,8 @@ void	print_status(const char *status, size_t number, t_config *conf)
 	char			str[53];
 	struct timeval	time;
 
-	gettimeofday(&time, NULL);
 	sem_wait(conf->print);
+	gettimeofday(&time, NULL);
 	ft_memset(str, 0, 53);
 	ft_putnbr(str, timeval_to_msec(time));
 	ft_append(str, " ");
