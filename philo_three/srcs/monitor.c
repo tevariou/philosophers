@@ -31,7 +31,7 @@ static void	is_alive(t_philosopher *philosopher)
 		return ;
 	sem_wait(philosopher->eating);
 	last_eating = philosopher->state.last_eating;
-	if( timeval_cmp(time, timeval_add(last_eating, time_to_die)) > 0)
+	if (timeval_cmp(time, timeval_add(last_eating, time_to_die)) > 0)
 	{
 		print_status("died", philosopher->number + 1);
 		sem_post(philosopher->eating);
