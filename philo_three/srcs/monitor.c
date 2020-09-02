@@ -23,7 +23,7 @@ static void	is_alive(t_philosopher *philosopher)
 	gettimeofday(&time, NULL);
 	sem_wait(philosopher->eating);
 	last_eating = philosopher->state.last_eating;
-	time_to_die = philosopher->conf->time_to_die;
+	time_to_die = philosopher->conf->time_to_die + 5;
 	time_to_eat = philosopher->conf->time_to_eat;
 	if (last_eating.tv_sec
 		&& timeval_cmp(time, timeval_add(last_eating, time_to_eat)) >= 0
