@@ -27,6 +27,5 @@ void	print_status(const char *status, size_t number, t_config *conf)
 	ft_append(str, status);
 	ft_append(str, "\n");
 	ft_putstr_fd(str, 1);
-	if (ft_strcmp(status, "died"))
-		sem_post(conf->print);
+	sem_post(conf->print);
 }
