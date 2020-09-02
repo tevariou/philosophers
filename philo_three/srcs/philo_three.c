@@ -20,7 +20,7 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 {
 	size_t	i;
 	size_t	n;
-	char	id[12];
+	char	id[13];
 
 	n = main_conf->number_of_philosopher;
 	i = 0;
@@ -31,9 +31,10 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 		philosopher_array[i].state.counter = 0;
 		philosopher_array[i].state.last_eating.tv_sec = 0;
 		philosopher_array[i].state.last_eating.tv_usec = 0;
-		ft_memset(id, 0, 12);
+		ft_memset(id, 0, 13);
 		id[0] = '/';
-		ft_putnbr(id + 1, i);
+		id[1] = 's';
+		ft_putnbr(id + 2, i);
 		philosopher_array[i].eating = sem_open(id, O_CREAT | O_EXCL, 0600, 1);
 		sem_unlink(id);
 		if (philosopher_array[i].eating == SEM_FAILED)
@@ -76,7 +77,7 @@ static int	run(
 			if (pthread_create(&monitor, NULL, &monitor_run, philo_array + i))
 				break ;
 			pthread_detach(monitor);
-			f = (i % 2 == 0) ? &odd_philosopher_run : &even_philosopher_run;
+			f = (i % 2 == 0) ? &even_philosopher_run : &odd_philosopher_run;
 			f(philo_array + i);
 		}
 		i++;

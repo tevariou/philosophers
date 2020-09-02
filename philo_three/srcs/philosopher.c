@@ -19,9 +19,9 @@ static void	eating(t_philosopher *philosopher)
 	size_t			n;
 
 	n = philosopher->number;
-	print_status("is eating", n + 1, philosopher->conf);
 	gettimeofday(&time, NULL);
 	sem_wait(philosopher->eating);
+	print_status("is eating", n + 1, philosopher->conf);
 	philosopher->state.last_eating = time;
 	sem_post(philosopher->eating);
 	ft_sleep(philosopher->conf->time_to_eat);
