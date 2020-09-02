@@ -21,15 +21,7 @@ uint64_t		timeval_to_msec(struct timeval time)
 
 int64_t 		timeval_cmp(struct timeval a, struct timeval b)
 {
-	if (a.tv_sec > b.tv_sec)
-		return ((a.tv_sec - b.tv_sec) * 1000);
-	if (a.tv_sec < b.tv_sec)
-		return ((a.tv_sec - b.tv_sec) * 1000);
-	if (a.tv_usec / 1000 > b.tv_usec / 1000)
-		return ((a.tv_usec - b.tv_usec) / 1000);
-	if (a.tv_usec / 1000 < b.tv_usec / 1000)
-		return ((a.tv_usec - b.tv_usec) / 1000);
-	return (0);
+	return ((a.tv_sec - b.tv_sec) * 1000 + (a.tv_usec - b.tv_usec) / 1000);
 }
 
 struct timeval	timeval_add(struct timeval a, unsigned int b)
