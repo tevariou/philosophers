@@ -20,7 +20,7 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 {
 	size_t	i;
 	size_t	n;
-	char	id[11];
+	char	id[12];
 
 	n = main_conf->number_of_philosopher;
 	i = 0;
@@ -31,8 +31,9 @@ static int	init(t_philosopher *philosopher_array, t_config *main_conf)
 		philosopher_array[i].state.counter = 0;
 		philosopher_array[i].state.last_eating.tv_sec = 0;
 		philosopher_array[i].state.last_eating.tv_usec = 0;
-		ft_memset(id, 0, 11);
-		ft_putnbr(id, i);
+		ft_memset(id, 0, 12);
+		id[0] = '/';
+		ft_putnbr(id + 1, i);
 		philosopher_array[i].eating = sem_open(id, O_CREAT | O_EXCL, 0600, 1);
 		sem_unlink(id);
 		if (philosopher_array[i].eating == SEM_FAILED)
@@ -75,7 +76,7 @@ static int	run(
 			if (pthread_create(&monitor, NULL, &monitor_run, philo_array + i))
 				break ;
 			pthread_detach(monitor);
-			f = (i % 2 == 0) ? &even_philosopher_run : &odd_philosopher_run;
+			f = (i % 2 == 0) ? &odd_philosopher_run : &even_philosopher_run;
 			f(philo_array + i);
 		}
 		i++;
@@ -90,12 +91,12 @@ static int	sem_create(t_config *conf)
 	size_t	n;
 
 	n = conf->number_of_philosopher;
-	conf->forks = sem_open("forks", O_CREAT | O_EXCL, 0600, n);
-	sem_unlink("forks");
+	conf->forks = sem_open("/forks", O_CREAT | O_EXCL, 0600, n);
+	sem_unlink("/forks");
 	if (conf->forks == SEM_FAILED)
 		return (EXIT_FAILURE);
-	conf->print = sem_open("print", O_CREAT | O_EXCL, 0600, 1);
-	sem_unlink("print");
+	conf->print = sem_open("/print", O_CREAT | O_EXCL, 0600, 1);
+	sem_unlink("/print");
 	if (conf->print == SEM_FAILED)
 	{
 		sem_close(conf->forks);
