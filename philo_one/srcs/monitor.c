@@ -23,11 +23,15 @@ static bool	is_alive(t_philosopher *philosopher, size_t number)
 	gettimeofday(&time, NULL);
 	pthread_mutex_lock(&philosopher->eating);
 	last_eating = philosopher->state.last_eating;
+	pthread_mutex_unlock(&philosopher->eating);
 	time_to_die = philosopher->conf->time_to_die;
 	time_to_eat = philosopher->conf->time_to_eat;
 	if (last_eating.tv_sec
-		&& timeval_cmp(time, timeval_add(last_eating, time_to_eat)) >= 0
-		&& timeval_cmp(time, timeval_add(last_eating, time_to_die)) > 0)
+		|| timeval_cmp(time, timeval_add(last_eating, time_to_eat)) <= 0)
+		return (true);
+	pthread_mutex_lock(&philosopher->eating);
+	last_eating = philosopher->state.last_eating;
+	if (timeval_cmp(time, timeval_add(last_eating, time_to_die)) > 0)
 	{
 		print_status("died", number + 1, philosopher->conf);
 		pthread_mutex_unlock(&philosopher->eating);
