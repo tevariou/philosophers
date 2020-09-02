@@ -20,6 +20,7 @@ static void	eating(t_philosopher *philosopher)
 
 	n = philosopher->number;
 	gettimeofday(&time, NULL);
+	print_status("BEFORE eating", n + 1, philosopher->conf);
 	sem_wait(philosopher->eating);
 	print_status("is eating", n + 1, philosopher->conf);
 	philosopher->state.last_eating = time;
