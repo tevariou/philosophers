@@ -21,15 +21,12 @@ static int	eating(t_philosopher *philosopher)
 
 	n = philosopher->number;
 	gettimeofday(&time, NULL);
-	sem_wait(philosopher->eating);
 	if (print_status("is eating", n + 1, philosopher))
 	{
 		sem_post(philosopher->conf->forks);
 		sem_post(philosopher->conf->forks);
-		sem_post(philosopher->eating);
 		return (EXIT_FAILURE);
 	}
-	sem_post(philosopher->eating);
 	ft_sleep(philosopher->conf->time_to_eat);
 	sem_post(philosopher->conf->forks);
 	sem_post(philosopher->conf->forks);

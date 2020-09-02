@@ -1,7 +1,7 @@
 NAME	:=	philo_two
 
 CC		:=	gcc
-CFLAGS	:=	-Wall -Werror -Wextra -pthread
+CFLAGS	:=	-Wall -Werror -Wextra -g -pthread -fsanitize=thread
 SRC_DIR :=	srcs
 OBJ_DIR	:=	objs
 INC_DIR :=	includes

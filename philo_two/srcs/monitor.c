@@ -30,13 +30,12 @@ static bool	is_alive(t_philosopher *philosopher, size_t number)
 		return (true);
 	sem_wait(philosopher->eating);
 	last_eating = philosopher->state.last_eating;
+	sem_post(philosopher->eating);
 	if (timeval_cmp(time, timeval_add(last_eating, time_to_die)) > 0)
 	{
 		print_status("died", number + 1, philosopher);
-		sem_post(philosopher->eating);
 		return (false);
 	}
-	sem_post(philosopher->eating);
 	return (true);
 }
 
@@ -59,6 +58,7 @@ void		*monitor_run(void *arg)
 		{
 			if (!is_alive(philosopher_array + i, i))
 				return (NULL);
+			sem_wait(philosopher_array[i].eating);
 			counter += (philosopher_array[i].state.counter == n) ? 1 : 0;
 			sem_post(philosopher_array[i].eating);
 			i++;
